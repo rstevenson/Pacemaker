@@ -51,6 +51,7 @@ struct i_CommIn
 	int p_vPaceAmp;
 	int p_vPaceWidth;
 	int p_VRP;  
+	char ChkSum;
 };
 
 
