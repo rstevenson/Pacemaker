@@ -43,14 +43,7 @@ struct i_CommIn
 {
 	char SYNC;
 	char FnCode;
-	char p_pMode;
-	char p_pState;
-	char p_hys;
-	int p_hysInt;
-	int p_lrateInt;
-	int p_vPAmp;
-	int p_vPWidth;
-	int p_VRP;  
+	char Data[13];
 	char ChkSum;
 };
 
