@@ -39,13 +39,13 @@ unsigned int FNCODE;
 #define k_soh    0x01
 #define k_sync   0x16
 
-struct i_CommIn 
+struct  packet
 {
 	char SYNC;
 	char FnCode;
 	char Data[13];
 	char ChkSum;
-};
+}i_CommIn;
 
 
 #endif
