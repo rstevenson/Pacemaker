@@ -43,13 +43,13 @@ struct i_CommIn
 {
 	char SYNC;
 	char FnCode;
-	p_pacingMode;
-	p_pacingState;
-	p_hysteresis;
-	int p_hysteresisInterval;
-	int p_lowrateInterval;
-	int p_vPaceAmp;
-	int p_vPaceWidth;
+	char p_pMode;
+	char p_pState;
+	char p_hys;
+	int p_hysInt;
+	int p_lrateInt;
+	int p_vPAmp;
+	int p_vPWidth;
 	int p_VRP;  
 	char ChkSum;
 };

@@ -6,12 +6,8 @@
 
 
 #include <p18cxxx.h>
+#include "Globals.h"
 
-
-/* Baud rate for serial communication */
-#define BAUD_RATE 2400
-/* Frequency of the oscillator */
-#define FOSC 4000000
 /* Value of the SPBRG registor for the given baud rate */
 #define BRG_VALUE ((int)(((FOSC) / (BAUD_RATE) / 64) - 1))
 
