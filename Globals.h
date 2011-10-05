@@ -8,9 +8,6 @@ enum y_pacingState {PERMANENT, TEMPORARY, PACE_NOW, MAGNET,
 enum y_pacingMode  {Off,AAT,VVT,AOO,AAI,VOO,VVI,VDD,DOO,DDI,
                     DDD,AOOR,AAIR,VOOR,VVIR,DOOR,DDIR,DDDR} p_pacingMode;
 
-enum y_pacingState  {PERMANENT, TEMPORARY, PACE_NOW, MAGNET, 
-POWER_ON_RESET} p_pacingState;
-
 enum y_magnet  {INPLACE,NOT_INPLACE} m_magnet;    
 
 typedef enum
@@ -44,17 +41,16 @@ unsigned int FNCODE;
 
 struct i_CommIn 
 {
-char SYNC;
-char FnCode;
-p_pacingMode;
-p_pacingState;
-p_hysteresis;
-int p_hysteresisInterval;
-int p_lowrateInterval;
-int p_vPaceAmp;
-int p_vPaceWidth;
-int p_VRP;  
-char Data ChkSum;
+	char SYNC;
+	char FnCode;
+	p_pacingMode;
+	p_pacingState;
+	p_hysteresis;
+	int p_hysteresisInterval;
+	int p_lowrateInterval;
+	int p_vPaceAmp;
+	int p_vPaceWidth;
+	int p_VRP;  
 };
 
 
