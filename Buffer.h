@@ -1,5 +1,3 @@
-#ifndef _BUFFER_H
-#define _BUFFER_H
 /* A simple cyclic buffer implementation */
 /* The size of such buffer is 2^4 = 16 */
 
@@ -44,11 +42,3 @@ struct buffer {
     char head;
     char tail;
 };
-
-
-/* Sending buffer */
-struct buffer txbuf;
-/* Receiving buffer */
-struct buffer rcbuf;
-
-#endif

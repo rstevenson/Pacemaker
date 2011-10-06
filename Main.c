@@ -8,12 +8,26 @@
 #include <p18cxxx.h>
 #include "Globals.h"
 #include "Buffer.h"
+#include "Serial.h"
 
 /* Value of the SPBRG registor for the given baud rate */
+/* Sending buffer */
+struct buffer txbuf;
+/* Receiving buffer */
+struct buffer rcbuf;
 
+struct packet i_CommIn;
 
-
-
+//y_magnet m_magnet;
+//y_pacingState p_pacingState;
+//y_pacingMode p_pacingMode;
+Bool p_hysteresis;
+unsigned int p_hysteresisInterval;
+unsigned int p_lowrateInterval;
+unsigned int p_vPaceAmp;
+unsigned float p_vPaceWidth;
+unsigned int p_VRP;
+unsigned int FNCODE;
 
 /* Interrupt handler function */
 void intr_handler(void);
@@ -93,7 +107,7 @@ void main(void) {
 	    {
 		   //disable receiving interrupts
 		   PIE1bits.RCIE = 0;
-		   // processPacket(rcbuf);
+		   //calcCheckSum(i_CommIn.Data);
 		   //enable receiving interrupts
 		   PIE1bits.RCIE = 1;
 		}

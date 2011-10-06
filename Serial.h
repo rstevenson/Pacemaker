@@ -1,9 +1,2 @@
-#ifndef _SERIAL_H
-#define _SERIAL_H
-
-#include "Buffer.h"
-
-char calcCheckSum(char data[13]);
-
-
-#endif
+Bool calcCheckSum(char data[13]);
+char validHeader(struct packet commIn);

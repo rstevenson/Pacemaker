@@ -1,12 +1,12 @@
 
 /* Types */
 enum y_pacingState {PERMANENT, TEMPORARY, PACE_NOW, MAGNET,
-                    POWER_ON_RESET} p_pacingState;
+                    POWER_ON_RESET} ;
                     
 enum y_pacingMode  {Off,AAT,VVT,AOO,AAI,VOO,VVI,VDD,DOO,DDI,
-                    DDD,AOOR,AAIR,VOOR,VVIR,DOOR,DDIR,DDDR} p_pacingMode;
+                    DDD,AOOR,AAIR,VOOR,VVIR,DOOR,DDIR,DDDR} ;
 
-enum y_magnet  {INPLACE,NOT_INPLACE} m_magnet;    
+enum y_magnet  {INPLACE,NOT_INPLACE};    
 
 typedef enum
 {
@@ -14,14 +14,15 @@ typedef enum
     TRUE
 } Bool; 
 
+struct packet
+{
+	char SYNC;
+	char FnCode;
+	char Data[13];
+	char ChkSum;
+};
+
 /* Programmable Parameters */
-Bool p_hysteresis;
-unsigned int p_hysteresisInterval;
-unsigned int p_lowrateInterval;
-unsigned int p_vPaceAmp;
-unsigned float p_vPaceWidth;
-unsigned int p_VRP;
-unsigned int FNCODE;
 
 
 /* Baud rate for serial communication */
@@ -36,12 +37,4 @@ unsigned int FNCODE;
 #define k_pparams 0x55
 #define k_soh    0x01
 #define k_sync   0x16
-
-struct  packet
-{
-	char SYNC;
-	char FnCode;
-	char Data[13];
-	char ChkSum;
-}i_CommIn;
 

@@ -1,6 +1,10 @@
 //Serial Communications 
 //hides the serial communications
 //Calculates a checksum based on the data given
+
+#include "Buffer.h"
+#include "Globals.h"
+
 char calcCheckSum(char data[13])
 {
 	char _i;
@@ -10,15 +14,13 @@ char calcCheckSum(char data[13])
 	return temp;	
 }	
 
-/*char validHeader(void)
+Bool validHeader(struct packet commIn)
 {
-	if ((i_CommIn.FnCode == k_egram)|
-		(i_CommIn.FnCode == k_echo)|
-		(i_CommIn.FnCode == k_estop)|
-		(i_CommIn.FnCode == k_pparams))
-		return 0;
+	if ((commIn.FnCode == k_egram)|
+		(commIn.FnCode == k_echo)|
+		(commIn.FnCode == k_estop)|
+		(commIn.FnCode == k_pparams))
+		return TRUE;
 	else
-		return 1;
+		return FALSE;
 }
-*/
-		
