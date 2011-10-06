@@ -26,7 +26,7 @@ struct packet
 
 
 /* Baud rate for serial communication */
-#define BAUD_RATE 19200
+#define BAUD_RATE 57600
 
 /* Frequency of the oscillator */
 #define FOSC 4000000
