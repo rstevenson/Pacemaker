@@ -83,45 +83,22 @@ void main(void) {
     BUF_INIT(rcbuf);
     /* Initialize sending buffer */
     BUF_INIT(txbuf);
-    /* Append a string to sending buffer */
-    BUF_ADDSTR(txbuf, "Hello!\n\r");
     /* Enable sending interrupt */
     PIE1bits.TXIE = 1;
 
     /* Set counter */
     i = 0;
     while (1) {
+	    if BUF_FULL(rcbuf)
+	    {
+		   //disable receiving interrupts
+		   PIE1bits.RCIE = 0;
+		   // processPacket(rcbuf);
+		   //enable receiving interrupts
+		   PIE1bits.RCIE = 1;
+		}
 	/* If the receiving buffer is not empty and there is enough
 	   space in the sending buffer */
-	if (!BUF_EMPTY(rcbuf) && BUF_LEN(txbuf) + 4 < BUF_SIZE) {
-	    /* Read one byte from the receiving buffer */
-            c = BUF_GET(rcbuf);
-	    /* Get the first hex code of the byte */ 
-	    d = c >> 4;
-	    d += (d < 10) ? '0' : ('a' - 10);
-	    /* Put the code in sending buffer */
-	    BUF_ADD(txbuf, d);
-	    /* Get the second hex code of the byte */ 
-	    d = c & 0xF;
-	    d += (d < 10) ? '0' : ('a' - 10);
-	    /* Put the code in sending buffer */
-	    BUF_ADD(txbuf, d);
-	    
-            i += 1;
-	    /* If counter == 10, start a new line and clear counter,
-	       otherwise, output a white space */
-            if (i == 10) {
-		BUF_ADD(txbuf, '\n');
-		BUF_ADD(txbuf, '\r');
-                i = 0;
-            } else {
-                BUF_ADD(txbuf, ' ');
-            }
-	    /* Now the sending buffer is non-empty, we enable
-	       transmission interrupt to send the contents in sending
-	       buffer */
-	    PIE1bits.TXIE = 1;
-	}
 	/* Put the microcontroller in idle mode */
 	/* WARNING: If you want to debug the code with MPLAB Sim, you
 	   need to remove the following two lines, since MPLAB Sim

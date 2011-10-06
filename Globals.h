@@ -1,5 +1,3 @@
-#ifndef _GLOBALS_H
-#define _GLOBALS_H
 
 /* Types */
 enum y_pacingState {PERMANENT, TEMPORARY, PACE_NOW, MAGNET,
@@ -47,5 +45,3 @@ struct  packet
 	char ChkSum;
 }i_CommIn;
 
-
-#endif
