@@ -7,10 +7,9 @@
 
 #include <p18cxxx.h>
 #include "Globals.h"
-#include "Serial.h"
+#include "Buffer.h"
 
 /* Value of the SPBRG registor for the given baud rate */
-#define BRG_VALUE ((int)(((FOSC) / (BAUD_RATE) / 64) - 1))
 
 
 
@@ -27,13 +26,14 @@ void intr_entry(void) {
 #pragma code
 
 
+
 /* Interrupt handler function */
 #pragma interrupt intr_handler
 void intr_handler(void) {
     /* If the microcontroller received a byte */ 
     if (PIR1bits.RCIF) {
 	/* Add the byte into receiving buffer */
-	BUF_ADD(rcbuf, RCREG);
+		BUF_ADD(rcbuf, RCREG);
     }
     /* If the microcontroller sent a byte */
     if (PIR1bits.TXIF) {
@@ -55,8 +55,7 @@ void main(void) {
     char i;
 
     /* Set baud rate */
-    SPBRG = BRG_VALUE;
-
+    SPBRG = 42;
     /* Configure the pins for UART */
     TRISCbits.TRISC6 = 1;
     TRISCbits.TRISC7 = 1;

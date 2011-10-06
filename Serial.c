@@ -1,6 +1,5 @@
 //Serial Communications 
 //hides the serial communications
-
 //Calculates a checksum based on the data given
 char calcCheckSum(char data[13])
 {
@@ -10,3 +9,16 @@ char calcCheckSum(char data[13])
 		temp ^= data[_i];
 	return temp;	
 }	
+
+/*char validHeader(void)
+{
+	if ((i_CommIn.FnCode == k_egram)|
+		(i_CommIn.FnCode == k_echo)|
+		(i_CommIn.FnCode == k_estop)|
+		(i_CommIn.FnCode == k_pparams))
+		return 0;
+	else
+		return 1;
+}
+*/
+		
