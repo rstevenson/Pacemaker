@@ -10,6 +10,9 @@
 #include "Buffer.h"
 #include "Serial.h"
 
+/* Value of the baud rate as per the data sheet */
+#define BAUD_RATE = 57.6;
+
 /* Value of the SPBRG registor for the given baud rate */
 /* Sending buffer */
 struct buffer txbuf;
