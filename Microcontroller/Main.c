@@ -65,56 +65,22 @@ void intr_handler(void) {
 
 /* Main entrance */
 void main(void) {
-    char c;
-    char d;
-    char i;
-
-
-
-    /* Set baud rate */
-	BUF_INIT(rcbuf);
-    /* Initialize sending buffer */
-    BUF_INIT(txbuf);
-	SPBRG = 12;
-    /* Configure the pins for UART */
-    TRISCbits.TRISC6 = 1;
-    TRISCbits.TRISC7 = 1;
-
-    /* Enable serial port */
-    RCSTAbits.SPEN = 1;
-    /* Enable asynchronous mode */
-    TXSTAbits.SYNC = 0;
-    /* Enable transmission (sending) */
-    TXSTAbits.TXEN = 1;
-	TXSTAbits.BRGH = 1;
-    /* Enable receiving */
-    RCSTAbits.CREN = 1;
-
-    /* Enable interrupt priority */
-    RCONbits.IPEN = 1;
-    /* Set high priority for sending and receiving interrupt */
-    IPR1bits.RCIP = 1;
-    IPR1bits.TXIP = 1;
-    /* Enable high priority interrupt */
-    INTCONbits.GIEH = 1;
-    /* Enable receiving interrupt */
-    PIE1bits.RCIE = 1;
-	
-   /* Set counter */
-    i = 0;
+    initializeCom();
     while (1) {
-		//if BUF_FULL(rcbuf)
-	    //{
-		   if (buffToPack (&i_CommIn,&rcbuf))	
-		   sendData(i_CommIn.Data, &txbuf);
-	//	}
+		if (BUF_FULL(rcbuf))
+	    {
+		   if (buffToPacket (&i_CommIn,&rcbuf))	
+		   		sendPacket(i_CommIn.Data, &txbuf);
+		   else
+		   		sendChar(0x00,&txbuf);
+		}
 	/* If the receiving buffer is not empty and there is enough
 	   space in the sending buffer */
 	/* Put the microcontroller in idle mode */
 	/* WARNING: If you want to debug the code with MPLAB Sim, you
 	   need to remove the following two lines, since MPLAB Sim
 	   cannot be waked up in idle mode by UART interrupt */
-	//OSCCONbits.IDLEN = 1;
-    //    Sleep();
+	OSCCONbits.IDLEN = 1;
+    Sleep();
     }
 }

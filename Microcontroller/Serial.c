@@ -62,13 +62,13 @@ short validHeader(char fncode)
 		return 0;
 }
 
-short buffToPack(struct packet *commIn, struct buffer *buf)
+short buffToPacket(struct packet *commIn, struct buffer *buf)
 
 // Recieves data from buffer and put it in the package structure 
 
 {
 		struct packet temp;
-		char i;
+		char i,chk;
 		temp.SYNC = BUF_GET(*buf); // inserts the first byte into the sync variable from the program
 		temp.FnCode = BUF_GET(*buf);// inserts the second byte in the function code variable
 		for (i=0; i<13; i++) // inserts the next 12 bytes into the data character array
@@ -77,7 +77,8 @@ short buffToPack(struct packet *commIn, struct buffer *buf)
 		     } 
 	
 	    temp.ChkSum=BUF_GET(*buf); // inserts the last byte into the checksum variable
-		if ((validHeader(temp.FnCode)) && (temp.SYNC == k_sync))
+		chk = calcCheckSum(temp.Data);
+		if ((validHeader(temp.FnCode)) && (temp.SYNC == k_sync) && (temp.ChkSum == chk))
 		{
 			*commIn=temp;
 			return 1;
@@ -85,7 +86,7 @@ short buffToPack(struct packet *commIn, struct buffer *buf)
 			return 0;
 } 
 
-short sendData(char data[13], struct buffer *tbuf)
+short sendPacket(char data[13], struct buffer *tbuf)
 {
 	char _i;
 	BUF_ADD(*tbuf, k_sync);
@@ -96,4 +97,8 @@ short sendData(char data[13], struct buffer *tbuf)
 	PIE1bits.TXIE = 1;		
 }
 
-
+short sendChar(char c, struct buffer *tbuf)
+{
+	BUF_ADD(*tbuf,c);
+	PIE1bits.TXIE = 1;		
+}
