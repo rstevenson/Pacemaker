@@ -10,10 +10,8 @@
 #include "Buffer.h"
 #include "Serial.h"
 
-/* Value of the baud rate as per the data sheet */
-#define BAUD_RATE = 57.6;
-
 /* Value of the SPBRG registor for the given baud rate */
+
 /* Sending buffer */
 struct buffer txbuf;
 /* Receiving buffer */
@@ -71,8 +69,13 @@ void main(void) {
     char d;
     char i;
 
+
+
     /* Set baud rate */
-    SPBRG = 42;
+	BUF_INIT(rcbuf);
+    /* Initialize sending buffer */
+    BUF_INIT(txbuf);
+	SPBRG = 12;
     /* Configure the pins for UART */
     TRISCbits.TRISC6 = 1;
     TRISCbits.TRISC7 = 1;
@@ -83,6 +86,7 @@ void main(void) {
     TXSTAbits.SYNC = 0;
     /* Enable transmission (sending) */
     TXSTAbits.TXEN = 1;
+	TXSTAbits.BRGH = 1;
     /* Enable receiving */
     RCSTAbits.CREN = 1;
 
@@ -95,32 +99,22 @@ void main(void) {
     INTCONbits.GIEH = 1;
     /* Enable receiving interrupt */
     PIE1bits.RCIE = 1;
-
-    /* Initialize receiving buffer */
-    BUF_INIT(rcbuf);
-    /* Initialize sending buffer */
-    BUF_INIT(txbuf);
-    /* Enable sending interrupt */
-    PIE1bits.TXIE = 1;
-
-    /* Set counter */
+	
+   /* Set counter */
     i = 0;
     while (1) {
-	    if BUF_FULL(rcbuf)
-	    {
-		   //disable receiving interrupts
-		   PIE1bits.RCIE = 0;
-		   //calcCheckSum(i_CommIn.Data);
-		   //enable receiving interrupts
-		   PIE1bits.RCIE = 1;
-		}
+		//if BUF_FULL(rcbuf)
+	    //{
+		   if (buffToPack (&i_CommIn,&rcbuf))	
+		   sendData(i_CommIn.Data, &txbuf);
+	//	}
 	/* If the receiving buffer is not empty and there is enough
 	   space in the sending buffer */
 	/* Put the microcontroller in idle mode */
 	/* WARNING: If you want to debug the code with MPLAB Sim, you
 	   need to remove the following two lines, since MPLAB Sim
 	   cannot be waked up in idle mode by UART interrupt */
-	OSCCONbits.IDLEN = 1;
-        Sleep();
+	//OSCCONbits.IDLEN = 1;
+    //    Sleep();
     }
 }
