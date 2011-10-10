@@ -1,5 +1,5 @@
 MPLINK 4.40, Linker
-Linker Map File - Created Fri Oct 07 16:00:26 2011
+Linker Map File - Created Mon Oct 10 19:30:05 2011
 
                                  Section Info
                   Section       Type    Address   Location Size(Bytes)
@@ -26,14 +26,14 @@ Linker Map File - Created Fri Oct 07 16:00:26 2011
     .config_300003_Main.o    romdata   0x300003    program   0x000001
                  .tmpdata      udata   0x000000       data   0x000008
                 MATH_DATA      udata   0x000008       data   0x000002
-            .udata_Main.o      udata   0x000080       data   0x000043
-           .udata_c018i.o      udata   0x0000c3       data   0x00000a
-           .idata_c018i.o      idata   0x0000cd       data   0x000000
-            .idata_Main.o      idata   0x0000cd       data   0x000000
-          .udata_Serial.o      udata   0x0000cd       data   0x000000
-          .idata_Serial.o      idata   0x0000cd       data   0x000000
-          .udata___init.o      udata   0x0000cd       data   0x000000
-          .idata___init.o      idata   0x0000cd       data   0x000000
+            .udata_Main.o      udata   0x000080       data   0x000034
+           .udata_c018i.o      udata   0x0000b4       data   0x00000a
+           .idata_c018i.o      idata   0x0000be       data   0x000000
+            .idata_Main.o      idata   0x0000be       data   0x000000
+          .udata_Serial.o      udata   0x0000be       data   0x000000
+          .idata_Serial.o      idata   0x0000be       data   0x000000
+          .udata___init.o      udata   0x0000be       data   0x000000
+          .idata___init.o      idata   0x0000be       data   0x000000
                    .stack      udata   0x000500       data   0x000100
             SFR_UNBANKED0      udata   0x000f80       data   0x000080
 
@@ -138,7 +138,6 @@ Linker Map File - Created Fri Oct 07 16:00:26 2011
                EECON1bits   0x000fa6       data     extern C:\MCC18\v3_39\src\traditional\proc\p18F4520.asm
                    EECON2   0x000fa7       data     extern C:\MCC18\v3_39\src\traditional\proc\p18F4520.asm
                    EEDATA   0x000fa8       data     extern C:\MCC18\v3_39\src\traditional\proc\p18F4520.asm
-                   FNCODE   0x0000c1       data     extern C:\Users\Ryan\Pacemaker\Microcontroller\Main.c
                      FSR0   0x000fe9       data     extern C:\MCC18\v3_39\src\traditional\proc\p18F4520.asm
                     FSR0H   0x000fea       data     extern C:\MCC18\v3_39\src\traditional\proc\p18F4520.asm
                     FSR0L   0x000fe9       data     extern C:\MCC18\v3_39\src\traditional\proc\p18F4520.asm
@@ -284,17 +283,11 @@ Linker Map File - Created Fri Oct 07 16:00:26 2011
             __FPFLAGSbits   0x000009       data     extern C:\MCC18\v3_39\src\traditional\math\cmath18.asm
                   __tmp_0   0x000000       data     static C:\Users\Ryan\Pacemaker\Microcontroller\Serial.c
                   __tmp_0   0x000000       data     static C:\Users\Ryan\Pacemaker\Microcontroller\Main.c
-                curr_byte   0x0000c6       data     static C:\MCC18\v3_39\src\traditional\startup\c018i.c
-               curr_entry   0x0000c8       data     static C:\MCC18\v3_39\src\traditional\startup\c018i.c
-                 data_ptr   0x0000ca       data     static C:\MCC18\v3_39\src\traditional\startup\c018i.c
+                curr_byte   0x0000b7       data     static C:\MCC18\v3_39\src\traditional\startup\c018i.c
+               curr_entry   0x0000b9       data     static C:\MCC18\v3_39\src\traditional\startup\c018i.c
+                 data_ptr   0x0000bb       data     static C:\MCC18\v3_39\src\traditional\startup\c018i.c
                  i_CommIn   0x0000a4       data     extern C:\Users\Ryan\Pacemaker\Microcontroller\Main.c
-                    p_VRP   0x0000bf       data     extern C:\Users\Ryan\Pacemaker\Microcontroller\Main.c
-             p_hysteresis   0x0000b4       data     extern C:\Users\Ryan\Pacemaker\Microcontroller\Main.c
-     p_hysteresisInterval   0x0000b5       data     extern C:\Users\Ryan\Pacemaker\Microcontroller\Main.c
-        p_lowrateInterval   0x0000b7       data     extern C:\Users\Ryan\Pacemaker\Microcontroller\Main.c
-               p_vPaceAmp   0x0000b9       data     extern C:\Users\Ryan\Pacemaker\Microcontroller\Main.c
-             p_vPaceWidth   0x0000bb       data     extern C:\Users\Ryan\Pacemaker\Microcontroller\Main.c
-                     prom   0x0000c3       data     static C:\MCC18\v3_39\src\traditional\startup\c018i.c
+                     prom   0x0000b4       data     static C:\MCC18\v3_39\src\traditional\startup\c018i.c
                     rcbuf   0x000092       data     extern C:\Users\Ryan\Pacemaker\Microcontroller\Main.c
                     txbuf   0x000080       data     extern C:\Users\Ryan\Pacemaker\Microcontroller\Main.c
 
@@ -340,73 +333,66 @@ Linker Map File - Created Fri Oct 07 16:00:26 2011
                    __init   0x0006f2    program     extern C:\MCC18\v3_39\src\traditional\stdclib\__init.c
                __config_0   0x300001    program     static C:\Users\Ryan\Pacemaker\Microcontroller\Main.c
                __config_1   0x300003    program     static C:\Users\Ryan\Pacemaker\Microcontroller\Main.c
-                  __tmp_0   0x000000       data     static C:\Users\Ryan\Pacemaker\Microcontroller\Serial.c
                   __tmp_0   0x000000       data     static C:\Users\Ryan\Pacemaker\Microcontroller\Main.c
+                  __tmp_0   0x000000       data     static C:\Users\Ryan\Pacemaker\Microcontroller\Serial.c
                      SIGN   0x000008       data     extern C:\MCC18\v3_39\src\traditional\math\cmath18.asm
-                __FPFLAGS   0x000009       data     extern C:\MCC18\v3_39\src\traditional\math\cmath18.asm
             __FPFLAGSbits   0x000009       data     extern C:\MCC18\v3_39\src\traditional\math\cmath18.asm
+                __FPFLAGS   0x000009       data     extern C:\MCC18\v3_39\src\traditional\math\cmath18.asm
                     txbuf   0x000080       data     extern C:\Users\Ryan\Pacemaker\Microcontroller\Main.c
                     rcbuf   0x000092       data     extern C:\Users\Ryan\Pacemaker\Microcontroller\Main.c
                  i_CommIn   0x0000a4       data     extern C:\Users\Ryan\Pacemaker\Microcontroller\Main.c
-             p_hysteresis   0x0000b4       data     extern C:\Users\Ryan\Pacemaker\Microcontroller\Main.c
-     p_hysteresisInterval   0x0000b5       data     extern C:\Users\Ryan\Pacemaker\Microcontroller\Main.c
-        p_lowrateInterval   0x0000b7       data     extern C:\Users\Ryan\Pacemaker\Microcontroller\Main.c
-               p_vPaceAmp   0x0000b9       data     extern C:\Users\Ryan\Pacemaker\Microcontroller\Main.c
-             p_vPaceWidth   0x0000bb       data     extern C:\Users\Ryan\Pacemaker\Microcontroller\Main.c
-                    p_VRP   0x0000bf       data     extern C:\Users\Ryan\Pacemaker\Microcontroller\Main.c
-                   FNCODE   0x0000c1       data     extern C:\Users\Ryan\Pacemaker\Microcontroller\Main.c
-                     prom   0x0000c3       data     static C:\MCC18\v3_39\src\traditional\startup\c018i.c
-                curr_byte   0x0000c6       data     static C:\MCC18\v3_39\src\traditional\startup\c018i.c
-               curr_entry   0x0000c8       data     static C:\MCC18\v3_39\src\traditional\startup\c018i.c
-                 data_ptr   0x0000ca       data     static C:\MCC18\v3_39\src\traditional\startup\c018i.c
+                     prom   0x0000b4       data     static C:\MCC18\v3_39\src\traditional\startup\c018i.c
+                curr_byte   0x0000b7       data     static C:\MCC18\v3_39\src\traditional\startup\c018i.c
+               curr_entry   0x0000b9       data     static C:\MCC18\v3_39\src\traditional\startup\c018i.c
+                 data_ptr   0x0000bb       data     static C:\MCC18\v3_39\src\traditional\startup\c018i.c
                 PORTAbits   0x000f80       data     extern C:\MCC18\v3_39\src\traditional\proc\p18F4520.asm
                     PORTA   0x000f80       data     extern C:\MCC18\v3_39\src\traditional\proc\p18F4520.asm
-                PORTBbits   0x000f81       data     extern C:\MCC18\v3_39\src\traditional\proc\p18F4520.asm
                     PORTB   0x000f81       data     extern C:\MCC18\v3_39\src\traditional\proc\p18F4520.asm
-                PORTCbits   0x000f82       data     extern C:\MCC18\v3_39\src\traditional\proc\p18F4520.asm
+                PORTBbits   0x000f81       data     extern C:\MCC18\v3_39\src\traditional\proc\p18F4520.asm
                     PORTC   0x000f82       data     extern C:\MCC18\v3_39\src\traditional\proc\p18F4520.asm
-                    PORTD   0x000f83       data     extern C:\MCC18\v3_39\src\traditional\proc\p18F4520.asm
+                PORTCbits   0x000f82       data     extern C:\MCC18\v3_39\src\traditional\proc\p18F4520.asm
                 PORTDbits   0x000f83       data     extern C:\MCC18\v3_39\src\traditional\proc\p18F4520.asm
-                    PORTE   0x000f84       data     extern C:\MCC18\v3_39\src\traditional\proc\p18F4520.asm
+                    PORTD   0x000f83       data     extern C:\MCC18\v3_39\src\traditional\proc\p18F4520.asm
                 PORTEbits   0x000f84       data     extern C:\MCC18\v3_39\src\traditional\proc\p18F4520.asm
+                    PORTE   0x000f84       data     extern C:\MCC18\v3_39\src\traditional\proc\p18F4520.asm
                      LATA   0x000f89       data     extern C:\MCC18\v3_39\src\traditional\proc\p18F4520.asm
                  LATAbits   0x000f89       data     extern C:\MCC18\v3_39\src\traditional\proc\p18F4520.asm
                      LATB   0x000f8a       data     extern C:\MCC18\v3_39\src\traditional\proc\p18F4520.asm
                  LATBbits   0x000f8a       data     extern C:\MCC18\v3_39\src\traditional\proc\p18F4520.asm
                      LATC   0x000f8b       data     extern C:\MCC18\v3_39\src\traditional\proc\p18F4520.asm
                  LATCbits   0x000f8b       data     extern C:\MCC18\v3_39\src\traditional\proc\p18F4520.asm
-                 LATDbits   0x000f8c       data     extern C:\MCC18\v3_39\src\traditional\proc\p18F4520.asm
                      LATD   0x000f8c       data     extern C:\MCC18\v3_39\src\traditional\proc\p18F4520.asm
-                 LATEbits   0x000f8d       data     extern C:\MCC18\v3_39\src\traditional\proc\p18F4520.asm
+                 LATDbits   0x000f8c       data     extern C:\MCC18\v3_39\src\traditional\proc\p18F4520.asm
                      LATE   0x000f8d       data     extern C:\MCC18\v3_39\src\traditional\proc\p18F4520.asm
-                 DDRAbits   0x000f92       data     extern C:\MCC18\v3_39\src\traditional\proc\p18F4520.asm
-                     DDRA   0x000f92       data     extern C:\MCC18\v3_39\src\traditional\proc\p18F4520.asm
-                TRISAbits   0x000f92       data     extern C:\MCC18\v3_39\src\traditional\proc\p18F4520.asm
+                 LATEbits   0x000f8d       data     extern C:\MCC18\v3_39\src\traditional\proc\p18F4520.asm
                     TRISA   0x000f92       data     extern C:\MCC18\v3_39\src\traditional\proc\p18F4520.asm
-                TRISBbits   0x000f93       data     extern C:\MCC18\v3_39\src\traditional\proc\p18F4520.asm
-                 DDRBbits   0x000f93       data     extern C:\MCC18\v3_39\src\traditional\proc\p18F4520.asm
+                     DDRA   0x000f92       data     extern C:\MCC18\v3_39\src\traditional\proc\p18F4520.asm
+                 DDRAbits   0x000f92       data     extern C:\MCC18\v3_39\src\traditional\proc\p18F4520.asm
+                TRISAbits   0x000f92       data     extern C:\MCC18\v3_39\src\traditional\proc\p18F4520.asm
                      DDRB   0x000f93       data     extern C:\MCC18\v3_39\src\traditional\proc\p18F4520.asm
+                 DDRBbits   0x000f93       data     extern C:\MCC18\v3_39\src\traditional\proc\p18F4520.asm
                     TRISB   0x000f93       data     extern C:\MCC18\v3_39\src\traditional\proc\p18F4520.asm
-                    TRISC   0x000f94       data     extern C:\MCC18\v3_39\src\traditional\proc\p18F4520.asm
-                 DDRCbits   0x000f94       data     extern C:\MCC18\v3_39\src\traditional\proc\p18F4520.asm
-                     DDRC   0x000f94       data     extern C:\MCC18\v3_39\src\traditional\proc\p18F4520.asm
+                TRISBbits   0x000f93       data     extern C:\MCC18\v3_39\src\traditional\proc\p18F4520.asm
                 TRISCbits   0x000f94       data     extern C:\MCC18\v3_39\src\traditional\proc\p18F4520.asm
-                 DDRDbits   0x000f95       data     extern C:\MCC18\v3_39\src\traditional\proc\p18F4520.asm
-                     DDRD   0x000f95       data     extern C:\MCC18\v3_39\src\traditional\proc\p18F4520.asm
-                    TRISD   0x000f95       data     extern C:\MCC18\v3_39\src\traditional\proc\p18F4520.asm
+                    TRISC   0x000f94       data     extern C:\MCC18\v3_39\src\traditional\proc\p18F4520.asm
+                     DDRC   0x000f94       data     extern C:\MCC18\v3_39\src\traditional\proc\p18F4520.asm
+                 DDRCbits   0x000f94       data     extern C:\MCC18\v3_39\src\traditional\proc\p18F4520.asm
                 TRISDbits   0x000f95       data     extern C:\MCC18\v3_39\src\traditional\proc\p18F4520.asm
-                    TRISE   0x000f96       data     extern C:\MCC18\v3_39\src\traditional\proc\p18F4520.asm
+                    TRISD   0x000f95       data     extern C:\MCC18\v3_39\src\traditional\proc\p18F4520.asm
+                     DDRD   0x000f95       data     extern C:\MCC18\v3_39\src\traditional\proc\p18F4520.asm
+                 DDRDbits   0x000f95       data     extern C:\MCC18\v3_39\src\traditional\proc\p18F4520.asm
                 TRISEbits   0x000f96       data     extern C:\MCC18\v3_39\src\traditional\proc\p18F4520.asm
-                 DDREbits   0x000f96       data     extern C:\MCC18\v3_39\src\traditional\proc\p18F4520.asm
+                    TRISE   0x000f96       data     extern C:\MCC18\v3_39\src\traditional\proc\p18F4520.asm
                      DDRE   0x000f96       data     extern C:\MCC18\v3_39\src\traditional\proc\p18F4520.asm
-                  OSCTUNE   0x000f9b       data     extern C:\MCC18\v3_39\src\traditional\proc\p18F4520.asm
+                 DDREbits   0x000f96       data     extern C:\MCC18\v3_39\src\traditional\proc\p18F4520.asm
               OSCTUNEbits   0x000f9b       data     extern C:\MCC18\v3_39\src\traditional\proc\p18F4520.asm
+                  OSCTUNE   0x000f9b       data     extern C:\MCC18\v3_39\src\traditional\proc\p18F4520.asm
                      PIE1   0x000f9d       data     extern C:\MCC18\v3_39\src\traditional\proc\p18F4520.asm
                  PIE1bits   0x000f9d       data     extern C:\MCC18\v3_39\src\traditional\proc\p18F4520.asm
                      PIR1   0x000f9e       data     extern C:\MCC18\v3_39\src\traditional\proc\p18F4520.asm
                  PIR1bits   0x000f9e       data     extern C:\MCC18\v3_39\src\traditional\proc\p18F4520.asm
-                     IPR1   0x000f9f       data     extern C:\MCC18\v3_39\src\traditional\proc\p18F4520.asm
                  IPR1bits   0x000f9f       data     extern C:\MCC18\v3_39\src\traditional\proc\p18F4520.asm
+                     IPR1   0x000f9f       data     extern C:\MCC18\v3_39\src\traditional\proc\p18F4520.asm
                      PIE2   0x000fa0       data     extern C:\MCC18\v3_39\src\traditional\proc\p18F4520.asm
                  PIE2bits   0x000fa0       data     extern C:\MCC18\v3_39\src\traditional\proc\p18F4520.asm
                      PIR2   0x000fa1       data     extern C:\MCC18\v3_39\src\traditional\proc\p18F4520.asm
@@ -430,21 +416,21 @@ Linker Map File - Created Fri Oct 07 16:00:26 2011
                     T3CON   0x000fb1       data     extern C:\MCC18\v3_39\src\traditional\proc\p18F4520.asm
                     TMR3L   0x000fb2       data     extern C:\MCC18\v3_39\src\traditional\proc\p18F4520.asm
                     TMR3H   0x000fb3       data     extern C:\MCC18\v3_39\src\traditional\proc\p18F4520.asm
-                CMCONbits   0x000fb4       data     extern C:\MCC18\v3_39\src\traditional\proc\p18F4520.asm
                     CMCON   0x000fb4       data     extern C:\MCC18\v3_39\src\traditional\proc\p18F4520.asm
+                CMCONbits   0x000fb4       data     extern C:\MCC18\v3_39\src\traditional\proc\p18F4520.asm
                CVRCONbits   0x000fb5       data     extern C:\MCC18\v3_39\src\traditional\proc\p18F4520.asm
                    CVRCON   0x000fb5       data     extern C:\MCC18\v3_39\src\traditional\proc\p18F4520.asm
-                  ECCP1AS   0x000fb6       data     extern C:\MCC18\v3_39\src\traditional\proc\p18F4520.asm
               ECCP1ASbits   0x000fb6       data     extern C:\MCC18\v3_39\src\traditional\proc\p18F4520.asm
                    ECCPAS   0x000fb6       data     extern C:\MCC18\v3_39\src\traditional\proc\p18F4520.asm
                ECCPASbits   0x000fb6       data     extern C:\MCC18\v3_39\src\traditional\proc\p18F4520.asm
-              PWM1CONbits   0x000fb7       data     extern C:\MCC18\v3_39\src\traditional\proc\p18F4520.asm
+                  ECCP1AS   0x000fb6       data     extern C:\MCC18\v3_39\src\traditional\proc\p18F4520.asm
                   PWM1CON   0x000fb7       data     extern C:\MCC18\v3_39\src\traditional\proc\p18F4520.asm
-             ECCP1DELbits   0x000fb7       data     extern C:\MCC18\v3_39\src\traditional\proc\p18F4520.asm
                  ECCP1DEL   0x000fb7       data     extern C:\MCC18\v3_39\src\traditional\proc\p18F4520.asm
-                  BAUDCTL   0x000fb8       data     extern C:\MCC18\v3_39\src\traditional\proc\p18F4520.asm
+              PWM1CONbits   0x000fb7       data     extern C:\MCC18\v3_39\src\traditional\proc\p18F4520.asm
+             ECCP1DELbits   0x000fb7       data     extern C:\MCC18\v3_39\src\traditional\proc\p18F4520.asm
                   BAUDCON   0x000fb8       data     extern C:\MCC18\v3_39\src\traditional\proc\p18F4520.asm
               BAUDCONbits   0x000fb8       data     extern C:\MCC18\v3_39\src\traditional\proc\p18F4520.asm
+                  BAUDCTL   0x000fb8       data     extern C:\MCC18\v3_39\src\traditional\proc\p18F4520.asm
               BAUDCTLbits   0x000fb8       data     extern C:\MCC18\v3_39\src\traditional\proc\p18F4520.asm
               CCP2CONbits   0x000fba       data     extern C:\MCC18\v3_39\src\traditional\proc\p18F4520.asm
                   CCP2CON   0x000fba       data     extern C:\MCC18\v3_39\src\traditional\proc\p18F4520.asm
@@ -460,8 +446,8 @@ Linker Map File - Created Fri Oct 07 16:00:26 2011
                    ADCON2   0x000fc0       data     extern C:\MCC18\v3_39\src\traditional\proc\p18F4520.asm
                ADCON1bits   0x000fc1       data     extern C:\MCC18\v3_39\src\traditional\proc\p18F4520.asm
                    ADCON1   0x000fc1       data     extern C:\MCC18\v3_39\src\traditional\proc\p18F4520.asm
-                   ADCON0   0x000fc2       data     extern C:\MCC18\v3_39\src\traditional\proc\p18F4520.asm
                ADCON0bits   0x000fc2       data     extern C:\MCC18\v3_39\src\traditional\proc\p18F4520.asm
+                   ADCON0   0x000fc2       data     extern C:\MCC18\v3_39\src\traditional\proc\p18F4520.asm
                     ADRES   0x000fc3       data     extern C:\MCC18\v3_39\src\traditional\proc\p18F4520.asm
                    ADRESL   0x000fc3       data     extern C:\MCC18\v3_39\src\traditional\proc\p18F4520.asm
                    ADRESH   0x000fc4       data     extern C:\MCC18\v3_39\src\traditional\proc\p18F4520.asm
@@ -473,24 +459,24 @@ Linker Map File - Created Fri Oct 07 16:00:26 2011
                   SSPSTAT   0x000fc7       data     extern C:\MCC18\v3_39\src\traditional\proc\p18F4520.asm
                    SSPADD   0x000fc8       data     extern C:\MCC18\v3_39\src\traditional\proc\p18F4520.asm
                    SSPBUF   0x000fc9       data     extern C:\MCC18\v3_39\src\traditional\proc\p18F4520.asm
-                T2CONbits   0x000fca       data     extern C:\MCC18\v3_39\src\traditional\proc\p18F4520.asm
                     T2CON   0x000fca       data     extern C:\MCC18\v3_39\src\traditional\proc\p18F4520.asm
+                T2CONbits   0x000fca       data     extern C:\MCC18\v3_39\src\traditional\proc\p18F4520.asm
                       PR2   0x000fcb       data     extern C:\MCC18\v3_39\src\traditional\proc\p18F4520.asm
                      TMR2   0x000fcc       data     extern C:\MCC18\v3_39\src\traditional\proc\p18F4520.asm
                     T1CON   0x000fcd       data     extern C:\MCC18\v3_39\src\traditional\proc\p18F4520.asm
                 T1CONbits   0x000fcd       data     extern C:\MCC18\v3_39\src\traditional\proc\p18F4520.asm
                     TMR1L   0x000fce       data     extern C:\MCC18\v3_39\src\traditional\proc\p18F4520.asm
                     TMR1H   0x000fcf       data     extern C:\MCC18\v3_39\src\traditional\proc\p18F4520.asm
-                 RCONbits   0x000fd0       data     extern C:\MCC18\v3_39\src\traditional\proc\p18F4520.asm
                      RCON   0x000fd0       data     extern C:\MCC18\v3_39\src\traditional\proc\p18F4520.asm
+                 RCONbits   0x000fd0       data     extern C:\MCC18\v3_39\src\traditional\proc\p18F4520.asm
                    WDTCON   0x000fd1       data     extern C:\MCC18\v3_39\src\traditional\proc\p18F4520.asm
                WDTCONbits   0x000fd1       data     extern C:\MCC18\v3_39\src\traditional\proc\p18F4520.asm
-               LVDCONbits   0x000fd2       data     extern C:\MCC18\v3_39\src\traditional\proc\p18F4520.asm
                    LVDCON   0x000fd2       data     extern C:\MCC18\v3_39\src\traditional\proc\p18F4520.asm
+               LVDCONbits   0x000fd2       data     extern C:\MCC18\v3_39\src\traditional\proc\p18F4520.asm
               HLVDCONbits   0x000fd2       data     extern C:\MCC18\v3_39\src\traditional\proc\p18F4520.asm
                   HLVDCON   0x000fd2       data     extern C:\MCC18\v3_39\src\traditional\proc\p18F4520.asm
-               OSCCONbits   0x000fd3       data     extern C:\MCC18\v3_39\src\traditional\proc\p18F4520.asm
                    OSCCON   0x000fd3       data     extern C:\MCC18\v3_39\src\traditional\proc\p18F4520.asm
+               OSCCONbits   0x000fd3       data     extern C:\MCC18\v3_39\src\traditional\proc\p18F4520.asm
                     T0CON   0x000fd5       data     extern C:\MCC18\v3_39\src\traditional\proc\p18F4520.asm
                 T0CONbits   0x000fd5       data     extern C:\MCC18\v3_39\src\traditional\proc\p18F4520.asm
                     TMR0L   0x000fd6       data     extern C:\MCC18\v3_39\src\traditional\proc\p18F4520.asm
@@ -506,40 +492,40 @@ Linker Map File - Created Fri Oct 07 16:00:26 2011
                  POSTINC2   0x000fde       data     extern C:\MCC18\v3_39\src\traditional\proc\p18F4520.asm
                     INDF2   0x000fdf       data     extern C:\MCC18\v3_39\src\traditional\proc\p18F4520.asm
                       BSR   0x000fe0       data     extern C:\MCC18\v3_39\src\traditional\proc\p18F4520.asm
-                     FSR1   0x000fe1       data     extern C:\MCC18\v3_39\src\traditional\proc\p18F4520.asm
                     FSR1L   0x000fe1       data     extern C:\MCC18\v3_39\src\traditional\proc\p18F4520.asm
+                     FSR1   0x000fe1       data     extern C:\MCC18\v3_39\src\traditional\proc\p18F4520.asm
                     FSR1H   0x000fe2       data     extern C:\MCC18\v3_39\src\traditional\proc\p18F4520.asm
                    PLUSW1   0x000fe3       data     extern C:\MCC18\v3_39\src\traditional\proc\p18F4520.asm
                   PREINC1   0x000fe4       data     extern C:\MCC18\v3_39\src\traditional\proc\p18F4520.asm
                  POSTDEC1   0x000fe5       data     extern C:\MCC18\v3_39\src\traditional\proc\p18F4520.asm
                  POSTINC1   0x000fe6       data     extern C:\MCC18\v3_39\src\traditional\proc\p18F4520.asm
                     INDF1   0x000fe7       data     extern C:\MCC18\v3_39\src\traditional\proc\p18F4520.asm
-                     WREG   0x000fe8       data     extern C:\MCC18\v3_39\src\traditional\proc\p18F4520.asm
                         W   0x000fe8       data     extern C:\MCC18\v3_39\src\traditional\proc\p18F4520.asm
-                     FSR0   0x000fe9       data     extern C:\MCC18\v3_39\src\traditional\proc\p18F4520.asm
+                     WREG   0x000fe8       data     extern C:\MCC18\v3_39\src\traditional\proc\p18F4520.asm
                     FSR0L   0x000fe9       data     extern C:\MCC18\v3_39\src\traditional\proc\p18F4520.asm
+                     FSR0   0x000fe9       data     extern C:\MCC18\v3_39\src\traditional\proc\p18F4520.asm
                     FSR0H   0x000fea       data     extern C:\MCC18\v3_39\src\traditional\proc\p18F4520.asm
                    PLUSW0   0x000feb       data     extern C:\MCC18\v3_39\src\traditional\proc\p18F4520.asm
                   PREINC0   0x000fec       data     extern C:\MCC18\v3_39\src\traditional\proc\p18F4520.asm
                  POSTDEC0   0x000fed       data     extern C:\MCC18\v3_39\src\traditional\proc\p18F4520.asm
                  POSTINC0   0x000fee       data     extern C:\MCC18\v3_39\src\traditional\proc\p18F4520.asm
                     INDF0   0x000fef       data     extern C:\MCC18\v3_39\src\traditional\proc\p18F4520.asm
-              INTCON3bits   0x000ff0       data     extern C:\MCC18\v3_39\src\traditional\proc\p18F4520.asm
                   INTCON3   0x000ff0       data     extern C:\MCC18\v3_39\src\traditional\proc\p18F4520.asm
-                  INTCON2   0x000ff1       data     extern C:\MCC18\v3_39\src\traditional\proc\p18F4520.asm
+              INTCON3bits   0x000ff0       data     extern C:\MCC18\v3_39\src\traditional\proc\p18F4520.asm
               INTCON2bits   0x000ff1       data     extern C:\MCC18\v3_39\src\traditional\proc\p18F4520.asm
-                   INTCON   0x000ff2       data     extern C:\MCC18\v3_39\src\traditional\proc\p18F4520.asm
+                  INTCON2   0x000ff1       data     extern C:\MCC18\v3_39\src\traditional\proc\p18F4520.asm
                INTCONbits   0x000ff2       data     extern C:\MCC18\v3_39\src\traditional\proc\p18F4520.asm
+                   INTCON   0x000ff2       data     extern C:\MCC18\v3_39\src\traditional\proc\p18F4520.asm
                      PROD   0x000ff3       data     extern C:\MCC18\v3_39\src\traditional\proc\p18F4520.asm
                     PRODL   0x000ff3       data     extern C:\MCC18\v3_39\src\traditional\proc\p18F4520.asm
                     PRODH   0x000ff4       data     extern C:\MCC18\v3_39\src\traditional\proc\p18F4520.asm
                    TABLAT   0x000ff5       data     extern C:\MCC18\v3_39\src\traditional\proc\p18F4520.asm
-                   TBLPTR   0x000ff6       data     extern C:\MCC18\v3_39\src\traditional\proc\p18F4520.asm
                   TBLPTRL   0x000ff6       data     extern C:\MCC18\v3_39\src\traditional\proc\p18F4520.asm
+                   TBLPTR   0x000ff6       data     extern C:\MCC18\v3_39\src\traditional\proc\p18F4520.asm
                   TBLPTRH   0x000ff7       data     extern C:\MCC18\v3_39\src\traditional\proc\p18F4520.asm
                   TBLPTRU   0x000ff8       data     extern C:\MCC18\v3_39\src\traditional\proc\p18F4520.asm
-                      PCL   0x000ff9       data     extern C:\MCC18\v3_39\src\traditional\proc\p18F4520.asm
                        PC   0x000ff9       data     extern C:\MCC18\v3_39\src\traditional\proc\p18F4520.asm
+                      PCL   0x000ff9       data     extern C:\MCC18\v3_39\src\traditional\proc\p18F4520.asm
                    PCLATH   0x000ffa       data     extern C:\MCC18\v3_39\src\traditional\proc\p18F4520.asm
                    PCLATU   0x000ffb       data     extern C:\MCC18\v3_39\src\traditional\proc\p18F4520.asm
                    STKPTR   0x000ffc       data     extern C:\MCC18\v3_39\src\traditional\proc\p18F4520.asm

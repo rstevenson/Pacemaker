@@ -8,7 +8,7 @@
 
 void initializeCom()
 {
-    SPBRG = 12;
+    SPBRG = (FOSC/(BAUD_RATE*16))-1; //calculates the SPGRG value
     /* Configure the pins for UART */
     TRISCbits.TRISC6 = 1;
     TRISCbits.TRISC7 = 1;
@@ -42,7 +42,7 @@ void processPack(struct packet p)
 {
 	
 }
-char calcCheckSum(char data[13])
+char calcCheckSum(char data[13])// Calculates the checksum by XOR'ng all the data
 {
 	char _i;
 	char temp;
@@ -51,7 +51,7 @@ char calcCheckSum(char data[13])
 	return temp;	
 }
 
-short validHeader(char fncode)
+short validHeader(char fncode)// Checks to see if the header is valid as per requirements
 {
 	if ((fncode == k_egram)|
 		(fncode == k_echo)|
@@ -80,25 +80,25 @@ short buffToPacket(struct packet *commIn, struct buffer *buf)
 		chk = calcCheckSum(temp.Data);
 		if ((validHeader(temp.FnCode)) && (temp.SYNC == k_sync) && (temp.ChkSum == chk))
 		{
-			*commIn=temp;
+			*commIn=temp; //checks if there is a valid header and sets the buffer equal to temp
 			return 1;
 		}else
 			return 0;
 } 
 
-short sendPacket(char data[13], struct buffer *tbuf)
+short sendPacket(char data[13], struct buffer *tbuf)// puts the send packet together in a buffer
 {
 	char _i;
-	BUF_ADD(*tbuf, k_sync);
-	BUF_ADD(*tbuf, k_pparams);
-	for (_i = 0; _i<13; _i++)
+	BUF_ADD(*tbuf, k_sync);// inserts SYNC variable in first
+	BUF_ADD(*tbuf, k_pparams);// inserts K_PPARAMS
+	for (_i = 0; _i<13; _i++)// Inserts data 
 		BUF_ADD(*tbuf, data[_i]);
-	BUF_ADD(*tbuf,calcCheckSum(data));
-	PIE1bits.TXIE = 1;		
+	BUF_ADD(*tbuf,calcCheckSum(data));// inserts checksum
+	PIE1bits.TXIE = 1;	//enables sending interrupt	
 }
 
 short sendChar(char c, struct buffer *tbuf)
 {
-	BUF_ADD(*tbuf,c);
-	PIE1bits.TXIE = 1;		
+	BUF_ADD(*tbuf,c); //adds the char to the buffer
+	PIE1bits.TXIE = 1;	//enables sending interrupt	
 }

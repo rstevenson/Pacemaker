@@ -1,5 +1,5 @@
-//Getting out of scope problems here
-//no errors yet. ??
+
+//Function Prototypes for serial.c defined functions
 void initializeCom(void);
 void processPack(struct packet p);
 short buffToPacket(struct packet *commIn, struct buffer *buf);

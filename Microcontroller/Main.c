@@ -17,18 +17,18 @@ struct buffer txbuf;
 /* Receiving buffer */
 struct buffer rcbuf;
 
-struct packet i_CommIn;
+struct packet i_CommIn; // structure of package based on requirements given
 
 //y_magnet m_magnet;
 //y_pacingState p_pacingState;
 //y_pacingMode p_pacingMode;
-Bool p_hysteresis;
-unsigned int p_hysteresisInterval;
-unsigned int p_lowrateInterval;
-unsigned int p_vPaceAmp;
-unsigned float p_vPaceWidth;
-unsigned int p_VRP;
-unsigned int FNCODE;
+//Bool p_hysteresis;
+//unsigned int p_hysteresisInterval;
+//unsigned int p_lowrateInterval;
+//unsigned int p_vPaceAmp;
+//unsigned float p_vPaceWidth;
+//unsigned int p_VRP;
+//unsigned int FNCODE;
 
 /* Interrupt handler function */
 void intr_handler(void);
@@ -67,20 +67,14 @@ void intr_handler(void) {
 void main(void) {
     initializeCom();
     while (1) {
-		if (BUF_FULL(rcbuf))
+		if (BUF_FULL(rcbuf))//checks to see if the recieving buffer is full
 	    {
-		   if (buffToPacket (&i_CommIn,&rcbuf))	
-		   		sendPacket(i_CommIn.Data, &txbuf);
+		   if (buffToPacket (&i_CommIn,&rcbuf))	// if so it recieves the data from the buffer and puts into a package structure
+		   		sendPacket(i_CommIn.Data, &txbuf);// sends the package it recieved back
 		   else
-		   		sendChar(0x00,&txbuf);
+		   		sendChar(0x00,&txbuf);// if the buffer is not full, it sends back 0 to the DCM
 		}
-	/* If the receiving buffer is not empty and there is enough
-	   space in the sending buffer */
-	/* Put the microcontroller in idle mode */
-	/* WARNING: If you want to debug the code with MPLAB Sim, you
-	   need to remove the following two lines, since MPLAB Sim
-	   cannot be waked up in idle mode by UART interrupt */
-	OSCCONbits.IDLEN = 1;
-    Sleep();
+		OSCCONbits.IDLEN = 1;
+    	Sleep(); //makes the microcontroller sleep
     }
 }
