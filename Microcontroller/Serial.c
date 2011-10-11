@@ -8,7 +8,8 @@
 
 void initializeCom()
 {
-    SPBRG = (FOSC/(BAUD_RATE*16))-1; //calculates the SPGRG value
+    SPBRG = (FOSC/(BAUD_RATE*4))-1; //calculates the SPGRG value for 16 bit BRG
+    //SPBRG = (FOSC/(BAUD_RATE*16))-1; //8 bit BRG
     /* Configure the pins for UART */
     TRISCbits.TRISC6 = 1;
     TRISCbits.TRISC7 = 1;
@@ -20,6 +21,7 @@ void initializeCom()
     /* Enable transmission (sending) */
     TXSTAbits.TXEN = 1;
 	TXSTAbits.BRGH = 1;
+	BAUDCONbits.BRG16 = 1; //0 if 8 BRG
     /* Enable receiving */
     RCSTAbits.CREN = 1;
 
@@ -32,10 +34,6 @@ void initializeCom()
     INTCONbits.GIEH = 1;
     /* Enable receiving interrupt */
     PIE1bits.RCIE = 1;
-
-    /* Initialize receiving buffer */
-
-    /* Enable sending interrupt */
 }
 
 void processPack(struct packet p)
