@@ -1,0 +1,3 @@
+Warning[2054] C:\Documents and Settings\stevenrm\Desktop\rstevenson-Pacemaker-ccb724a\Microcontroller\Serial.c 129 : suspicious pointer conversion
+Warning[2058] C:\Documents and Settings\stevenrm\Desktop\rstevenson-Pacemaker-ccb724a\Microcontroller\Serial.c 132 : call of function without prototype
+Error[1109] C:\Documents and Settings\stevenrm\Desktop\rstevenson-Pacemaker-ccb724a\Microcontroller\Serial.c 160 : type mismatch in redeclaration of 'sendPacket'
