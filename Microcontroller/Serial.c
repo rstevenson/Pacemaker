@@ -122,18 +122,6 @@ void paramsToPacket(struct params par, struct packet pack)
 	pack.Data[12] = tByte[1];
 }
 
-void processFncode(struct packet commIn, struct params *p, struct buffer *tbuf)
-{
-	struct packet commOut;
-	if (commIn.FnCode == k_pparams)
-		setParams(&p,commIn); //suspicious pointer conversion
-	else if (commIn.FnCode == k_echo){
-		paramsToPacket(*p,commOut);
-		sendPacket(commOut,*tbuf);
-	}
-		
-}
-
 short buffToPacket(struct packet *commIn, struct buffer *buf)
 
 // Recieves data from buffer and put it in the package structure 
@@ -172,4 +160,16 @@ short sendChar(char c, struct buffer *tbuf)
 {
 	BUF_ADD(*tbuf,c); //adds the char to the buffer
 	PIE1bits.TXIE = 1;	//enables sending interrupt	
+}
+
+void processFncode(struct packet commIn, struct params *p, struct buffer *tbuf)
+{
+	struct packet commOut;
+	if (commIn.FnCode == k_pparams)
+		setParams(&p,commIn); //suspicious pointer conversion
+	else if (commIn.FnCode == k_echo){
+		paramsToPacket(*p,commOut);
+		sendPacket(commOut,&tbuf);
+	}
+		
 }
