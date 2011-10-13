@@ -36,10 +36,35 @@ void initializeCom()
     PIE1bits.RCIE = 1;
 }
 
-void processPack(struct packet p)
+void setParams(struct params *p, struct packet pack)
 {
-	
+	int temp;
+	p->p_pacingState = pack.Data[0];
+	p->p_pacingMode = pack.Data[1];
+	p->p_hysteresis = pack.Data[2];
+	temp = pack.Data[3];
+	temp << 8;
+	temp |= pack.Data[4];
+	p->p_hysteresisInterval=temp;
+	temp = pack.Data[5];
+	temp << 8;
+	temp |= pack.Data[6];
+	p->p_lowrateInterval=temp;
+	temp = pack.Data[7];
+	temp << 8;
+	temp |= pack.Data[8];
+	p->p_vPaceAmp=temp;
+	temp = pack.Data[9];
+	temp << 8;
+	temp |= pack.Data[10];
+	p->p_10vPaceWidth=temp;
+	temp = pack.Data[11];
+	temp << 8;
+	temp |= pack.Data[12];
+	p->p_VRP=temp;	
+		
 }
+
 char calcCheckSum(char data[13])// Calculates the checksum by XOR'ng all the data
 {
 	char _i;
@@ -60,6 +85,55 @@ short validHeader(char fncode)// Checks to see if the header is valid as per req
 		return 0;
 }
 
+char *intToByte(int temp)
+{
+	char byte[2];
+	temp &= 0xFF00;
+	temp >> 8;
+	byte[0] = temp;
+	temp &= 0x00FF;
+	byte[1] = temp;
+	return byte;
+}
+
+void paramsToPacket(struct params par, struct packet pack)
+{
+	int temp;
+	char *tByte;
+	pack.SYNC = k_sync;
+	pack.FnCode = k_pparams;
+	pack.Data[0] = par.p_pacingState;
+	pack.Data[1] = par.p_pacingMode;
+	pack.Data[2] = par.p_hysteresis;
+	tByte=intToByte(par.p_hysteresisInterval);
+	pack.Data[3] = tByte[0];
+	pack.Data[4] = tByte[1];
+	tByte=intToByte(par.p_hysteresisInterval);
+	pack.Data[5] = tByte[0];
+	pack.Data[6] = tByte[1];
+	tByte=intToByte(par.p_lowrateInterval);
+	pack.Data[7] = tByte[0];
+	pack.Data[8] = tByte[1];
+	tByte=intToByte(par.p_vPaceAmp);
+	pack.Data[9] = tByte[0];
+	pack.Data[10] = tByte[1];
+	tByte=intToByte(par.p_10vPaceWidth);
+	pack.Data[11] = tByte[0];
+	pack.Data[12] = tByte[1];
+}
+
+void processFncode(struct packet commIn, struct params *p, struct buffer *tbuf)
+{
+	struct packet commOut;
+	if (commIn.FnCode == k_pparams)
+		setParams(&p,commIn); //suspicious pointer conversion
+	else if (commIn.FnCode == k_echo){
+		paramsToPacket(*p,commOut);
+		sendPacket(commOut,*tbuf);
+	}
+		
+}
+
 short buffToPacket(struct packet *commIn, struct buffer *buf)
 
 // Recieves data from buffer and put it in the package structure 
@@ -73,7 +147,6 @@ short buffToPacket(struct packet *commIn, struct buffer *buf)
 		     {
 		       temp.Data[i]=BUF_GET(*buf);
 		     } 
-	
 	    temp.ChkSum=BUF_GET(*buf); // inserts the last byte into the checksum variable
 		chk = calcCheckSum(temp.Data);
 		if ((validHeader(temp.FnCode)) && (temp.SYNC == k_sync) && (temp.ChkSum == chk))
@@ -84,14 +157,14 @@ short buffToPacket(struct packet *commIn, struct buffer *buf)
 			return 0;
 } 
 
-short sendPacket(char data[13], struct buffer *tbuf)// puts the send packet together in a buffer
+short sendPacket(struct packet commOut, struct buffer *tbuf)// puts the send packet together in a buffer
 {
 	char _i;
-	BUF_ADD(*tbuf, k_sync);// inserts SYNC variable in first
-	BUF_ADD(*tbuf, k_pparams);// inserts K_PPARAMS
+	BUF_ADD(*tbuf, commOut.SYNC);// inserts SYNC variable in first
+	BUF_ADD(*tbuf, commOut.FnCode);// inserts K_PPARAMS
 	for (_i = 0; _i<13; _i++)// Inserts data 
-		BUF_ADD(*tbuf, data[_i]);
-	BUF_ADD(*tbuf,calcCheckSum(data));// inserts checksum
+		BUF_ADD(*tbuf, commOut.Data[_i]);
+	BUF_ADD(*tbuf,calcCheckSum(commOut.Data));// inserts checksum
 	PIE1bits.TXIE = 1;	//enables sending interrupt	
 }
 

@@ -19,16 +19,11 @@ struct buffer rcbuf;
 
 struct packet i_CommIn; // structure of package based on requirements given
 
-//y_magnet m_magnet;
-//y_pacingState p_pacingState;
-//y_pacingMode p_pacingMode;
-//Bool p_hysteresis;
-//unsigned int p_hysteresisInterval;
-//unsigned int p_lowrateInterval;
-//unsigned int p_vPaceAmp;
-//unsigned float p_vPaceWidth;
-//unsigned int p_VRP;
-//unsigned int FNCODE;
+struct params Parameters;
+
+unsigned int opState; //Operation state of the FSM
+
+enum y_magnet m_magnet;
 
 /* Interrupt handler function */
 void intr_handler(void);
@@ -39,7 +34,6 @@ void intr_entry(void) {
     _asm goto intr_handler _endasm
 }
 #pragma code
-
 
 
 /* Interrupt handler function */
@@ -66,15 +60,20 @@ void intr_handler(void) {
 /* Main entrance */
 void main(void) {
     initializeCom();
+	opState = k_commState;
     while (1) {
-		if (BUF_FULL(rcbuf))//checks to see if the recieving buffer is full
-	    {
-		   if (buffToPacket (&i_CommIn,&rcbuf))	// if so it recieves the data from the buffer and puts into a package structure
-		   		sendPacket(i_CommIn.Data, &txbuf);// sends the package it recieved back
-		   else
-		   		sendChar(0x00,&txbuf);// if the buffer is not full, it sends back 0 to the DCM
+		if (opState == k_commState){
+			if (BUF_FULL(rcbuf))//checks to see if the recieving buffer is full
+	    	{
+		   		if (buffToPacket (&i_CommIn,&rcbuf))	// if so it recieves the data from the buffer and puts into a package structure
+					processFncode(i_CommIn, &Parameters, &txbuf);
+		   		//	if (i_CommIn.FnCode == k_pparams)
+				//		setParams(&Parameters,i_CommIn);// sends the package it recieved back
+		   		else
+		   			sendChar(0x00,&txbuf);// if the buffer is not full, it sends back 0 to the DCM
+			}
+			OSCCONbits.IDLEN = 1;
+    		Sleep(); //makes the microcontroller sleep
 		}
-		OSCCONbits.IDLEN = 1;
-    	Sleep(); //makes the microcontroller sleep
     }
 }

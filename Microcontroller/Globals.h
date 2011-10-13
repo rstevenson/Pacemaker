@@ -22,6 +22,18 @@ struct packet
 	char ChkSum;
 };
 
+struct params
+{
+	enum y_pacingState p_pacingState;
+	enum y_pacingMode p_pacingMode;
+	Bool p_hysteresis;
+	unsigned int p_hysteresisInterval;
+	unsigned int p_lowrateInterval;
+	unsigned int p_vPaceAmp;
+	unsigned int p_10vPaceWidth;
+	unsigned int p_VRP;
+};
+
 /* Baud rate for serial communication */
 #define BAUD_RATE 57600
 
@@ -34,4 +46,6 @@ struct packet
 #define k_estop 0x62
 #define k_pparams 0x55
 #define k_sync   0x16
+#define k_idle 0x00 //idle state
+#define k_commState 0x01 //communication state
 
