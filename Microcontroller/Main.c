@@ -60,6 +60,24 @@ void intr_handler(void) {
 /* Main entrance */
 void main(void) {
     initializeCom();
+    BUF_INIT(rcbuf);
+    BUF_INIT(txbuf);
+    BUF_ADD(rcbuf, 0x16);
+    BUF_ADD(rcbuf, 0x55);
+    BUF_ADD(rcbuf, 0x55);
+    BUF_ADD(rcbuf, 0x1F);
+    BUF_ADD(rcbuf, 0x55);
+    BUF_ADD(rcbuf, 0x1F);
+    BUF_ADD(rcbuf, 0x55);
+    BUF_ADD(rcbuf, 0x1F);
+    BUF_ADD(rcbuf, 0x55);
+    BUF_ADD(rcbuf, 0x1F);
+    BUF_ADD(rcbuf, 0x55);
+    BUF_ADD(rcbuf, 0x1F);
+    BUF_ADD(rcbuf, 0x55);
+    BUF_ADD(rcbuf, 0x1F);
+    BUF_ADD(rcbuf, 0x55);
+	BUF_ADD(rcbuf, 0x55);
 	opState = k_commState;
     while (1) {
 		if (opState == k_commState){
@@ -72,8 +90,8 @@ void main(void) {
 		   		else
 		   			sendChar(0x00,&txbuf);// if the buffer is not full, it sends back 0 to the DCM
 			}
-			OSCCONbits.IDLEN = 1;
-    		Sleep(); //makes the microcontroller sleep
+		//	OSCCONbits.IDLEN = 1;
+    	//	Sleep(); //makes the microcontroller sleep
 		}
     }
 }

@@ -27,10 +27,10 @@
     } while(0)
 
 /* Test if the buffer is empty */
-#define BUF_EMPTY(buf) (!(((buf).tail ^ (buf).head) & BUF_MASK))
+#define BUF_EMPTY(buf) (!((((buf).tail-1) ^ (buf).head) & BUF_MASK))
 
 /* Test if the buffer is full */
-#define BUF_FULL(buf) (!((((buf).tail + 1) ^ (buf).head) & BUF_MASK))
+#define BUF_FULL(buf) (!(((buf).tail ^ (buf).head) & BUF_MASK))
 
 /* Return the number of elements in the buffer */
 #define BUF_LEN(buf) (((buf).tail - (buf).head) & BUF_MASK)

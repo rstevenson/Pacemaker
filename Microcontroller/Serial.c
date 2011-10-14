@@ -5,6 +5,7 @@
 #include "Buffer.h"
 #include "Globals.h"
 #include <p18cxxx.h>
+#include "ByteConversion.h"
 
 void initializeCom()
 {
@@ -42,58 +43,32 @@ void setParams(struct params *p, struct packet pack)
 	p->p_pacingState = pack.Data[0];
 	p->p_pacingMode = pack.Data[1];
 	p->p_hysteresis = pack.Data[2];
-	temp = pack.Data[3];
-	temp << 8;
-	temp |= pack.Data[4];
-	p->p_hysteresisInterval=temp;
-	temp = pack.Data[5];
-	temp << 8;
-	temp |= pack.Data[6];
-	p->p_lowrateInterval=temp;
-	temp = pack.Data[7];
-	temp << 8;
-	temp |= pack.Data[8];
-	p->p_vPaceAmp=temp;
-	temp = pack.Data[9];
-	temp << 8;
-	temp |= pack.Data[10];
-	p->p_10vPaceWidth=temp;
-	temp = pack.Data[11];
-	temp << 8;
-	temp |= pack.Data[12];
-	p->p_VRP=temp;	
-		
+	p->p_hysteresisInterval=BytesToInt(pack.Data[3],pack.Data[4]);
+	p->p_lowrateInterval=BytesToInt(pack.Data[5],pack.Data[6]);
+	p->p_vPaceAmp=BytesToInt(pack.Data[7],pack.Data[8]);
+	p->p_10vPaceWidth=BytesToInt(pack.Data[9],pack.Data[10]);
+	p->p_VRP=BytesToInt(pack.Data[11],pack.Data[12]);		
 }
 
 char calcCheckSum(char data[13])// Calculates the checksum by XOR'ng all the data
 {
 	char _i;
 	char temp;
-	for (_i=0;_i<13;_i++)
+	temp = data[0];
+	for (_i=1;_i<13;_i++)
 		temp ^= data[_i];
 	return temp;	
 }
 
 short validHeader(char fncode)// Checks to see if the header is valid as per requirements
 {
-	if ((fncode == k_egram)|
-		(fncode == k_echo)|
-		(fncode == k_estop)|
+	if ((fncode == k_egram)||
+		(fncode == k_echo)||
+		(fncode == k_estop)||
 		(fncode == k_pparams))
 		return 1;
 	else
 		return 0;
-}
-
-char *intToByte(int temp)
-{
-	char byte[2];
-	temp &= 0xFF00;
-	temp >> 8;
-	byte[0] = temp;
-	temp &= 0x00FF;
-	byte[1] = temp;
-	return byte;
 }
 
 void paramsToPacket(struct params par, struct packet pack)
@@ -105,19 +80,19 @@ void paramsToPacket(struct params par, struct packet pack)
 	pack.Data[0] = par.p_pacingState;
 	pack.Data[1] = par.p_pacingMode;
 	pack.Data[2] = par.p_hysteresis;
-	tByte=intToByte(par.p_hysteresisInterval);
+	tByte=intToBytes(par.p_hysteresisInterval);
 	pack.Data[3] = tByte[0];
 	pack.Data[4] = tByte[1];
-	tByte=intToByte(par.p_hysteresisInterval);
+	tByte=intToBytes(par.p_hysteresisInterval);
 	pack.Data[5] = tByte[0];
 	pack.Data[6] = tByte[1];
-	tByte=intToByte(par.p_lowrateInterval);
+	tByte=intToBytes(par.p_lowrateInterval);
 	pack.Data[7] = tByte[0];
 	pack.Data[8] = tByte[1];
-	tByte=intToByte(par.p_vPaceAmp);
+	tByte=intToBytes(par.p_vPaceAmp);
 	pack.Data[9] = tByte[0];
 	pack.Data[10] = tByte[1];
-	tByte=intToByte(par.p_10vPaceWidth);
+	tByte=intToBytes(par.p_10vPaceWidth);
 	pack.Data[11] = tByte[0];
 	pack.Data[12] = tByte[1];
 }
@@ -137,7 +112,9 @@ short buffToPacket(struct packet *commIn, struct buffer *buf)
 		     } 
 	    temp.ChkSum=BUF_GET(*buf); // inserts the last byte into the checksum variable
 		chk = calcCheckSum(temp.Data);
-		if ((validHeader(temp.FnCode)) && (temp.SYNC == k_sync) && (temp.ChkSum == chk))
+		if ((validHeader(temp.FnCode)) && 
+			(temp.SYNC == k_sync) &&
+			(temp.ChkSum == chk))
 		{
 			*commIn=temp; //checks if there is a valid header and sets the buffer equal to temp
 			return 1;

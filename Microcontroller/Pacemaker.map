@@ -1,5 +1,5 @@
 MPLINK 4.40, Linker
-Linker Map File - Created Thu Oct 13 19:09:24 2011
+Linker Map File - Created Thu Oct 13 21:25:13 2011
 
                                  Section Info
                   Section       Type    Address   Location Size(Bytes)
@@ -7,21 +7,21 @@ Linker Map File - Created Thu Oct 13 19:09:24 2011
                _entry_scn       code   0x000000    program   0x000006
                    .cinit    romdata   0x000006    program   0x000002
              intr_section       code   0x000008    program   0x000006
-           .code_Serial.o       code   0x00000e    program   0x000b24
-             .code_Main.o       code   0x000b32    program   0x000136
-               _cinit_scn       code   0x000c68    program   0x00009e
-                    .code       code   0x000d06    program   0x000020
-             _startup_scn       code   0x000d26    program   0x00001c
-           .code___init.o       code   0x000d42    program   0x000002
-        .romdata___init.o    romdata   0x000d44    program   0x000000
-        .idata___init.o_i    romdata   0x000d44    program   0x000000
-        .romdata_Serial.o    romdata   0x000d44    program   0x000000
-        .idata_Serial.o_i    romdata   0x000d44    program   0x000000
-          .romdata_Main.o    romdata   0x000d44    program   0x000000
-          .idata_Main.o_i    romdata   0x000d44    program   0x000000
-            .code_c018i.o       code   0x000d44    program   0x000000
-         .romdata_c018i.o    romdata   0x000d44    program   0x000000
-         .idata_c018i.o_i    romdata   0x000d44    program   0x000000
+           .code_Serial.o       code   0x00000e    program   0x000b26
+             .code_Main.o       code   0x000b34    program   0x0002da
+               _cinit_scn       code   0x000e0e    program   0x00009e
+                    .code       code   0x000eac    program   0x000020
+             _startup_scn       code   0x000ecc    program   0x00001c
+           .code___init.o       code   0x000ee8    program   0x000002
+        .romdata___init.o    romdata   0x000eea    program   0x000000
+        .idata___init.o_i    romdata   0x000eea    program   0x000000
+        .romdata_Serial.o    romdata   0x000eea    program   0x000000
+        .idata_Serial.o_i    romdata   0x000eea    program   0x000000
+          .romdata_Main.o    romdata   0x000eea    program   0x000000
+          .idata_Main.o_i    romdata   0x000eea    program   0x000000
+            .code_c018i.o       code   0x000eea    program   0x000000
+         .romdata_c018i.o    romdata   0x000eea    program   0x000000
+         .idata_c018i.o_i    romdata   0x000eea    program   0x000000
     .config_300001_Main.o    romdata   0x300001    program   0x000001
     .config_300003_Main.o    romdata   0x300003    program   0x000001
                  .tmpdata      udata   0x000000       data   0x000008
@@ -42,57 +42,50 @@ Linker Map File - Created Thu Oct 13 19:09:24 2011
                               Program Memory Usage 
                                Start         End      
                            ---------   ---------      
-                            0x000000    0x000d43      
+                            0x000000    0x000ee9      
                             0x300001    0x300001      
                             0x300003    0x300003      
-            3398 out of 33048 program addresses used, program memory utilization is 10%
+            3820 out of 33048 program addresses used, program memory utilization is 11%
 
 
 
                               Symbols - Sorted by Name
                      Name    Address   Location    Storage File                     
                 ---------  ---------  ---------  --------- ---------                
-         ___else_lbl00013   0x000c4c    program     static                          
-           ___if_lbl00012   0x000c60    program     static                          
-           ___if_lbl00014   0x000c60    program     static                          
-           ___if_lbl00015   0x000c64    program     static                          
        ___return_lbl00000   0x00000c    program     static                          
        ___return_lbl00000   0x000004    program     static                          
-       ___return_lbl00001   0x000d40    program     static                          
-       ___return_lbl00002   0x000d04    program     static                          
-       ___return_lbl00009   0x000c66    program     static                          
-        ___while_lbl00010   0x000bac    program     static                          
-        ___while_lbl00011   0x000c66    program     static                          
+       ___return_lbl00001   0x000ee6    program     static                          
+       ___return_lbl00002   0x000eaa    program     static                          
                __config_0   0x300001    program     static C:\Users\Ryan\Pacemaker\Microcontroller\Main.c
                __config_1   0x300003    program     static C:\Users\Ryan\Pacemaker\Microcontroller\Main.c
-                   __init   0x000d42    program     extern C:\MCC18\v3_39\src\traditional\stdclib\__init.c
-            __zero_memory   0x000d06    program     extern C:\MCC18\v3_39\src\traditional\proc\p18F4520.asm
-                _do_cinit   0x000c68    program     extern C:\MCC18\v3_39\src\traditional\startup\c018i.c
+                   __init   0x000ee8    program     extern C:\MCC18\v3_39\src\traditional\stdclib\__init.c
+            __zero_memory   0x000eac    program     extern C:\MCC18\v3_39\src\traditional\proc\p18F4520.asm
+                _do_cinit   0x000e0e    program     extern C:\MCC18\v3_39\src\traditional\startup\c018i.c
                    _entry   0x000000    program     extern C:\MCC18\v3_39\src\traditional\startup\c018i.c
-                 _startup   0x000d26    program     extern C:\MCC18\v3_39\src\traditional\startup\c018i.c
-             buffToPacket   0x00057c    program     extern C:\Users\Ryan\Pacemaker\Microcontroller\Serial.c
-             calcCheckSum   0x000250    program     extern C:\Users\Ryan\Pacemaker\Microcontroller\Serial.c
-                compare_l   0x000d1c    program     static C:\MCC18\v3_39\src\traditional\proc\p18F4520.asm
-                copy_loop   0x000cda    program     static                          
-            copy_one_byte   0x000ce0    program     static                          
-                     done   0x000d04    program     static                          
-             done_copying   0x000cee    program     static                          
+                 _startup   0x000ecc    program     extern C:\MCC18\v3_39\src\traditional\startup\c018i.c
+             buffToPacket   0x00057e    program     extern C:\Users\Ryan\Pacemaker\Microcontroller\Serial.c
+             calcCheckSum   0x000278    program     extern C:\Users\Ryan\Pacemaker\Microcontroller\Serial.c
+                compare_l   0x000ec2    program     static C:\MCC18\v3_39\src\traditional\proc\p18F4520.asm
+                copy_loop   0x000e80    program     static                          
+            copy_one_byte   0x000e86    program     static                          
+                     done   0x000eaa    program     static                          
+             done_copying   0x000e94    program     static                          
             initializeCom   0x00000e    program     extern C:\Users\Ryan\Pacemaker\Microcontroller\Serial.c
-                intToByte   0x000328    program     extern C:\Users\Ryan\Pacemaker\Microcontroller\Serial.c
+                intToByte   0x00032a    program     extern C:\Users\Ryan\Pacemaker\Microcontroller\Serial.c
                intr_entry   0x000008    program     extern C:\Users\Ryan\Pacemaker\Microcontroller\Main.c
-             intr_handler   0x000b32    program     extern C:\Users\Ryan\Pacemaker\Microcontroller\Main.c
-                     loop   0x000d36    program     static                          
-                   loop_h   0x000d14    program     static C:\MCC18\v3_39\src\traditional\proc\p18F4520.asm
-                   loop_l   0x000d1e    program     static C:\MCC18\v3_39\src\traditional\proc\p18F4520.asm
-                     main   0x000ba0    program     extern C:\Users\Ryan\Pacemaker\Microcontroller\Main.c
-           paramsToPacket   0x00039e    program     extern C:\Users\Ryan\Pacemaker\Microcontroller\Serial.c
-            processFncode   0x0009aa    program     extern C:\Users\Ryan\Pacemaker\Microcontroller\Serial.c
-                 sendChar   0x000950    program     extern C:\Users\Ryan\Pacemaker\Microcontroller\Serial.c
-               sendPacket   0x0007c2    program     extern C:\Users\Ryan\Pacemaker\Microcontroller\Serial.c
+             intr_handler   0x000b34    program     extern C:\Users\Ryan\Pacemaker\Microcontroller\Main.c
+                     loop   0x000edc    program     static                          
+                   loop_h   0x000eba    program     static C:\MCC18\v3_39\src\traditional\proc\p18F4520.asm
+                   loop_l   0x000ec4    program     static C:\MCC18\v3_39\src\traditional\proc\p18F4520.asm
+                     main   0x000ba2    program     extern C:\Users\Ryan\Pacemaker\Microcontroller\Main.c
+           paramsToPacket   0x0003a0    program     extern C:\Users\Ryan\Pacemaker\Microcontroller\Serial.c
+            processFncode   0x0009ac    program     extern C:\Users\Ryan\Pacemaker\Microcontroller\Serial.c
+                 sendChar   0x000952    program     extern C:\Users\Ryan\Pacemaker\Microcontroller\Serial.c
+               sendPacket   0x0007c4    program     extern C:\Users\Ryan\Pacemaker\Microcontroller\Serial.c
                 setParams   0x00002e    program     extern C:\Users\Ryan\Pacemaker\Microcontroller\Serial.c
-                     test   0x000c82    program     static                          
-              validHeader   0x0002c2    program     extern C:\Users\Ryan\Pacemaker\Microcontroller\Serial.c
-               zero_block   0x000d14    program     static C:\MCC18\v3_39\src\traditional\proc\p18F4520.asm
+                     test   0x000e28    program     static                          
+              validHeader   0x0002ea    program     extern C:\Users\Ryan\Pacemaker\Microcontroller\Serial.c
+               zero_block   0x000eba    program     static C:\MCC18\v3_39\src\traditional\proc\p18F4520.asm
                    ADCON0   0x000fc2       data     extern C:\MCC18\v3_39\src\traditional\proc\p18F4520.asm
                ADCON0bits   0x000fc2       data     extern C:\MCC18\v3_39\src\traditional\proc\p18F4520.asm
                    ADCON1   0x000fc1       data     extern C:\MCC18\v3_39\src\traditional\proc\p18F4520.asm
@@ -309,39 +302,32 @@ Linker Map File - Created Thu Oct 13 19:09:24 2011
        ___return_lbl00000   0x00000c    program     static                          
             initializeCom   0x00000e    program     extern C:\Users\Ryan\Pacemaker\Microcontroller\Serial.c
                 setParams   0x00002e    program     extern C:\Users\Ryan\Pacemaker\Microcontroller\Serial.c
-             calcCheckSum   0x000250    program     extern C:\Users\Ryan\Pacemaker\Microcontroller\Serial.c
-              validHeader   0x0002c2    program     extern C:\Users\Ryan\Pacemaker\Microcontroller\Serial.c
-                intToByte   0x000328    program     extern C:\Users\Ryan\Pacemaker\Microcontroller\Serial.c
-           paramsToPacket   0x00039e    program     extern C:\Users\Ryan\Pacemaker\Microcontroller\Serial.c
-             buffToPacket   0x00057c    program     extern C:\Users\Ryan\Pacemaker\Microcontroller\Serial.c
-               sendPacket   0x0007c2    program     extern C:\Users\Ryan\Pacemaker\Microcontroller\Serial.c
-                 sendChar   0x000950    program     extern C:\Users\Ryan\Pacemaker\Microcontroller\Serial.c
-            processFncode   0x0009aa    program     extern C:\Users\Ryan\Pacemaker\Microcontroller\Serial.c
-             intr_handler   0x000b32    program     extern C:\Users\Ryan\Pacemaker\Microcontroller\Main.c
-                     main   0x000ba0    program     extern C:\Users\Ryan\Pacemaker\Microcontroller\Main.c
-        ___while_lbl00010   0x000bac    program     static                          
-         ___else_lbl00013   0x000c4c    program     static                          
-           ___if_lbl00014   0x000c60    program     static                          
-           ___if_lbl00012   0x000c60    program     static                          
-           ___if_lbl00015   0x000c64    program     static                          
-        ___while_lbl00011   0x000c66    program     static                          
-       ___return_lbl00009   0x000c66    program     static                          
-                _do_cinit   0x000c68    program     extern C:\MCC18\v3_39\src\traditional\startup\c018i.c
-                     test   0x000c82    program     static                          
-                copy_loop   0x000cda    program     static                          
-            copy_one_byte   0x000ce0    program     static                          
-             done_copying   0x000cee    program     static                          
-                     done   0x000d04    program     static                          
-       ___return_lbl00002   0x000d04    program     static                          
-            __zero_memory   0x000d06    program     extern C:\MCC18\v3_39\src\traditional\proc\p18F4520.asm
-               zero_block   0x000d14    program     static C:\MCC18\v3_39\src\traditional\proc\p18F4520.asm
-                   loop_h   0x000d14    program     static C:\MCC18\v3_39\src\traditional\proc\p18F4520.asm
-                compare_l   0x000d1c    program     static C:\MCC18\v3_39\src\traditional\proc\p18F4520.asm
-                   loop_l   0x000d1e    program     static C:\MCC18\v3_39\src\traditional\proc\p18F4520.asm
-                 _startup   0x000d26    program     extern C:\MCC18\v3_39\src\traditional\startup\c018i.c
-                     loop   0x000d36    program     static                          
-       ___return_lbl00001   0x000d40    program     static                          
-                   __init   0x000d42    program     extern C:\MCC18\v3_39\src\traditional\stdclib\__init.c
+             calcCheckSum   0x000278    program     extern C:\Users\Ryan\Pacemaker\Microcontroller\Serial.c
+              validHeader   0x0002ea    program     extern C:\Users\Ryan\Pacemaker\Microcontroller\Serial.c
+                intToByte   0x00032a    program     extern C:\Users\Ryan\Pacemaker\Microcontroller\Serial.c
+           paramsToPacket   0x0003a0    program     extern C:\Users\Ryan\Pacemaker\Microcontroller\Serial.c
+             buffToPacket   0x00057e    program     extern C:\Users\Ryan\Pacemaker\Microcontroller\Serial.c
+               sendPacket   0x0007c4    program     extern C:\Users\Ryan\Pacemaker\Microcontroller\Serial.c
+                 sendChar   0x000952    program     extern C:\Users\Ryan\Pacemaker\Microcontroller\Serial.c
+            processFncode   0x0009ac    program     extern C:\Users\Ryan\Pacemaker\Microcontroller\Serial.c
+             intr_handler   0x000b34    program     extern C:\Users\Ryan\Pacemaker\Microcontroller\Main.c
+                     main   0x000ba2    program     extern C:\Users\Ryan\Pacemaker\Microcontroller\Main.c
+                _do_cinit   0x000e0e    program     extern C:\MCC18\v3_39\src\traditional\startup\c018i.c
+                     test   0x000e28    program     static                          
+                copy_loop   0x000e80    program     static                          
+            copy_one_byte   0x000e86    program     static                          
+             done_copying   0x000e94    program     static                          
+                     done   0x000eaa    program     static                          
+       ___return_lbl00002   0x000eaa    program     static                          
+            __zero_memory   0x000eac    program     extern C:\MCC18\v3_39\src\traditional\proc\p18F4520.asm
+                   loop_h   0x000eba    program     static C:\MCC18\v3_39\src\traditional\proc\p18F4520.asm
+               zero_block   0x000eba    program     static C:\MCC18\v3_39\src\traditional\proc\p18F4520.asm
+                compare_l   0x000ec2    program     static C:\MCC18\v3_39\src\traditional\proc\p18F4520.asm
+                   loop_l   0x000ec4    program     static C:\MCC18\v3_39\src\traditional\proc\p18F4520.asm
+                 _startup   0x000ecc    program     extern C:\MCC18\v3_39\src\traditional\startup\c018i.c
+                     loop   0x000edc    program     static                          
+       ___return_lbl00001   0x000ee6    program     static                          
+                   __init   0x000ee8    program     extern C:\MCC18\v3_39\src\traditional\stdclib\__init.c
                __config_0   0x300001    program     static C:\Users\Ryan\Pacemaker\Microcontroller\Main.c
                __config_1   0x300003    program     static C:\Users\Ryan\Pacemaker\Microcontroller\Main.c
                   __tmp_0   0x000000       data     static C:\Users\Ryan\Pacemaker\Microcontroller\Main.c
