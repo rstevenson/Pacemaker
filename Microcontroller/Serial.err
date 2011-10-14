@@ -1,1 +1,2 @@
-Error[yy] C:\Users\Ryan\Pacemaker\Microcontroller\ByteConversion.h 2 : syntax error
+Warning[2054] C:\Users\Ryan\Pacemaker\Microcontroller\Serial.c 146 : suspicious pointer conversion
+Warning[2054] C:\Users\Ryan\Pacemaker\Microcontroller\Serial.c 149 : suspicious pointer conversion

@@ -43,11 +43,11 @@ void setParams(struct params *p, struct packet pack)
 	p->p_pacingState = pack.Data[0];
 	p->p_pacingMode = pack.Data[1];
 	p->p_hysteresis = pack.Data[2];
-	p->p_hysteresisInterval=BytesToInt(pack.Data[3],pack.Data[4]);
-	p->p_lowrateInterval=BytesToInt(pack.Data[5],pack.Data[6]);
-	p->p_vPaceAmp=BytesToInt(pack.Data[7],pack.Data[8]);
-	p->p_10vPaceWidth=BytesToInt(pack.Data[9],pack.Data[10]);
-	p->p_VRP=BytesToInt(pack.Data[11],pack.Data[12]);		
+	p->p_hysteresisInterval=bytesToInt(pack.Data[3],pack.Data[4]);
+	p->p_lowrateInterval=bytesToInt(pack.Data[5],pack.Data[6]);
+	p->p_vPaceAmp=bytesToInt(pack.Data[7],pack.Data[8]);
+	p->p_10vPaceWidth=bytesToInt(pack.Data[9],pack.Data[10]);
+	p->p_VRP=bytesToInt(pack.Data[11],pack.Data[12]);		
 }
 
 char calcCheckSum(char data[13])// Calculates the checksum by XOR'ng all the data
