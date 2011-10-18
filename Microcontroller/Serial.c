@@ -7,10 +7,9 @@
 #include <p18cxxx.h>
 #include "ByteConversion.h"
 
-void initializeCom()
+void initComm()
 {
     SPBRG = (FOSC/(BAUD_RATE*4))-1; //calculates the SPGRG value for 16 bit BRG
-    //SPBRG = (FOSC/(BAUD_RATE*16))-1; //8 bit BRG
     /* Configure the pins for UART */
     TRISCbits.TRISC6 = 1;
     TRISCbits.TRISC7 = 1;
@@ -22,7 +21,7 @@ void initializeCom()
     /* Enable transmission (sending) */
     TXSTAbits.TXEN = 1;
 	TXSTAbits.BRGH = 1;
-	BAUDCONbits.BRG16 = 1; //0 if 8 BRG
+	BAUDCONbits.BRG16 = 1; //1 if 16 BRG
     /* Enable receiving */
     RCSTAbits.CREN = 1;
 
@@ -37,17 +36,17 @@ void initializeCom()
     PIE1bits.RCIE = 1;
 }
 
-void setParams(struct params *p, struct packet pack)
+void setParams(struct params *p, struct packet commIn)
 {
 	int temp;
-	p->p_pacingState = pack.Data[0];
-	p->p_pacingMode = pack.Data[1];
-	p->p_hysteresis = pack.Data[2];
-	p->p_hysteresisInterval=bytesToInt(pack.Data[3],pack.Data[4]);
-	p->p_lowrateInterval=bytesToInt(pack.Data[5],pack.Data[6]);
-	p->p_vPaceAmp=bytesToInt(pack.Data[7],pack.Data[8]);
-	p->p_10vPaceWidth=bytesToInt(pack.Data[9],pack.Data[10]);
-	p->p_VRP=bytesToInt(pack.Data[11],pack.Data[12]);		
+	p->p_pacingState = commIn.Data[0];
+	p->p_pacingMode = commIn.Data[1];
+	p->p_hysteresis = commIn.Data[2];
+	p->p_hysteresisInterval=bytesToInt(commIn.Data[3],commIn.Data[4]);
+	p->p_lowrateInterval=bytesToInt(commIn.Data[5],commIn.Data[6]);
+	p->p_vPaceAmp=bytesToInt(commIn.Data[7],commIn.Data[8]);
+	p->p_10vPaceWidth=bytesToInt(commIn.Data[9],commIn.Data[10]);
+	p->p_VRP=bytesToInt(commIn.Data[11],commIn.Data[12]);		
 }
 
 char calcCheckSum(char data[13])// Calculates the checksum by XOR'ng all the data
@@ -71,30 +70,30 @@ short validHeader(char fncode)// Checks to see if the header is valid as per req
 		return 0;
 }
 
-void paramsToPacket(struct params par, struct packet pack)
+void paramsToPacket(struct params par, struct packet commOut)
 {
 	int temp;
 	char *tByte;
-	pack.SYNC = k_sync;
-	pack.FnCode = k_pparams;
-	pack.Data[0] = par.p_pacingState;
-	pack.Data[1] = par.p_pacingMode;
-	pack.Data[2] = par.p_hysteresis;
+	commOut.SYNC = k_sync;
+	commOut.FnCode = k_pparams;
+	commOut.Data[0] = par.p_pacingState;
+	commOut.Data[1] = par.p_pacingMode;
+	commOut.Data[2] = par.p_hysteresis;
 	tByte=intToBytes(par.p_hysteresisInterval);
-	pack.Data[3] = tByte[0];
-	pack.Data[4] = tByte[1];
+	commOut.Data[3] = tByte[0];
+	commOut.Data[4] = tByte[1];
 	tByte=intToBytes(par.p_hysteresisInterval);
-	pack.Data[5] = tByte[0];
-	pack.Data[6] = tByte[1];
+	commOut.Data[5] = tByte[0];
+	commOut.Data[6] = tByte[1];
 	tByte=intToBytes(par.p_lowrateInterval);
-	pack.Data[7] = tByte[0];
-	pack.Data[8] = tByte[1];
+	commOut.Data[7] = tByte[0];
+	commOut.Data[8] = tByte[1];
 	tByte=intToBytes(par.p_vPaceAmp);
-	pack.Data[9] = tByte[0];
-	pack.Data[10] = tByte[1];
+	commOut.Data[9] = tByte[0];
+	commOut.Data[10] = tByte[1];
 	tByte=intToBytes(par.p_10vPaceWidth);
-	pack.Data[11] = tByte[0];
-	pack.Data[12] = tByte[1];
+	commOut.Data[11] = tByte[0];
+	commOut.Data[12] = tByte[1];
 }
 
 short buffToPacket(struct packet *commIn, struct buffer *buf)
@@ -122,11 +121,11 @@ short buffToPacket(struct packet *commIn, struct buffer *buf)
 			return 0;
 } 
 
-short sendPacket(struct packet commOut, struct buffer *tbuf)// puts the send packet together in a buffer
+void sendPacket(struct packet commOut, struct buffer *tbuf)// puts the send packet together in a buffer
 {
 	char _i;
 	BUF_ADD(*tbuf, commOut.SYNC);// inserts SYNC variable in first
-	BUF_ADD(*tbuf, commOut.FnCode);// inserts K_PPARAMS
+	BUF_ADD(*tbuf, commOut.FnCode);// inserts the FnCode
 	for (_i = 0; _i<13; _i++)// Inserts data 
 		BUF_ADD(*tbuf, commOut.Data[_i]);
 	BUF_ADD(*tbuf,calcCheckSum(commOut.Data));// inserts checksum

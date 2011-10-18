@@ -59,10 +59,10 @@ void intr_handler(void) {
 
 /* Main entrance */
 void main(void) {
-    initializeCom();
+    initComm();
     BUF_INIT(rcbuf);
     BUF_INIT(txbuf);
-    BUF_ADD(rcbuf, 0x16);
+    BUF_ADD(rcbuf, k_sync);
     BUF_ADD(rcbuf, k_echo);
     BUF_ADD(rcbuf, 0x55);
     BUF_ADD(rcbuf, 0x1F);
@@ -81,15 +81,15 @@ void main(void) {
 	opState = k_commState;
     while (1) {
 		if (opState == k_commState){
-//			 (BUF_LENGTH(rcbuf) = 16)//checks to see if the recieving buffer is full
-//	    	{
+			if (BUF_LEN(rcbuf) >= 16)//checks to see if the recieving buffer is full
+	    	{
 		   		if (buffToPacket (&i_CommIn,&rcbuf))	// if so it recieves the data from the buffer and puts into a package structure
 					processFncode(i_CommIn, &Parameters, &txbuf);
 		   		//	if (i_CommIn.FnCode == k_pparams)
 				//		setParams(&Parameters,i_CommIn);// sends the package it recieved back
 		   		else
 		   			sendChar(0x00,&txbuf);// if the buffer is not full, it sends back 0 to the DCM
-//			}
+			}
 		//	OSCCONbits.IDLEN = 1;
     	//	Sleep(); //makes the microcontroller sleep
 		}
