@@ -1,5 +1,5 @@
 MPLINK 4.40, Linker
-Linker Map File - Created Fri Oct 14 18:51:08 2011
+Linker Map File - Created Mon Oct 17 20:36:36 2011
 
                                  Section Info
                   Section       Type    Address   Location Size(Bytes)
@@ -14,17 +14,20 @@ Linker Map File - Created Fri Oct 14 18:51:08 2011
                     .code       code   0x000e66    program   0x000020
              _startup_scn       code   0x000e86    program   0x00001c
            .code___init.o       code   0x000ea2    program   0x000002
-        .romdata___init.o    romdata   0x000ea4    program   0x000000
-        .idata___init.o_i    romdata   0x000ea4    program   0x000000
-.romdata_ByteConversion.o    romdata   0x000ea4    program   0x000000
-.idata_ByteConversion.o_i    romdata   0x000ea4    program   0x000000
-        .romdata_Serial.o    romdata   0x000ea4    program   0x000000
-        .idata_Serial.o_i    romdata   0x000ea4    program   0x000000
-          .romdata_Main.o    romdata   0x000ea4    program   0x000000
-          .idata_Main.o_i    romdata   0x000ea4    program   0x000000
-            .code_c018i.o       code   0x000ea4    program   0x000000
-         .romdata_c018i.o    romdata   0x000ea4    program   0x000000
-         .idata_c018i.o_i    romdata   0x000ea4    program   0x000000
+              .code_Adc.o       code   0x000ea4    program   0x000002
+        .romdata___init.o    romdata   0x000ea6    program   0x000000
+        .idata___init.o_i    romdata   0x000ea6    program   0x000000
+           .romdata_Adc.o    romdata   0x000ea6    program   0x000000
+           .idata_Adc.o_i    romdata   0x000ea6    program   0x000000
+.romdata_ByteConversion.o    romdata   0x000ea6    program   0x000000
+.idata_ByteConversion.o_i    romdata   0x000ea6    program   0x000000
+        .romdata_Serial.o    romdata   0x000ea6    program   0x000000
+        .idata_Serial.o_i    romdata   0x000ea6    program   0x000000
+          .romdata_Main.o    romdata   0x000ea6    program   0x000000
+          .idata_Main.o_i    romdata   0x000ea6    program   0x000000
+            .code_c018i.o       code   0x000ea6    program   0x000000
+         .romdata_c018i.o    romdata   0x000ea6    program   0x000000
+         .idata_c018i.o_i    romdata   0x000ea6    program   0x000000
     .config_300001_Main.o    romdata   0x300001    program   0x000001
     .config_300003_Main.o    romdata   0x300003    program   0x000001
                  .tmpdata      udata   0x000000       data   0x000008
@@ -37,6 +40,8 @@ Linker Map File - Created Fri Oct 14 18:51:08 2011
           .idata_Serial.o      idata   0x0000ce       data   0x000000
   .udata_ByteConversion.o      udata   0x0000ce       data   0x000000
   .idata_ByteConversion.o      idata   0x0000ce       data   0x000000
+             .udata_Adc.o      udata   0x0000ce       data   0x000000
+             .idata_Adc.o      idata   0x0000ce       data   0x000000
           .udata___init.o      udata   0x0000ce       data   0x000000
           .idata___init.o      idata   0x0000ce       data   0x000000
                    .stack      udata   0x000500       data   0x000100
@@ -47,18 +52,18 @@ Linker Map File - Created Fri Oct 14 18:51:08 2011
                               Program Memory Usage 
                                Start         End      
                            ---------   ---------      
-                            0x000000    0x000ea3      
+                            0x000000    0x000ea5      
                             0x300001    0x300001      
                             0x300003    0x300003      
-            3750 out of 33048 program addresses used, program memory utilization is 11%
+            3752 out of 33048 program addresses used, program memory utilization is 11%
 
 
 
                               Symbols - Sorted by Name
                      Name    Address   Location    Storage File                     
                 ---------  ---------  ---------  --------- ---------                
-       ___return_lbl00000   0x00000c    program     static                          
        ___return_lbl00000   0x000004    program     static                          
+       ___return_lbl00000   0x00000c    program     static                          
        ___return_lbl00001   0x000ea0    program     static                          
        ___return_lbl00002   0x000e64    program     static                          
                __config_0   0x300001    program     static C:\Users\Ryan\Pacemaker\Microcontroller\Main.c
@@ -76,6 +81,7 @@ Linker Map File - Created Fri Oct 14 18:51:08 2011
             copy_one_byte   0x000e40    program     static                          
                      done   0x000e64    program     static                          
              done_copying   0x000e4e    program     static                          
+                  initADC   0x000ea4    program     extern C:\Users\Ryan\Pacemaker\Microcontroller\Adc.c
             initializeCom   0x00000e    program     extern C:\Users\Ryan\Pacemaker\Microcontroller\Serial.c
                intToBytes   0x000cda    program     extern C:\Users\Ryan\Pacemaker\Microcontroller\ByteConversion.c
                intr_entry   0x000008    program     extern C:\Users\Ryan\Pacemaker\Microcontroller\Main.c
@@ -336,6 +342,7 @@ Linker Map File - Created Fri Oct 14 18:51:08 2011
                      loop   0x000e96    program     static                          
        ___return_lbl00001   0x000ea0    program     static                          
                    __init   0x000ea2    program     extern C:\MCC18\v3_39\src\traditional\stdclib\__init.c
+                  initADC   0x000ea4    program     extern C:\Users\Ryan\Pacemaker\Microcontroller\Adc.c
                __config_0   0x300001    program     static C:\Users\Ryan\Pacemaker\Microcontroller\Main.c
                __config_1   0x300003    program     static C:\Users\Ryan\Pacemaker\Microcontroller\Main.c
                   __tmp_0   0x000000       data     static C:\Users\Ryan\Pacemaker\Microcontroller\Main.c
