@@ -63,7 +63,7 @@ void adc_init(void) {
 
 /* Read a number from A/D converter */
 unsigned int adc_get(void) {
-    unsigned int c      = 0;
+    unsigned int c= 0;
     char i;
 
     for (i = 0; i < 16; i++) {
@@ -71,9 +71,9 @@ unsigned int adc_get(void) {
         PORTCbits.SCK   = 0;
         PORTCbits.SCK   = 1;
         /* Shift buffer */
-        c               <<= 1;
+        c<<= 1;
         /* Read a bit and place it at the end of the buffer */
-        c               |= PORTCbits.SDI;
+        c|= PORTCbits.SDI;
     }
 
     return c;

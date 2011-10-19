@@ -1,7 +1,7 @@
 /* A simple cyclic buffer implementation */
 /* The size of such buffer is 2^5 = 32 */
 
-#define BUF_BITS 5
+#define BUF_BITS 4
 #define BUF_SIZE (1 << BUF_BITS)
 #define BUF_MASK (BUF_SIZE - 1)
 

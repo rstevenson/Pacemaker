@@ -9,6 +9,7 @@
 #include "Globals.h"
 #include "Buffer.h"
 #include "Serial.h"
+#include "Packet.h"
 
 /* Value of the SPBRG registor for the given baud rate */
 
@@ -81,17 +82,31 @@ void main(void) {
 	opState = k_commState;
     while (1) {
 		if (opState == k_commState){
-			if (BUF_LEN(rcbuf) >= 16)//checks to see if the recieving buffer is full
+			if (BUF_FULL(rcbuf))//checks to see if the recieving buffer is full
 	    	{
-		   		if (buffToPacket (&i_CommIn,&rcbuf))	// if so it recieves the data from the buffer and puts into a package structure
-					processFncode(i_CommIn, &Parameters, &txbuf);
-		   		//	if (i_CommIn.FnCode == k_pparams)
-				//		setParams(&Parameters,i_CommIn);// sends the package it recieved back
-		   		else
-		   			sendChar(0x00,&txbuf);// if the buffer is not full, it sends back 0 to the DCM
+		   		i_CommIn = receivePacket(rcbuf);	// if so it recieves the data from the buffer and puts into a package structure
+				if (!i_CommIn.SYNC == 0x00)
+					if (i_CommIn.FnCode == k_pparams)
+						Parameters = packetToParams(i_CommIn);
+					else if(i_CommIn.FnCode == k_echo)
+						sendPacket(paramsToPacket(Parameters),&txbuf);
+					else if(i_CommIn.FnCode == k_egram)
+					{
+					//	sendPacket(egramToPacket(egram),&txbuf);
+						opState = k_stream;
+					}
 			}
+		}
+		if(opState == k_stream){
+			i_CommIn = receivePacket(rcbuf);
+			if (!i_CommIn.SYNC == 0x00)
+				if(i_CommIn.FnCode == k_estop)
+					opState = k_commState;
+			//  else 
+			//		sendPacket(egramToPacket(egram),&txbuf); 
+		}				
+//			
 		//	OSCCONbits.IDLEN = 1;
     	//	Sleep(); //makes the microcontroller sleep
-		}
     }
 }

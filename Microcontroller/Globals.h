@@ -46,6 +46,7 @@ struct params
 #define k_estop 0x62
 #define k_pparams 0x55
 #define k_sync   0x16
+#define k_streamPeriod 4 //ms
 #define k_idle 0x00 //idle state
 #define k_commState 0x01 //communication state
-
+#define k_stream 0x02
