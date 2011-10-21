@@ -55,7 +55,7 @@ struct params packetToParams(struct packet commIn)
 	return temp;	
 }
 
-struct packet buffToPacket(struct buffer rbuf)
+struct packet buffToPacket(struct buffer *rbuf)
 
 // Recieves data from buffer and put it in the package structure 
 

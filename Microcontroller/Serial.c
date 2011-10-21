@@ -50,15 +50,15 @@ short validHeader(char fncode)// Checks to see if the header is valid as per req
 void sendPacket(struct packet commOut, struct buffer *tbuf)// puts the send packet together in a buffer
 {
 	char _i;
-	BUF_ADD(*tbuf, commOut.SYNC);// inserts SYNC variable in first
-	BUF_ADD(*tbuf, commOut.FnCode);// inserts the FnCode
+	BUF_ADD(tbuf, commOut.SYNC);// inserts SYNC variable in first
+	BUF_ADD(tbuf, commOut.FnCode);// inserts the FnCode
 	for (_i = 0; _i<13; _i++)// Inserts data 
-		BUF_ADD(*tbuf, commOut.Data[_i]);
-	BUF_ADD(*tbuf,commOut.ChkSum);// inserts checksum
+		BUF_ADD(tbuf, commOut.Data[_i]);
+	BUF_ADD(tbuf,commOut.ChkSum);// inserts checksum
 	PIE1bits.TXIE = 1;	//enables sending interrupt	
 }
 
-struct packet receivePacket(struct buffer rbuf)// takes receiving buffer and puts it in a packet
+struct packet receivePacket(struct buffer *rbuf)// takes receiving buffer and puts it in a packet
 {
 	struct packet temp;
 	char chk;
@@ -77,6 +77,6 @@ struct packet receivePacket(struct buffer rbuf)// takes receiving buffer and put
 
 short sendChar(char c, struct buffer *tbuf)
 {
-	BUF_ADD(*tbuf,c); //adds the char to the buffer
+	BUF_ADD(tbuf,c); //adds the char to the buffer
 	PIE1bits.TXIE = 1;	//enables sending interrupt	
 }
