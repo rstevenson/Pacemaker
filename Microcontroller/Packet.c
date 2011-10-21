@@ -14,7 +14,6 @@ char calcCheckSum(char data[13])// Calculates the checksum by XOR'ng all the dat
 
 struct packet paramsToPacket(struct params par)
 {
-	int temp;
 	struct packet commOut;
 	char *tByte;
 	commOut.SYNC = k_sync;
@@ -71,3 +70,21 @@ struct packet buffToPacket(struct buffer *rbuf)
 	    temp.ChkSum=BUF_GET(rbuf); // inserts the last byte into the checksum variable
 		return temp; //returns temp
 } 
+
+struct packet egramToPacket(char FnCode, int f_marker, int m_vraw)
+{
+	char *tByte;
+	char i;
+	struct packet commOut;
+	commOut.SYNC = k_sync;
+	commOut.FnCode = FnCode;
+	tByte=intToBytes(m_vraw);
+	commOut.Data[0] = tByte[0];
+	commOut.Data[1] = tByte[1];
+	tByte=intToBytes(f_marker);
+	commOut.Data[2] = tByte[0];
+	commOut.Data[3] = tByte[1];
+	for (i=4; i<13; i++)
+		commOut.Data[i] = 0;
+	return commOut;
+}	

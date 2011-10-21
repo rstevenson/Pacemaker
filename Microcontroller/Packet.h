@@ -16,9 +16,11 @@ struct packet paramsToPacket(struct params par);
 //return: struct packet
 struct packet buffToPacket(struct buffer *rbuf);
 
+struct packet egramToPacket(char FnCode, int f_marker, int m_vraw);
 //name: packetToParams
 //description: takes a packet and outputs the parameters
 //params: struct packet commIn - packet to get parameters from
 //return: struct params
 
 struct params packetToParams(struct packet commIn);
+
