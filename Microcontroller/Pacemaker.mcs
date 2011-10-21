@@ -2,7 +2,7 @@
 MagicCookie={0b13fe8c-dfe0-40eb-8900-6712719559a7}
 Version=1.0
 [File000]
-Location=C:\Users\Ryan\Pacemaker\Microcontroller\Main.o
+Location=C:\Pacemaker\Microcontroller\Main.o
 Folder=Intermediary
 DeviceName=PIC18F4520
 LanguageToolSuiteID={5B7D72DD-9861-47BD-9F60-2BE967BF8416}
@@ -15,7 +15,7 @@ ToolArgsString=-Ou- -Ot- -Ob- -Op- -Or- -Od- -Opa-
 TraceCmdString=
 DebugOptions=
 [File001]
-Location=C:\Users\Ryan\Pacemaker\Microcontroller\Serial.o
+Location=C:\Pacemaker\Microcontroller\Serial.o
 Folder=Intermediary
 DeviceName=PIC18F4520
 LanguageToolSuiteID={5B7D72DD-9861-47BD-9F60-2BE967BF8416}
@@ -28,7 +28,7 @@ ToolArgsString=-Ou- -Ot- -Ob- -Op- -Or- -Od- -Opa-
 TraceCmdString=
 DebugOptions=
 [File002]
-Location=C:\Users\Ryan\Pacemaker\Microcontroller\ByteConversion.o
+Location=C:\Pacemaker\Microcontroller\ByteConversion.o
 Folder=Intermediary
 DeviceName=PIC18F4520
 LanguageToolSuiteID={5B7D72DD-9861-47BD-9F60-2BE967BF8416}
@@ -41,7 +41,7 @@ ToolArgsString=-Ou- -Ot- -Ob- -Op- -Or- -Od- -Opa-
 TraceCmdString=
 DebugOptions=
 [File003]
-Location=C:\Users\Ryan\Pacemaker\Microcontroller\Adc.o
+Location=C:\Pacemaker\Microcontroller\Adc.o
 Folder=Intermediary
 DeviceName=PIC18F4520
 LanguageToolSuiteID={5B7D72DD-9861-47BD-9F60-2BE967BF8416}
@@ -54,7 +54,7 @@ ToolArgsString=-w3 -Ou- -Ot- -Ob- -Op- -Or- -Od- -Opa-
 TraceCmdString=
 DebugOptions=
 [File004]
-Location=C:\Users\Ryan\Pacemaker\Microcontroller\Packet.o
+Location=C:\Pacemaker\Microcontroller\Packet.o
 Folder=Intermediary
 DeviceName=PIC18F4520
 LanguageToolSuiteID={5B7D72DD-9861-47BD-9F60-2BE967BF8416}
@@ -67,7 +67,7 @@ ToolArgsString=-Ou- -Ot- -Ob- -Op- -Or- -Od- -Opa-
 TraceCmdString=
 DebugOptions=
 [File005]
-Location=C:\Users\Ryan\Pacemaker\Microcontroller\Buffer.o
+Location=C:\Pacemaker\Microcontroller\Buffer.o
 Folder=Intermediary
 DeviceName=PIC18F4520
 LanguageToolSuiteID={5B7D72DD-9861-47BD-9F60-2BE967BF8416}
@@ -80,7 +80,7 @@ ToolArgsString=-Ou- -Ot- -Ob- -Op- -Or- -Od- -Opa-
 TraceCmdString=
 DebugOptions=
 [File006]
-Location=C:\Users\Ryan\Pacemaker\Microcontroller\Pacemaker.cof
+Location=C:\Pacemaker\Microcontroller\Pacemaker.cof
 Folder=Output
 DeviceName=PIC18F4520
 LanguageToolSuiteID={5B7D72DD-9861-47BD-9F60-2BE967BF8416}
@@ -93,7 +93,7 @@ ToolArgsString=/o"$(BINDIR_)$(TARGETBASE).cof" /M"$(BINDIR_)$(TARGETBASE).map" /
 TraceCmdString=
 DebugOptions=
 [File007]
-Location=C:\Users\Ryan\Pacemaker\Microcontroller\Pacemaker.hex
+Location=C:\Pacemaker\Microcontroller\Pacemaker.hex
 Folder=Output
 DeviceName=PIC18F4520
 LanguageToolSuiteID={5B7D72DD-9861-47BD-9F60-2BE967BF8416}

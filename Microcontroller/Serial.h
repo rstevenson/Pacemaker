@@ -18,6 +18,8 @@ void sendPacket(struct packet commOut, struct buffer *tbuf);
 //return: if invalid data, sets the SYNC byte to 0x00
 struct packet receivePacket(struct buffer *rbuf);
 
+void sendSream(struct stream streamPackage, struct buffer *txbuf);
+
 //name: calcCheckSum
 //description: calculates the checksum
 //params: char data[13] - data bytes to calculate from

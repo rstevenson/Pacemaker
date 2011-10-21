@@ -14,6 +14,7 @@ char calcCheckSum(char data[13])// Calculates the checksum by XOR'ng all the dat
 
 struct packet paramsToPacket(struct params par)
 {
+	int temp;
 	struct packet commOut;
 	char *tByte;
 	commOut.SYNC = k_sync;
@@ -55,7 +56,6 @@ struct params packetToParams(struct packet commIn)
 }
 
 struct packet buffToPacket(struct buffer *rbuf)
-
 // Recieves data from buffer and put it in the package structure 
 
 {
@@ -71,20 +71,20 @@ struct packet buffToPacket(struct buffer *rbuf)
 		return temp; //returns temp
 } 
 
-struct packet egramToPacket(char FnCode, int f_marker, int m_vraw)
+//takes the inputted values of m_vraw and f_marker and puts them into and returns the values in a structure of type stream corrosponding to the referances in the requirements (5.2.4)
+
+struct stream egramToStream (int m_vrawValue, int f_markerValue)
+
 {
-	char *tByte;
-	char i;
-	struct packet commOut;
-	commOut.SYNC = k_sync;
-	commOut.FnCode = FnCode;
-	tByte=intToBytes(m_vraw);
-	commOut.Data[0] = tByte[0];
-	commOut.Data[1] = tByte[1];
-	tByte=intToBytes(f_marker);
-	commOut.Data[2] = tByte[0];
-	commOut.Data[3] = tByte[1];
-	for (i=4; i<13; i++)
-		commOut.Data[i] = 0;
-	return commOut;
-}	
+	char *temp;
+   struct stream streamPackage;
+    temp = intToBytes(m_vrawValue);// converts m_vraw into 2 bytes
+    streamPackage.streamArray [0]= temp[0];// puts the first byte of m_vraw into an array
+    streamPackage.streamArray [1]= temp[1];// puts the second byte of m_vraw into an array
+    temp= intToBytes(f_markerValue);// converts f_marker into 2 bytes
+	streamPackage.streamArray [2]= temp[0];// puts the first byte of f_marker into an array
+    streamPackage.streamArray [3]= temp[1];// puts the second byte of f_marker into an array
+   return  streamPackage;// returns the structure
+    	
+  
+} 
