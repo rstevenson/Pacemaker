@@ -14,12 +14,25 @@ char BUF_GET(struct buffer *buf) {
 }
 
 int BUF_LENGTH(struct buffer *buf) {
+<<<<<<< HEAD
 char length;
 	if (buf->head <= buf->tail) {
 		length = (buf->tail) - (buf->head);
 	}else if (buf->tail < buf->head) {
 		length = e_BUF_SIZE - ((buf->head) % (buf->tail));
 	}
+=======
+	int length;
+	if (buf->head < buf->tail) {
+		length = (buf->tail) - (buf->head);
+	}
+	if (buf->tail < buf->head) {
+		length = e_BUF_SIZE - ((buf->head) % (buf->tail));
+	}
+	if (buf->tail = buf->head) {
+		length = 0;
+	}
+>>>>>>> origin/master
 	return length;
 }
 
