@@ -9,30 +9,18 @@
 
 
 /* Initialize Timer0 */
-void timer0_init(void) {
-    /* Clock periods needed to get the time interval */
-    unsigned long i     = (float)FOSC * TIMER0 / 1000000;
+void timer1_init(void) {
+ 
+   T1CON               = 0b11110001;
 
-    /* TMR0ON T08BIT T0CS T0SE PSA T0PS2 T0PS1 T0PS0 */
-    T0CON               = 0b10000000;
-
-    /* Set prescaler */
-    if (i >> 16) {
-        for (i >>= 1; i >> 16; i >>= 1, T0CON++);
-    } else {
-        T0CON |= 8;
-    }
-
-    /* Set TMR0 = 65536 - i, so after i periods, an interrupt will
-       fire up */
-    i                   = (0xFFFF ^ i) + 1;
-    TMR0H               =  i >> 8;
-    TMR0L               = i & 0xFF;
+    /* Set TMR1 to fire an interrupt up after 500 cycles */ 
+    TMR1H               = 0xFE;
+    TMR1L               = 0x0B;
 
     /* Clear TMR0IF flag */
-    INTCONbits.TMR0IF   = 0;
-    /* Enable Timer0 interrupt */
-    INTCONbits.TMR0IE   = 1;
+     PIR1bits.TMR1IF   = PIE1;
+    /* Enable Timer1 interrupt */
+    PIE1bits.TMR1IE   = PIR1;
 }
 
 /* Initialize ventricle sense */
@@ -99,13 +87,13 @@ void adc_stop(void) {
 
 
 /* Timer0 event handler */
-void on_timer0(void) {
+void on_timer1(void) {
     char                buf[6];
     unsigned int        d;
     float               v;
 
     /* Reset Timer0 */
-    timer0_init();
+    timer1_init();
     
     /* Start conversation with A/D converter */
     adc_start();

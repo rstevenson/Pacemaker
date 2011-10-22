@@ -42,19 +42,18 @@ void intr_entry(void) {
 /* Interrupt handler function */
 #pragma interrupt intr_handler
 void intr_handler(void) {
-<<<<<<< HEAD
 
    // Checks to see if the timer interrupt has been fired.
-     if(INTCONbits.TMR0IF==1)
+     if(PIR1bits.TMR1IF == 1)
 		{
-			sendSream(egramToStream (2, 5),&txbuf);// sends a egram package with 4 bytes containing random values of m_vraw and f_marker for testing purposes.
+			sendSream(egramToPacket (1, 2, 5),&txbuf);  // sends a egram package with 4 bytes containing random values of m_vraw and f_marker for testing purposes.
 		}
 			
 			
     /* If the microcontroller received a byte */ 
-=======
+
     /* If the microcontroller received a byte */
->>>>>>> origin/master
+
     if (PIR1bits.RCIF) {
 	/* Add the byte into receiving buffer */
 		BUF_ADD(&rcbuf, RCREG);

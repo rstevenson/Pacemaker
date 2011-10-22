@@ -1,13 +1,5 @@
 MPLINK 4.40, Linker
-<<<<<<< HEAD
-Linker Map File - Created Sat Oct 22 15:35:27 2011
-=======
-<<<<<<< HEAD
-Linker Map File - Created Sat Oct 22 15:54:27 2011
-=======
-Linker Map File - Created Sat Oct 22 00:39:13 2011
->>>>>>> origin/master
->>>>>>> origin/master
+Linker Map File - Created Sat Oct 22 16:47:31 2011
 
                                  Section Info
                   Section       Type    Address   Location Size(Bytes)
@@ -15,151 +7,60 @@ Linker Map File - Created Sat Oct 22 00:39:13 2011
                _entry_scn       code   0x000000    program   0x000006
                    .cinit    romdata   0x000006    program   0x000002
              intr_section       code   0x000008    program   0x000006
-<<<<<<< HEAD
-           .code_Packet.o       code   0x00000e    program   0x0006be
-             .code_Main.o       code   0x0006cc    program   0x00053a
-           .code_Serial.o       code   0x000c06    program   0x000414
-              .code_Adc.o       code   0x00101a    program   0x0003b0
-                     PROG       code   0x0013ca    program   0x0002ea
-           .code_Buffer.o       code   0x0016b4    program   0x00022e
-   .code_ByteConversion.o       code   0x0018e2    program   0x0000ee
-               _cinit_scn       code   0x0019d0    program   0x00009e
-                    .code       code   0x001a6e    program   0x000020
-             _startup_scn       code   0x001a8e    program   0x00001c
-         .code_fxd0808u.o       code   0x001aaa    program   0x00001c
-           .code___init.o       code   0x001ac6    program   0x000002
-        .romdata_Packet.o    romdata   0x001ac8    program   0x000000
-        .idata_Buffer.o_i    romdata   0x001ac8    program   0x000000
-        .romdata_Buffer.o    romdata   0x001ac8    program   0x000000
-      .idata_fxd0808u.o_i    romdata   0x001ac8    program   0x000000
-      .romdata_fxd0808u.o    romdata   0x001ac8    program   0x000000
-        .idata___init.o_i    romdata   0x001ac8    program   0x000000
-        .romdata___init.o    romdata   0x001ac8    program   0x000000
-        .idata_Packet.o_i    romdata   0x001ac8    program   0x000000
-           .romdata_Adc.o    romdata   0x001ac8    program   0x000000
-           .idata_Adc.o_i    romdata   0x001ac8    program   0x000000
-.romdata_ByteConversion.o    romdata   0x001ac8    program   0x000000
-.idata_ByteConversion.o_i    romdata   0x001ac8    program   0x000000
-        .romdata_Serial.o    romdata   0x001ac8    program   0x000000
-        .idata_Serial.o_i    romdata   0x001ac8    program   0x000000
-          .romdata_Main.o    romdata   0x001ac8    program   0x000000
-          .idata_Main.o_i    romdata   0x001ac8    program   0x000000
-            .code_c018i.o       code   0x001ac8    program   0x000000
-         .romdata_c018i.o    romdata   0x001ac8    program   0x000000
-         .idata_c018i.o_i    romdata   0x001ac8    program   0x000000
-=======
-<<<<<<< HEAD
            .code_Packet.o       code   0x00000e    program   0x00079c
-             .code_Main.o       code   0x0007aa    program   0x0005e2
-           .code_Serial.o       code   0x000d8c    program   0x000414
-              .code_Adc.o       code   0x0011a0    program   0x0003b0
-                     PROG       code   0x001550    program   0x0002ea
-           .code_Buffer.o       code   0x00183a    program   0x0002be
-   .code_ByteConversion.o       code   0x001af8    program   0x00011c
-               _cinit_scn       code   0x001c14    program   0x00009e
-                    .code       code   0x001cb2    program   0x000020
-             _startup_scn       code   0x001cd2    program   0x00001c
-         .code_fxd0808u.o       code   0x001cee    program   0x00001c
-           .code___init.o       code   0x001d0a    program   0x000002
-        .romdata_Packet.o    romdata   0x001d0c    program   0x000000
-        .idata_Buffer.o_i    romdata   0x001d0c    program   0x000000
-        .romdata_Buffer.o    romdata   0x001d0c    program   0x000000
-      .idata_fxd0808u.o_i    romdata   0x001d0c    program   0x000000
-      .romdata_fxd0808u.o    romdata   0x001d0c    program   0x000000
-        .idata___init.o_i    romdata   0x001d0c    program   0x000000
-        .romdata___init.o    romdata   0x001d0c    program   0x000000
-        .idata_Packet.o_i    romdata   0x001d0c    program   0x000000
-           .romdata_Adc.o    romdata   0x001d0c    program   0x000000
-           .idata_Adc.o_i    romdata   0x001d0c    program   0x000000
-.romdata_ByteConversion.o    romdata   0x001d0c    program   0x000000
-.idata_ByteConversion.o_i    romdata   0x001d0c    program   0x000000
-        .romdata_Serial.o    romdata   0x001d0c    program   0x000000
-        .idata_Serial.o_i    romdata   0x001d0c    program   0x000000
-          .romdata_Main.o    romdata   0x001d0c    program   0x000000
-          .idata_Main.o_i    romdata   0x001d0c    program   0x000000
-            .code_c018i.o       code   0x001d0c    program   0x000000
-         .romdata_c018i.o    romdata   0x001d0c    program   0x000000
-         .idata_c018i.o_i    romdata   0x001d0c    program   0x000000
-=======
-           .code___init.o       code   0x00000e    program   0x000002
-        .romdata___init.o    romdata   0x000010    program   0x000000
-        .idata___init.o_i    romdata   0x000010    program   0x000000
-      .romdata_fxd0808u.o    romdata   0x000010    program   0x000000
-      .idata_fxd0808u.o_i    romdata   0x000010    program   0x000000
-        .romdata_Buffer.o    romdata   0x000010    program   0x000000
-        .idata_Buffer.o_i    romdata   0x000010    program   0x000000
-        .romdata_Packet.o    romdata   0x000010    program   0x000000
-        .idata_Packet.o_i    romdata   0x000010    program   0x000000
-           .romdata_Adc.o    romdata   0x000010    program   0x000000
-           .idata_Adc.o_i    romdata   0x000010    program   0x000000
-.romdata_ByteConversion.o    romdata   0x000010    program   0x000000
-.idata_ByteConversion.o_i    romdata   0x000010    program   0x000000
-         .idata_c018i.o_i    romdata   0x000010    program   0x000000
-         .romdata_c018i.o    romdata   0x000010    program   0x000000
-            .code_c018i.o       code   0x000010    program   0x000000
-          .idata_Main.o_i    romdata   0x000010    program   0x000000
-          .romdata_Main.o    romdata   0x000010    program   0x000000
-        .idata_Serial.o_i    romdata   0x000010    program   0x000000
-        .romdata_Serial.o    romdata   0x000010    program   0x000000
-            low_interrupt       code   0x000018    program   0x000006
-           .code_Packet.o       code   0x00001e    program   0x00079c
-             .code_Main.o       code   0x0007ba    program   0x0004fc
-           .code_Serial.o       code   0x000cb6    program   0x000414
-              .code_Adc.o       code   0x0010ca    program   0x0003b0
-           .code_Buffer.o       code   0x00147a    program   0x000334
-                     PROG       code   0x0017ae    program   0x0002ea
-   .code_ByteConversion.o       code   0x001a98    program   0x0000ee
-               _cinit_scn       code   0x001b86    program   0x00009e
-                    .code       code   0x001c24    program   0x000020
-             _startup_scn       code   0x001c44    program   0x00001c
-         .code_fxd0808u.o       code   0x001c60    program   0x00001c
->>>>>>> origin/master
->>>>>>> origin/master
+             .code_Main.o       code   0x0007aa    program   0x00069a
+           .code_Serial.o       code   0x000e44    program   0x000414
+           .code_Buffer.o       code   0x001258    program   0x0003ea
+                     PROG       code   0x001642    program   0x0002ea
+              .code_Adc.o       code   0x00192c    program   0x000278
+   .code_ByteConversion.o       code   0x001ba4    program   0x00011c
+               _cinit_scn       code   0x001cc0    program   0x00009e
+                    .code       code   0x001d5e    program   0x000020
+             _startup_scn       code   0x001d7e    program   0x00001c
+         .code_fxd0808u.o       code   0x001d9a    program   0x00001c
+           .code___init.o       code   0x001db6    program   0x000002
+        .romdata_Packet.o    romdata   0x001db8    program   0x000000
+        .idata_Buffer.o_i    romdata   0x001db8    program   0x000000
+        .romdata_Buffer.o    romdata   0x001db8    program   0x000000
+      .idata_fxd0808u.o_i    romdata   0x001db8    program   0x000000
+      .romdata_fxd0808u.o    romdata   0x001db8    program   0x000000
+        .idata___init.o_i    romdata   0x001db8    program   0x000000
+        .romdata___init.o    romdata   0x001db8    program   0x000000
+        .idata_Packet.o_i    romdata   0x001db8    program   0x000000
+           .romdata_Adc.o    romdata   0x001db8    program   0x000000
+           .idata_Adc.o_i    romdata   0x001db8    program   0x000000
+.romdata_ByteConversion.o    romdata   0x001db8    program   0x000000
+.idata_ByteConversion.o_i    romdata   0x001db8    program   0x000000
+        .romdata_Serial.o    romdata   0x001db8    program   0x000000
+        .idata_Serial.o_i    romdata   0x001db8    program   0x000000
+          .romdata_Main.o    romdata   0x001db8    program   0x000000
+          .idata_Main.o_i    romdata   0x001db8    program   0x000000
+            .code_c018i.o       code   0x001db8    program   0x000000
+         .romdata_c018i.o    romdata   0x001db8    program   0x000000
+         .idata_c018i.o_i    romdata   0x001db8    program   0x000000
     .config_300001_Main.o    romdata   0x300001    program   0x000001
     .config_300003_Main.o    romdata   0x300003    program   0x000001
                 MATH_DATA      udata   0x000000       data   0x000014
-                 .tmpdata      udata   0x000014       data   0x000012
-<<<<<<< HEAD
-         intr_handler_tmp      udata   0x000026       data   0x000005
-            .udata_Main.o      udata   0x000080       data   0x00004a
-           .udata_c018i.o      udata   0x0000ca       data   0x00000a
-          .idata___init.o      idata   0x0000d4       data   0x000000
-          .udata___init.o      udata   0x0000d4       data   0x000000
-        .idata_fxd0808u.o      idata   0x0000d4       data   0x000000
-        .udata_fxd0808u.o      udata   0x0000d4       data   0x000000
-          .idata_Buffer.o      idata   0x0000d4       data   0x000000
-          .udata_Buffer.o      udata   0x0000d4       data   0x000000
-          .idata_Packet.o      idata   0x0000d4       data   0x000000
-          .udata_Packet.o      udata   0x0000d4       data   0x000000
-             .idata_Adc.o      idata   0x0000d4       data   0x000000
-             .udata_Adc.o      udata   0x0000d4       data   0x000000
-  .idata_ByteConversion.o      idata   0x0000d4       data   0x000000
-  .udata_ByteConversion.o      udata   0x0000d4       data   0x000000
-          .idata_Serial.o      idata   0x0000d4       data   0x000000
-          .udata_Serial.o      udata   0x0000d4       data   0x000000
-            .idata_Main.o      idata   0x0000d4       data   0x000000
-           .idata_c018i.o      idata   0x0000d4       data   0x000000
-=======
-         intr_handler_tmp      udata   0x000026       data   0x000002
-            .udata_Main.o      udata   0x000080       data   0x000064
-           .udata_c018i.o      udata   0x0000e4       data   0x00000a
-          .idata___init.o      idata   0x0000ee       data   0x000000
-          .udata___init.o      udata   0x0000ee       data   0x000000
-        .idata_fxd0808u.o      idata   0x0000ee       data   0x000000
-        .udata_fxd0808u.o      udata   0x0000ee       data   0x000000
-          .idata_Buffer.o      idata   0x0000ee       data   0x000000
-          .udata_Buffer.o      udata   0x0000ee       data   0x000000
-          .idata_Packet.o      idata   0x0000ee       data   0x000000
-          .udata_Packet.o      udata   0x0000ee       data   0x000000
-             .idata_Adc.o      idata   0x0000ee       data   0x000000
-             .udata_Adc.o      udata   0x0000ee       data   0x000000
-  .idata_ByteConversion.o      idata   0x0000ee       data   0x000000
-  .udata_ByteConversion.o      udata   0x0000ee       data   0x000000
-          .idata_Serial.o      idata   0x0000ee       data   0x000000
-          .udata_Serial.o      udata   0x0000ee       data   0x000000
-            .idata_Main.o      idata   0x0000ee       data   0x000000
-           .idata_c018i.o      idata   0x0000ee       data   0x000000
->>>>>>> origin/master
+         intr_handler_tmp      udata   0x000014       data   0x000012
+                 .tmpdata      udata   0x000026       data   0x000012
+            .udata_Main.o      udata   0x000080       data   0x000068
+           .udata_c018i.o      udata   0x0000e8       data   0x00000a
+          .idata___init.o      idata   0x0000f2       data   0x000000
+          .udata___init.o      udata   0x0000f2       data   0x000000
+        .idata_fxd0808u.o      idata   0x0000f2       data   0x000000
+        .udata_fxd0808u.o      udata   0x0000f2       data   0x000000
+          .idata_Buffer.o      idata   0x0000f2       data   0x000000
+          .udata_Buffer.o      udata   0x0000f2       data   0x000000
+          .idata_Packet.o      idata   0x0000f2       data   0x000000
+          .udata_Packet.o      udata   0x0000f2       data   0x000000
+             .idata_Adc.o      idata   0x0000f2       data   0x000000
+             .udata_Adc.o      udata   0x0000f2       data   0x000000
+  .idata_ByteConversion.o      idata   0x0000f2       data   0x000000
+  .udata_ByteConversion.o      udata   0x0000f2       data   0x000000
+          .idata_Serial.o      idata   0x0000f2       data   0x000000
+          .udata_Serial.o      udata   0x0000f2       data   0x000000
+            .idata_Main.o      idata   0x0000f2       data   0x000000
+           .idata_c018i.o      idata   0x0000f2       data   0x000000
                    .stack      udata   0x000500       data   0x000100
             SFR_UNBANKED0      udata   0x000f80       data   0x000080
 
@@ -168,343 +69,117 @@ Linker Map File - Created Sat Oct 22 00:39:13 2011
                               Program Memory Usage 
                                Start         End      
                            ---------   ---------      
-<<<<<<< HEAD
-                            0x000000    0x001ac7      
+                            0x000000    0x001db7      
                             0x300001    0x300001      
                             0x300003    0x300003      
-            6858 out of 33048 program addresses used, program memory utilization is 20%
-=======
-<<<<<<< HEAD
-                            0x000000    0x001d0b      
-                            0x300001    0x300001      
-                            0x300003    0x300003      
-            7438 out of 33048 program addresses used, program memory utilization is 22%
-=======
-                            0x000000    0x00000f      
-                            0x000018    0x001c7b      
-                            0x300001    0x300001      
-                            0x300003    0x300003      
-            7286 out of 33048 program addresses used, program memory utilization is 22%
->>>>>>> origin/master
->>>>>>> origin/master
+            7610 out of 33048 program addresses used, program memory utilization is 23%
 
 
 
                               Symbols - Sorted by Name
                      Name    Address   Location    Storage File                     
                 ---------  ---------  ---------  --------- ---------                
-<<<<<<< HEAD
-                  BUF_ADD   0x001854    program     extern C:\Pacemaker\Microcontroller\Buffer.c
-                BUF_EMPTY   0x0017bc    program     extern C:\Pacemaker\Microcontroller\Buffer.c
-                 BUF_FULL   0x001800    program     extern C:\Pacemaker\Microcontroller\Buffer.c
-                  BUF_GET   0x0016e4    program     extern C:\Pacemaker\Microcontroller\Buffer.c
-                 BUF_INIT   0x0016b4    program     extern C:\Pacemaker\Microcontroller\Buffer.c
-               BUF_LENGTH   0x001772    program     extern C:\Pacemaker\Microcontroller\Buffer.c
-                 BUF_SIZE   0x0017a4    program     extern C:\Pacemaker\Microcontroller\Buffer.c
-                   D0808S   0x00158a    program     static C:\MCC18\v3_39\src\traditional\math\fxd0808s.asm
-                D0808SNEG   0x001598    program     static C:\MCC18\v3_39\src\traditional\math\fxd0808s.asm
-                 D0808SOK   0x001594    program     static C:\MCC18\v3_39\src\traditional\math\fxd0808s.asm
-                  D0808SX   0x00159e    program     static C:\MCC18\v3_39\src\traditional\math\fxd0808s.asm
-                  DA0808S   0x001580    program     static C:\MCC18\v3_39\src\traditional\math\fxd0808s.asm
-                 FLO1632S   0x0013ce    program     extern C:\MCC18\v3_39\src\traditional\math\cast16FP.asm
-                 FLO1632U   0x0013ca    program     extern C:\MCC18\v3_39\src\traditional\math\cast16FP.asm
-                    FPD32   0x0013f4    program     extern C:\MCC18\v3_39\src\traditional\math\divFP.asm
-                    FPM32   0x00149a    program     extern C:\MCC18\v3_39\src\traditional\math\mulFP.asm
-                 FXD0808S   0x001574    program     extern C:\MCC18\v3_39\src\traditional\math\fxd0808s.asm
-                 FXD0808U   0x001aaa    program     extern C:\MCC18\v3_39\src\traditional\math\fxd0808u.c
-                 __FpExit   0x0015b4    program     extern C:\MCC18\v3_39\src\traditional\math\packFP.asm
-                 __FpPack   0x0015e0    program     extern C:\MCC18\v3_39\src\traditional\math\packFP.asm
-            __FpReturnNaN   0x0015a8    program     extern C:\MCC18\v3_39\src\traditional\math\packFP.asm
-         __FpReturnNegInf   0x0015ba    program     extern C:\MCC18\v3_39\src\traditional\math\packFP.asm
-        __FpReturnNegZero   0x0015d2    program     extern C:\MCC18\v3_39\src\traditional\math\packFP.asm
-         __FpReturnPosInf   0x0015c0    program     extern C:\MCC18\v3_39\src\traditional\math\packFP.asm
-        __FpReturnPosZero   0x0015da    program     extern C:\MCC18\v3_39\src\traditional\math\packFP.asm
-        __FpReturnSignInf   0x0015b6    program     extern C:\MCC18\v3_39\src\traditional\math\packFP.asm
-       __FpReturnSignZero   0x0015ce    program     extern C:\MCC18\v3_39\src\traditional\math\packFP.asm
-              __FpReturnW   0x001638    program     extern C:\MCC18\v3_39\src\traditional\math\packFP.asm
-              __FpUnPackA   0x001658    program     extern C:\MCC18\v3_39\src\traditional\math\UnpackFP.asm
-              __FpUnPackB   0x001688    program     extern C:\MCC18\v3_39\src\traditional\math\UnpackFP.asm
-       ___return_lbl00000   0x001ac4    program     static                          
+                  BUF_ADD   0x0015c2    program     extern C:\Pacemaker1\Microcontroller\Buffer.c
+                BUF_EMPTY   0x001538    program     extern C:\Pacemaker1\Microcontroller\Buffer.c
+                 BUF_FULL   0x00157c    program     extern C:\Pacemaker1\Microcontroller\Buffer.c
+                  BUF_GET   0x001288    program     extern C:\Pacemaker1\Microcontroller\Buffer.c
+                 BUF_INIT   0x001258    program     extern C:\Pacemaker1\Microcontroller\Buffer.c
+               BUF_LENGTH   0x001308    program     extern C:\Pacemaker1\Microcontroller\Buffer.c
+                 BUF_SIZE   0x001520    program     extern C:\Pacemaker1\Microcontroller\Buffer.c
+                   D0808S   0x001802    program     static C:\MCC18\v3_39\src\traditional\math\fxd0808s.asm
+                D0808SNEG   0x001810    program     static C:\MCC18\v3_39\src\traditional\math\fxd0808s.asm
+                 D0808SOK   0x00180c    program     static C:\MCC18\v3_39\src\traditional\math\fxd0808s.asm
+                  D0808SX   0x001816    program     static C:\MCC18\v3_39\src\traditional\math\fxd0808s.asm
+                  DA0808S   0x0017f8    program     static C:\MCC18\v3_39\src\traditional\math\fxd0808s.asm
+                 FLO1632S   0x001646    program     extern C:\MCC18\v3_39\src\traditional\math\cast16FP.asm
+                 FLO1632U   0x001642    program     extern C:\MCC18\v3_39\src\traditional\math\cast16FP.asm
+                    FPD32   0x00166c    program     extern C:\MCC18\v3_39\src\traditional\math\divFP.asm
+                    FPM32   0x001712    program     extern C:\MCC18\v3_39\src\traditional\math\mulFP.asm
+                 FXD0808S   0x0017ec    program     extern C:\MCC18\v3_39\src\traditional\math\fxd0808s.asm
+                 FXD0808U   0x001d9a    program     extern C:\MCC18\v3_39\src\traditional\math\fxd0808u.c
+                 __FpExit   0x00182c    program     extern C:\MCC18\v3_39\src\traditional\math\packFP.asm
+                 __FpPack   0x001858    program     extern C:\MCC18\v3_39\src\traditional\math\packFP.asm
+            __FpReturnNaN   0x001820    program     extern C:\MCC18\v3_39\src\traditional\math\packFP.asm
+         __FpReturnNegInf   0x001832    program     extern C:\MCC18\v3_39\src\traditional\math\packFP.asm
+        __FpReturnNegZero   0x00184a    program     extern C:\MCC18\v3_39\src\traditional\math\packFP.asm
+         __FpReturnPosInf   0x001838    program     extern C:\MCC18\v3_39\src\traditional\math\packFP.asm
+        __FpReturnPosZero   0x001852    program     extern C:\MCC18\v3_39\src\traditional\math\packFP.asm
+        __FpReturnSignInf   0x00182e    program     extern C:\MCC18\v3_39\src\traditional\math\packFP.asm
+       __FpReturnSignZero   0x001846    program     extern C:\MCC18\v3_39\src\traditional\math\packFP.asm
+              __FpReturnW   0x0018b0    program     extern C:\MCC18\v3_39\src\traditional\math\packFP.asm
+              __FpUnPackA   0x0018d0    program     extern C:\MCC18\v3_39\src\traditional\math\UnpackFP.asm
+              __FpUnPackB   0x001900    program     extern C:\MCC18\v3_39\src\traditional\math\UnpackFP.asm
+       ___return_lbl00000   0x001db4    program     static                          
        ___return_lbl00000   0x00000c    program     static                          
        ___return_lbl00000   0x000004    program     static                          
-       ___return_lbl00001   0x001aa8    program     static                          
-       ___return_lbl00002   0x001a6c    program     static                          
-               __config_0   0x300001    program     static C:\Pacemaker\Microcontroller\Main.c
-               __config_1   0x300003    program     static C:\Pacemaker\Microcontroller\Main.c
-                   __init   0x001ac6    program     extern C:\MCC18\v3_39\src\traditional\stdclib\__init.c
-            __zero_memory   0x001a6e    program     extern C:\MCC18\v3_39\src\traditional\proc\p18F4520.asm
-                _do_cinit   0x0019d0    program     extern C:\MCC18\v3_39\src\traditional\startup\c018i.c
+       ___return_lbl00001   0x001d98    program     static                          
+       ___return_lbl00002   0x001d5c    program     static                          
+               __config_0   0x300001    program     static C:\Pacemaker1\Microcontroller\Main.c
+               __config_1   0x300003    program     static C:\Pacemaker1\Microcontroller\Main.c
+                   __init   0x001db6    program     extern C:\MCC18\v3_39\src\traditional\stdclib\__init.c
+            __zero_memory   0x001d5e    program     extern C:\MCC18\v3_39\src\traditional\proc\p18F4520.asm
+                _do_cinit   0x001cc0    program     extern C:\MCC18\v3_39\src\traditional\startup\c018i.c
                    _entry   0x000000    program     extern C:\MCC18\v3_39\src\traditional\startup\c018i.c
-                 _startup   0x001a8e    program     extern C:\MCC18\v3_39\src\traditional\startup\c018i.c
-                  adc_get   0x00118a    program     extern C:\Pacemaker\Microcontroller\Adc.c
-                 adc_init   0x001178    program     extern C:\Pacemaker\Microcontroller\Adc.c
-                adc_start   0x001204    program     extern C:\Pacemaker\Microcontroller\Adc.c
-                 adc_stop   0x001212    program     extern C:\Pacemaker\Microcontroller\Adc.c
-             buffToPacket   0x00049e    program     extern C:\Pacemaker\Microcontroller\Packet.c
-               bytesToInt   0x001958    program     extern C:\Pacemaker\Microcontroller\ByteConversion.c
-             calcCheckSum   0x00000e    program     extern C:\Pacemaker\Microcontroller\Packet.c
-                compare_l   0x001a84    program     static C:\MCC18\v3_39\src\traditional\proc\p18F4520.asm
-                copy_loop   0x001a42    program     static                          
-            copy_one_byte   0x001a48    program     static                          
-                     done   0x001a6c    program     static                          
-             done_copying   0x001a56    program     static                          
-            egramToStream   0x000602    program     extern C:\Pacemaker\Microcontroller\Packet.c
-                  endloop   0x001ac0    program     static                          
-                 initComm   0x000c06    program     extern C:\Pacemaker\Microcontroller\Serial.c
-               intToBytes   0x0018e2    program     extern C:\Pacemaker\Microcontroller\ByteConversion.c
-               intr_entry   0x000008    program     extern C:\Pacemaker\Microcontroller\Main.c
-             intr_handler   0x0006cc    program     extern C:\Pacemaker\Microcontroller\Main.c
-                 jANotInf   0x001412    program     static C:\MCC18\v3_39\src\traditional\math\divFP.asm
-                 jANotInf   0x0014b8    program     static C:\MCC18\v3_39\src\traditional\math\mulFP.asm
-                jANotZero   0x001426    program     static C:\MCC18\v3_39\src\traditional\math\divFP.asm
-              jBothFinite   0x0014c6    program     static C:\MCC18\v3_39\src\traditional\math\mulFP.asm
-             jBothNotZero   0x0014d2    program     static C:\MCC18\v3_39\src\traditional\math\mulFP.asm
-                jHaveZero   0x0014ce    program     static C:\MCC18\v3_39\src\traditional\math\mulFP.asm
-                jI2F16Beg   0x0013de    program     static C:\MCC18\v3_39\src\traditional\math\cast16FP.asm
-                    jLoop   0x00144e    program     static C:\MCC18\v3_39\src\traditional\math\divFP.asm
-                    jNext   0x001474    program     static C:\MCC18\v3_39\src\traditional\math\divFP.asm
-                jNoAdjust   0x001472    program     static C:\MCC18\v3_39\src\traditional\math\divFP.asm
-                  jPkLoop   0x0015ee    program     static C:\MCC18\v3_39\src\traditional\math\packFP.asm
-             jPkRoundDone   0x001638    program     static C:\MCC18\v3_39\src\traditional\math\packFP.asm
-               jPkRoundIt   0x001620    program     static C:\MCC18\v3_39\src\traditional\math\packFP.asm
-             jPkShiftDone   0x00160a    program     static C:\MCC18\v3_39\src\traditional\math\packFP.asm
-           jReturnPosInf0   0x0015c4    program     static C:\MCC18\v3_39\src\traditional\math\packFP.asm
-              jSignedZero   0x00141c    program     static C:\MCC18\v3_39\src\traditional\math\divFP.asm
-                  jUnpkA1   0x001662    program     static C:\MCC18\v3_39\src\traditional\math\UnpackFP.asm
-                  jUnpkA2   0x00167a    program     static C:\MCC18\v3_39\src\traditional\math\UnpackFP.asm
-                 jUnpkANZ   0x001670    program     static C:\MCC18\v3_39\src\traditional\math\UnpackFP.asm
-                  jUnpkB1   0x001692    program     static C:\MCC18\v3_39\src\traditional\math\UnpackFP.asm
-                  jUnpkB2   0x0016aa    program     static C:\MCC18\v3_39\src\traditional\math\UnpackFP.asm
-                 jUnpkBNZ   0x0016a0    program     static C:\MCC18\v3_39\src\traditional\math\UnpackFP.asm
-                 jUnpkNaN   0x001684    program     static C:\MCC18\v3_39\src\traditional\math\UnpackFP.asm
-               jZero1and2   0x0015c8    program     static C:\MCC18\v3_39\src\traditional\math\packFP.asm
-                     loop   0x001a9e    program     static                          
-                     loop   0x001ab2    program     static                          
-                   loop_h   0x001a7c    program     static C:\MCC18\v3_39\src\traditional\proc\p18F4520.asm
-                   loop_l   0x001a86    program     static C:\MCC18\v3_39\src\traditional\proc\p18F4520.asm
-                     main   0x000800    program     extern C:\Pacemaker\Microcontroller\Main.c
-                on_timer0   0x001218    program     extern C:\Pacemaker\Microcontroller\Adc.c
-           packetToParams   0x000342    program     extern C:\Pacemaker\Microcontroller\Packet.c
-           paramsToPacket   0x000092    program     extern C:\Pacemaker\Microcontroller\Packet.c
-            receivePacket   0x000d2a    program     extern C:\Pacemaker\Microcontroller\Serial.c
-                 sendChar   0x000f7c    program     extern C:\Pacemaker\Microcontroller\Serial.c
-               sendPacket   0x000c66    program     extern C:\Pacemaker\Microcontroller\Serial.c
-                sendSream   0x000faa    program     extern C:\Pacemaker\Microcontroller\Serial.c
-               sense_init   0x001174    program     extern C:\Pacemaker\Microcontroller\Adc.c
-                     test   0x0019ea    program     static                          
-              timer0_init   0x00101a    program     extern C:\Pacemaker\Microcontroller\Adc.c
-              validHeader   0x000c26    program     extern C:\Pacemaker\Microcontroller\Serial.c
-               zero_block   0x001a7c    program     static C:\MCC18\v3_39\src\traditional\proc\p18F4520.asm
-=======
-<<<<<<< HEAD
-                  BUF_ADD   0x001a78    program     extern C:\Users\Ryan\Pacemaker\Microcontroller\Buffer.c
-                BUF_EMPTY   0x0019ee    program     extern C:\Users\Ryan\Pacemaker\Microcontroller\Buffer.c
-                 BUF_FULL   0x001a32    program     extern C:\Users\Ryan\Pacemaker\Microcontroller\Buffer.c
-                  BUF_GET   0x00186a    program     extern C:\Users\Ryan\Pacemaker\Microcontroller\Buffer.c
-                 BUF_INIT   0x00183a    program     extern C:\Users\Ryan\Pacemaker\Microcontroller\Buffer.c
-               BUF_LENGTH   0x0018ea    program     extern C:\Users\Ryan\Pacemaker\Microcontroller\Buffer.c
-                 BUF_SIZE   0x0019d6    program     extern C:\Users\Ryan\Pacemaker\Microcontroller\Buffer.c
-                   D0808S   0x001710    program     static C:\MCC18\v3_39\src\traditional\math\fxd0808s.asm
-                D0808SNEG   0x00171e    program     static C:\MCC18\v3_39\src\traditional\math\fxd0808s.asm
-                 D0808SOK   0x00171a    program     static C:\MCC18\v3_39\src\traditional\math\fxd0808s.asm
-                  D0808SX   0x001724    program     static C:\MCC18\v3_39\src\traditional\math\fxd0808s.asm
-                  DA0808S   0x001706    program     static C:\MCC18\v3_39\src\traditional\math\fxd0808s.asm
-                 FLO1632S   0x001554    program     extern C:\MCC18\v3_39\src\traditional\math\cast16FP.asm
-                 FLO1632U   0x001550    program     extern C:\MCC18\v3_39\src\traditional\math\cast16FP.asm
-                    FPD32   0x00157a    program     extern C:\MCC18\v3_39\src\traditional\math\divFP.asm
-                    FPM32   0x001620    program     extern C:\MCC18\v3_39\src\traditional\math\mulFP.asm
-                 FXD0808S   0x0016fa    program     extern C:\MCC18\v3_39\src\traditional\math\fxd0808s.asm
-                 FXD0808U   0x001cee    program     extern C:\MCC18\v3_39\src\traditional\math\fxd0808u.c
-                 __FpExit   0x00173a    program     extern C:\MCC18\v3_39\src\traditional\math\packFP.asm
-                 __FpPack   0x001766    program     extern C:\MCC18\v3_39\src\traditional\math\packFP.asm
-            __FpReturnNaN   0x00172e    program     extern C:\MCC18\v3_39\src\traditional\math\packFP.asm
-         __FpReturnNegInf   0x001740    program     extern C:\MCC18\v3_39\src\traditional\math\packFP.asm
-        __FpReturnNegZero   0x001758    program     extern C:\MCC18\v3_39\src\traditional\math\packFP.asm
-         __FpReturnPosInf   0x001746    program     extern C:\MCC18\v3_39\src\traditional\math\packFP.asm
-        __FpReturnPosZero   0x001760    program     extern C:\MCC18\v3_39\src\traditional\math\packFP.asm
-        __FpReturnSignInf   0x00173c    program     extern C:\MCC18\v3_39\src\traditional\math\packFP.asm
-       __FpReturnSignZero   0x001754    program     extern C:\MCC18\v3_39\src\traditional\math\packFP.asm
-              __FpReturnW   0x0017be    program     extern C:\MCC18\v3_39\src\traditional\math\packFP.asm
-              __FpUnPackA   0x0017de    program     extern C:\MCC18\v3_39\src\traditional\math\UnpackFP.asm
-              __FpUnPackB   0x00180e    program     extern C:\MCC18\v3_39\src\traditional\math\UnpackFP.asm
-       ___return_lbl00000   0x001d08    program     static                          
-       ___return_lbl00000   0x00000c    program     static                          
-       ___return_lbl00000   0x000004    program     static                          
-       ___return_lbl00001   0x001cec    program     static                          
-       ___return_lbl00002   0x001cb0    program     static                          
-               __config_0   0x300001    program     static C:\Users\Ryan\Pacemaker\Microcontroller\Main.c
-               __config_1   0x300003    program     static C:\Users\Ryan\Pacemaker\Microcontroller\Main.c
-                   __init   0x001d0a    program     extern C:\MCC18\v3_39\src\traditional\stdclib\__init.c
-            __zero_memory   0x001cb2    program     extern C:\MCC18\v3_39\src\traditional\proc\p18F4520.asm
-                _do_cinit   0x001c14    program     extern C:\MCC18\v3_39\src\traditional\startup\c018i.c
-                   _entry   0x000000    program     extern C:\MCC18\v3_39\src\traditional\startup\c018i.c
-                 _startup   0x001cd2    program     extern C:\MCC18\v3_39\src\traditional\startup\c018i.c
-                  adc_get   0x001310    program     extern C:\Users\Ryan\Pacemaker\Microcontroller\Adc.c
-                 adc_init   0x0012fe    program     extern C:\Users\Ryan\Pacemaker\Microcontroller\Adc.c
-                adc_start   0x00138a    program     extern C:\Users\Ryan\Pacemaker\Microcontroller\Adc.c
-                 adc_stop   0x001398    program     extern C:\Users\Ryan\Pacemaker\Microcontroller\Adc.c
-             buffToPacket   0x00047c    program     extern C:\Users\Ryan\Pacemaker\Microcontroller\Packet.c
-               bytesToInt   0x001b9c    program     extern C:\Users\Ryan\Pacemaker\Microcontroller\ByteConversion.c
-             calcCheckSum   0x00000e    program     extern C:\Users\Ryan\Pacemaker\Microcontroller\Packet.c
-                compare_l   0x001cc8    program     static C:\MCC18\v3_39\src\traditional\proc\p18F4520.asm
-                copy_loop   0x001c86    program     static                          
-            copy_one_byte   0x001c8c    program     static                          
-                     done   0x001cb0    program     static                          
-             done_copying   0x001c9a    program     static                          
-            egramToPacket   0x0005e0    program     extern C:\Users\Ryan\Pacemaker\Microcontroller\Packet.c
-                  endloop   0x001d04    program     static                          
-                 initComm   0x000d8c    program     extern C:\Users\Ryan\Pacemaker\Microcontroller\Serial.c
-               intToBytes   0x001af8    program     extern C:\Users\Ryan\Pacemaker\Microcontroller\ByteConversion.c
-               intr_entry   0x000008    program     extern C:\Users\Ryan\Pacemaker\Microcontroller\Main.c
-             intr_handler   0x0007aa    program     extern C:\Users\Ryan\Pacemaker\Microcontroller\Main.c
-                 jANotInf   0x001598    program     static C:\MCC18\v3_39\src\traditional\math\divFP.asm
-                 jANotInf   0x00163e    program     static C:\MCC18\v3_39\src\traditional\math\mulFP.asm
-                jANotZero   0x0015ac    program     static C:\MCC18\v3_39\src\traditional\math\divFP.asm
-              jBothFinite   0x00164c    program     static C:\MCC18\v3_39\src\traditional\math\mulFP.asm
-             jBothNotZero   0x001658    program     static C:\MCC18\v3_39\src\traditional\math\mulFP.asm
-                jHaveZero   0x001654    program     static C:\MCC18\v3_39\src\traditional\math\mulFP.asm
-                jI2F16Beg   0x001564    program     static C:\MCC18\v3_39\src\traditional\math\cast16FP.asm
-                    jLoop   0x0015d4    program     static C:\MCC18\v3_39\src\traditional\math\divFP.asm
-                    jNext   0x0015fa    program     static C:\MCC18\v3_39\src\traditional\math\divFP.asm
-                jNoAdjust   0x0015f8    program     static C:\MCC18\v3_39\src\traditional\math\divFP.asm
-                  jPkLoop   0x001774    program     static C:\MCC18\v3_39\src\traditional\math\packFP.asm
-             jPkRoundDone   0x0017be    program     static C:\MCC18\v3_39\src\traditional\math\packFP.asm
-               jPkRoundIt   0x0017a6    program     static C:\MCC18\v3_39\src\traditional\math\packFP.asm
-             jPkShiftDone   0x001790    program     static C:\MCC18\v3_39\src\traditional\math\packFP.asm
-           jReturnPosInf0   0x00174a    program     static C:\MCC18\v3_39\src\traditional\math\packFP.asm
-              jSignedZero   0x0015a2    program     static C:\MCC18\v3_39\src\traditional\math\divFP.asm
-                  jUnpkA1   0x0017e8    program     static C:\MCC18\v3_39\src\traditional\math\UnpackFP.asm
-                  jUnpkA2   0x001800    program     static C:\MCC18\v3_39\src\traditional\math\UnpackFP.asm
-                 jUnpkANZ   0x0017f6    program     static C:\MCC18\v3_39\src\traditional\math\UnpackFP.asm
-                  jUnpkB1   0x001818    program     static C:\MCC18\v3_39\src\traditional\math\UnpackFP.asm
-                  jUnpkB2   0x001830    program     static C:\MCC18\v3_39\src\traditional\math\UnpackFP.asm
-                 jUnpkBNZ   0x001826    program     static C:\MCC18\v3_39\src\traditional\math\UnpackFP.asm
-                 jUnpkNaN   0x00180a    program     static C:\MCC18\v3_39\src\traditional\math\UnpackFP.asm
-               jZero1and2   0x00174e    program     static C:\MCC18\v3_39\src\traditional\math\packFP.asm
-                     loop   0x001ce2    program     static                          
-                     loop   0x001cf6    program     static                          
-                   loop_h   0x001cc0    program     static C:\MCC18\v3_39\src\traditional\proc\p18F4520.asm
-                   loop_l   0x001cca    program     static C:\MCC18\v3_39\src\traditional\proc\p18F4520.asm
-                     main   0x000896    program     extern C:\Users\Ryan\Pacemaker\Microcontroller\Main.c
-                on_timer0   0x00139e    program     extern C:\Users\Ryan\Pacemaker\Microcontroller\Adc.c
-           packetToParams   0x000320    program     extern C:\Users\Ryan\Pacemaker\Microcontroller\Packet.c
-           paramsToPacket   0x000092    program     extern C:\Users\Ryan\Pacemaker\Microcontroller\Packet.c
-            receivePacket   0x000eb0    program     extern C:\Users\Ryan\Pacemaker\Microcontroller\Serial.c
-                 sendChar   0x001102    program     extern C:\Users\Ryan\Pacemaker\Microcontroller\Serial.c
-               sendPacket   0x000dec    program     extern C:\Users\Ryan\Pacemaker\Microcontroller\Serial.c
-                sendSream   0x001130    program     extern C:\Users\Ryan\Pacemaker\Microcontroller\Serial.c
-               sense_init   0x0012fa    program     extern C:\Users\Ryan\Pacemaker\Microcontroller\Adc.c
-                     test   0x001c2e    program     static                          
-              timer0_init   0x0011a0    program     extern C:\Users\Ryan\Pacemaker\Microcontroller\Adc.c
-              validHeader   0x000dac    program     extern C:\Users\Ryan\Pacemaker\Microcontroller\Serial.c
-               zero_block   0x001cc0    program     static C:\MCC18\v3_39\src\traditional\proc\p18F4520.asm
-=======
-                  BUF_ADD   0x001720    program     extern C:\Users\Vast Horizon\Desktop\Pacemaker\Microcontroller\Buffer.c
-                BUF_EMPTY   0x001688    program     extern C:\Users\Vast Horizon\Desktop\Pacemaker\Microcontroller\Buffer.c
-                 BUF_FULL   0x0016cc    program     extern C:\Users\Vast Horizon\Desktop\Pacemaker\Microcontroller\Buffer.c
-                  BUF_GET   0x0014aa    program     extern C:\Users\Vast Horizon\Desktop\Pacemaker\Microcontroller\Buffer.c
-                 BUF_INIT   0x00147a    program     extern C:\Users\Vast Horizon\Desktop\Pacemaker\Microcontroller\Buffer.c
-               BUF_LENGTH   0x001538    program     extern C:\Users\Vast Horizon\Desktop\Pacemaker\Microcontroller\Buffer.c
-                 BUF_SIZE   0x001670    program     extern C:\Users\Vast Horizon\Desktop\Pacemaker\Microcontroller\Buffer.c
-                   D0808S   0x00196e    program     static C:\MCC18\v3_39\src\traditional\math\fxd0808s.asm
-                D0808SNEG   0x00197c    program     static C:\MCC18\v3_39\src\traditional\math\fxd0808s.asm
-                 D0808SOK   0x001978    program     static C:\MCC18\v3_39\src\traditional\math\fxd0808s.asm
-                  D0808SX   0x001982    program     static C:\MCC18\v3_39\src\traditional\math\fxd0808s.asm
-                  DA0808S   0x001964    program     static C:\MCC18\v3_39\src\traditional\math\fxd0808s.asm
-                 FLO1632S   0x0017b2    program     extern C:\MCC18\v3_39\src\traditional\math\cast16FP.asm
-                 FLO1632U   0x0017ae    program     extern C:\MCC18\v3_39\src\traditional\math\cast16FP.asm
-                    FPD32   0x0017d8    program     extern C:\MCC18\v3_39\src\traditional\math\divFP.asm
-                    FPM32   0x00187e    program     extern C:\MCC18\v3_39\src\traditional\math\mulFP.asm
-                 FXD0808S   0x001958    program     extern C:\MCC18\v3_39\src\traditional\math\fxd0808s.asm
-                 FXD0808U   0x001c60    program     extern C:\MCC18\v3_39\src\traditional\math\fxd0808u.c
-                 __FpExit   0x001998    program     extern C:\MCC18\v3_39\src\traditional\math\packFP.asm
-                 __FpPack   0x0019c4    program     extern C:\MCC18\v3_39\src\traditional\math\packFP.asm
-            __FpReturnNaN   0x00198c    program     extern C:\MCC18\v3_39\src\traditional\math\packFP.asm
-         __FpReturnNegInf   0x00199e    program     extern C:\MCC18\v3_39\src\traditional\math\packFP.asm
-        __FpReturnNegZero   0x0019b6    program     extern C:\MCC18\v3_39\src\traditional\math\packFP.asm
-         __FpReturnPosInf   0x0019a4    program     extern C:\MCC18\v3_39\src\traditional\math\packFP.asm
-        __FpReturnPosZero   0x0019be    program     extern C:\MCC18\v3_39\src\traditional\math\packFP.asm
-        __FpReturnSignInf   0x00199a    program     extern C:\MCC18\v3_39\src\traditional\math\packFP.asm
-       __FpReturnSignZero   0x0019b2    program     extern C:\MCC18\v3_39\src\traditional\math\packFP.asm
-              __FpReturnW   0x001a1c    program     extern C:\MCC18\v3_39\src\traditional\math\packFP.asm
-              __FpUnPackA   0x001a3c    program     extern C:\MCC18\v3_39\src\traditional\math\UnpackFP.asm
-              __FpUnPackB   0x001a6c    program     extern C:\MCC18\v3_39\src\traditional\math\UnpackFP.asm
-       ___return_lbl00000   0x001c7a    program     static                          
-       ___return_lbl00000   0x00001c    program     static                          
-       ___return_lbl00000   0x000004    program     static                          
-       ___return_lbl00001   0x00000c    program     static                          
-       ___return_lbl00001   0x001c5e    program     static                          
-       ___return_lbl00002   0x001c22    program     static                          
-               __config_0   0x300001    program     static C:\Users\Vast Horizon\Desktop\Pacemaker\Microcontroller\Main.c
-               __config_1   0x300003    program     static C:\Users\Vast Horizon\Desktop\Pacemaker\Microcontroller\Main.c
-                   __init   0x00000e    program     extern C:\MCC18\v3_39\src\traditional\stdclib\__init.c
-            __zero_memory   0x001c24    program     extern C:\MCC18\v3_39\src\traditional\proc\p18F4520.asm
-                _do_cinit   0x001b86    program     extern C:\MCC18\v3_39\src\traditional\startup\c018i.c
-                   _entry   0x000000    program     extern C:\MCC18\v3_39\src\traditional\startup\c018i.c
-                 _startup   0x001c44    program     extern C:\MCC18\v3_39\src\traditional\startup\c018i.c
-                  adc_get   0x00123a    program     extern C:\Users\Vast Horizon\Desktop\Pacemaker\Microcontroller\Adc.c
-                 adc_init   0x001228    program     extern C:\Users\Vast Horizon\Desktop\Pacemaker\Microcontroller\Adc.c
-                adc_start   0x0012b4    program     extern C:\Users\Vast Horizon\Desktop\Pacemaker\Microcontroller\Adc.c
-                 adc_stop   0x0012c2    program     extern C:\Users\Vast Horizon\Desktop\Pacemaker\Microcontroller\Adc.c
-             buffToPacket   0x00048c    program     extern C:\Users\Vast Horizon\Desktop\Pacemaker\Microcontroller\Packet.c
-               bytesToInt   0x001b0e    program     extern C:\Users\Vast Horizon\Desktop\Pacemaker\Microcontroller\ByteConversion.c
-             calcCheckSum   0x00001e    program     extern C:\Users\Vast Horizon\Desktop\Pacemaker\Microcontroller\Packet.c
-                compare_l   0x001c3a    program     static C:\MCC18\v3_39\src\traditional\proc\p18F4520.asm
-                copy_loop   0x001bf8    program     static                          
-            copy_one_byte   0x001bfe    program     static                          
-                     done   0x001c22    program     static                          
-             done_copying   0x001c0c    program     static                          
-            egramToPacket   0x0005f0    program     extern C:\Users\Vast Horizon\Desktop\Pacemaker\Microcontroller\Packet.c
-                  endloop   0x001c76    program     static                          
-                 initComm   0x000cb6    program     extern C:\Users\Vast Horizon\Desktop\Pacemaker\Microcontroller\Serial.c
-               intToBytes   0x001a98    program     extern C:\Users\Vast Horizon\Desktop\Pacemaker\Microcontroller\ByteConversion.c
-               intr_entry   0x000008    program     extern C:\Users\Vast Horizon\Desktop\Pacemaker\Microcontroller\Main.c
-             intr_handler   0x0007ba    program     extern C:\Users\Vast Horizon\Desktop\Pacemaker\Microcontroller\Main.c
-                 jANotInf   0x0017f6    program     static C:\MCC18\v3_39\src\traditional\math\divFP.asm
-                 jANotInf   0x00189c    program     static C:\MCC18\v3_39\src\traditional\math\mulFP.asm
-                jANotZero   0x00180a    program     static C:\MCC18\v3_39\src\traditional\math\divFP.asm
-              jBothFinite   0x0018aa    program     static C:\MCC18\v3_39\src\traditional\math\mulFP.asm
-             jBothNotZero   0x0018b6    program     static C:\MCC18\v3_39\src\traditional\math\mulFP.asm
-                jHaveZero   0x0018b2    program     static C:\MCC18\v3_39\src\traditional\math\mulFP.asm
-                jI2F16Beg   0x0017c2    program     static C:\MCC18\v3_39\src\traditional\math\cast16FP.asm
-                    jLoop   0x001832    program     static C:\MCC18\v3_39\src\traditional\math\divFP.asm
-                    jNext   0x001858    program     static C:\MCC18\v3_39\src\traditional\math\divFP.asm
-                jNoAdjust   0x001856    program     static C:\MCC18\v3_39\src\traditional\math\divFP.asm
-                  jPkLoop   0x0019d2    program     static C:\MCC18\v3_39\src\traditional\math\packFP.asm
-             jPkRoundDone   0x001a1c    program     static C:\MCC18\v3_39\src\traditional\math\packFP.asm
-               jPkRoundIt   0x001a04    program     static C:\MCC18\v3_39\src\traditional\math\packFP.asm
-             jPkShiftDone   0x0019ee    program     static C:\MCC18\v3_39\src\traditional\math\packFP.asm
-           jReturnPosInf0   0x0019a8    program     static C:\MCC18\v3_39\src\traditional\math\packFP.asm
-              jSignedZero   0x001800    program     static C:\MCC18\v3_39\src\traditional\math\divFP.asm
-                  jUnpkA1   0x001a46    program     static C:\MCC18\v3_39\src\traditional\math\UnpackFP.asm
-                  jUnpkA2   0x001a5e    program     static C:\MCC18\v3_39\src\traditional\math\UnpackFP.asm
-                 jUnpkANZ   0x001a54    program     static C:\MCC18\v3_39\src\traditional\math\UnpackFP.asm
-                  jUnpkB1   0x001a76    program     static C:\MCC18\v3_39\src\traditional\math\UnpackFP.asm
-                  jUnpkB2   0x001a8e    program     static C:\MCC18\v3_39\src\traditional\math\UnpackFP.asm
-                 jUnpkBNZ   0x001a84    program     static C:\MCC18\v3_39\src\traditional\math\UnpackFP.asm
-                 jUnpkNaN   0x001a68    program     static C:\MCC18\v3_39\src\traditional\math\UnpackFP.asm
-               jZero1and2   0x0019ac    program     static C:\MCC18\v3_39\src\traditional\math\packFP.asm
-                     loop   0x001c68    program     static                          
-                     loop   0x001c54    program     static                          
-                   loop_h   0x001c32    program     static C:\MCC18\v3_39\src\traditional\proc\p18F4520.asm
-                   loop_l   0x001c3c    program     static C:\MCC18\v3_39\src\traditional\proc\p18F4520.asm
-            low_interrupt   0x000018    program     extern C:\Users\Vast Horizon\Desktop\Pacemaker\Microcontroller\Main.c
-                     main   0x0008b0    program     extern C:\Users\Vast Horizon\Desktop\Pacemaker\Microcontroller\Main.c
-                on_timer0   0x0012c8    program     extern C:\Users\Vast Horizon\Desktop\Pacemaker\Microcontroller\Adc.c
-           packetToParams   0x000330    program     extern C:\Users\Vast Horizon\Desktop\Pacemaker\Microcontroller\Packet.c
-           paramsToPacket   0x0000a2    program     extern C:\Users\Vast Horizon\Desktop\Pacemaker\Microcontroller\Packet.c
-            receivePacket   0x000dda    program     extern C:\Users\Vast Horizon\Desktop\Pacemaker\Microcontroller\Serial.c
-                 sendChar   0x00102c    program     extern C:\Users\Vast Horizon\Desktop\Pacemaker\Microcontroller\Serial.c
-               sendPacket   0x000d16    program     extern C:\Users\Vast Horizon\Desktop\Pacemaker\Microcontroller\Serial.c
-                sendSream   0x00105a    program     extern C:\Users\Vast Horizon\Desktop\Pacemaker\Microcontroller\Serial.c
-               sense_init   0x001224    program     extern C:\Users\Vast Horizon\Desktop\Pacemaker\Microcontroller\Adc.c
-                     test   0x001ba0    program     static                          
-              timer0_init   0x0010ca    program     extern C:\Users\Vast Horizon\Desktop\Pacemaker\Microcontroller\Adc.c
-            tmr_interrupt   0x00089e    program     extern C:\Users\Vast Horizon\Desktop\Pacemaker\Microcontroller\Main.c
-              validHeader   0x000cd6    program     extern C:\Users\Vast Horizon\Desktop\Pacemaker\Microcontroller\Serial.c
-               zero_block   0x001c32    program     static C:\MCC18\v3_39\src\traditional\proc\p18F4520.asm
->>>>>>> origin/master
->>>>>>> origin/master
+                 _startup   0x001d7e    program     extern C:\MCC18\v3_39\src\traditional\startup\c018i.c
+                  adc_get   0x001964    program     extern C:\Pacemaker1\Microcontroller\Adc.c
+                 adc_init   0x001952    program     extern C:\Pacemaker1\Microcontroller\Adc.c
+                adc_start   0x0019de    program     extern C:\Pacemaker1\Microcontroller\Adc.c
+                 adc_stop   0x0019ec    program     extern C:\Pacemaker1\Microcontroller\Adc.c
+             buffToPacket   0x00047c    program     extern C:\Pacemaker1\Microcontroller\Packet.c
+               bytesToInt   0x001c48    program     extern C:\Pacemaker1\Microcontroller\ByteConversion.c
+             calcCheckSum   0x00000e    program     extern C:\Pacemaker1\Microcontroller\Packet.c
+                compare_l   0x001d74    program     static C:\MCC18\v3_39\src\traditional\proc\p18F4520.asm
+                copy_loop   0x001d32    program     static                          
+            copy_one_byte   0x001d38    program     static                          
+                     done   0x001d5c    program     static                          
+             done_copying   0x001d46    program     static                          
+            egramToPacket   0x0005e0    program     extern C:\Pacemaker1\Microcontroller\Packet.c
+                  endloop   0x001db0    program     static                          
+                 initComm   0x000e44    program     extern C:\Pacemaker1\Microcontroller\Serial.c
+               intToBytes   0x001ba4    program     extern C:\Pacemaker1\Microcontroller\ByteConversion.c
+               intr_entry   0x000008    program     extern C:\Pacemaker1\Microcontroller\Main.c
+             intr_handler   0x0007aa    program     extern C:\Pacemaker1\Microcontroller\Main.c
+                 jANotInf   0x00168a    program     static C:\MCC18\v3_39\src\traditional\math\divFP.asm
+                 jANotInf   0x001730    program     static C:\MCC18\v3_39\src\traditional\math\mulFP.asm
+                jANotZero   0x00169e    program     static C:\MCC18\v3_39\src\traditional\math\divFP.asm
+              jBothFinite   0x00173e    program     static C:\MCC18\v3_39\src\traditional\math\mulFP.asm
+             jBothNotZero   0x00174a    program     static C:\MCC18\v3_39\src\traditional\math\mulFP.asm
+                jHaveZero   0x001746    program     static C:\MCC18\v3_39\src\traditional\math\mulFP.asm
+                jI2F16Beg   0x001656    program     static C:\MCC18\v3_39\src\traditional\math\cast16FP.asm
+                    jLoop   0x0016c6    program     static C:\MCC18\v3_39\src\traditional\math\divFP.asm
+                    jNext   0x0016ec    program     static C:\MCC18\v3_39\src\traditional\math\divFP.asm
+                jNoAdjust   0x0016ea    program     static C:\MCC18\v3_39\src\traditional\math\divFP.asm
+                  jPkLoop   0x001866    program     static C:\MCC18\v3_39\src\traditional\math\packFP.asm
+             jPkRoundDone   0x0018b0    program     static C:\MCC18\v3_39\src\traditional\math\packFP.asm
+               jPkRoundIt   0x001898    program     static C:\MCC18\v3_39\src\traditional\math\packFP.asm
+             jPkShiftDone   0x001882    program     static C:\MCC18\v3_39\src\traditional\math\packFP.asm
+           jReturnPosInf0   0x00183c    program     static C:\MCC18\v3_39\src\traditional\math\packFP.asm
+              jSignedZero   0x001694    program     static C:\MCC18\v3_39\src\traditional\math\divFP.asm
+                  jUnpkA1   0x0018da    program     static C:\MCC18\v3_39\src\traditional\math\UnpackFP.asm
+                  jUnpkA2   0x0018f2    program     static C:\MCC18\v3_39\src\traditional\math\UnpackFP.asm
+                 jUnpkANZ   0x0018e8    program     static C:\MCC18\v3_39\src\traditional\math\UnpackFP.asm
+                  jUnpkB1   0x00190a    program     static C:\MCC18\v3_39\src\traditional\math\UnpackFP.asm
+                  jUnpkB2   0x001922    program     static C:\MCC18\v3_39\src\traditional\math\UnpackFP.asm
+                 jUnpkBNZ   0x001918    program     static C:\MCC18\v3_39\src\traditional\math\UnpackFP.asm
+                 jUnpkNaN   0x0018fc    program     static C:\MCC18\v3_39\src\traditional\math\UnpackFP.asm
+               jZero1and2   0x001840    program     static C:\MCC18\v3_39\src\traditional\math\packFP.asm
+                     loop   0x001d8e    program     static                          
+                     loop   0x001da2    program     static                          
+                   loop_h   0x001d6c    program     static C:\MCC18\v3_39\src\traditional\proc\p18F4520.asm
+                   loop_l   0x001d76    program     static C:\MCC18\v3_39\src\traditional\proc\p18F4520.asm
+                     main   0x00094e    program     extern C:\Pacemaker1\Microcontroller\Main.c
+                on_timer1   0x0019f2    program     extern C:\Pacemaker1\Microcontroller\Adc.c
+           packetToParams   0x000320    program     extern C:\Pacemaker1\Microcontroller\Packet.c
+           paramsToPacket   0x000092    program     extern C:\Pacemaker1\Microcontroller\Packet.c
+            receivePacket   0x000f68    program     extern C:\Pacemaker1\Microcontroller\Serial.c
+                 sendChar   0x0011ba    program     extern C:\Pacemaker1\Microcontroller\Serial.c
+               sendPacket   0x000ea4    program     extern C:\Pacemaker1\Microcontroller\Serial.c
+                sendSream   0x0011e8    program     extern C:\Pacemaker1\Microcontroller\Serial.c
+               sense_init   0x00194e    program     extern C:\Pacemaker1\Microcontroller\Adc.c
+                     test   0x001cda    program     static                          
+              timer1_init   0x00192c    program     extern C:\Pacemaker1\Microcontroller\Adc.c
+              validHeader   0x000e64    program     extern C:\Pacemaker1\Microcontroller\Serial.c
+               zero_block   0x001d6c    program     static C:\MCC18\v3_39\src\traditional\proc\p18F4520.asm
                    ADCON0   0x000fc2       data     extern C:\MCC18\v3_39\src\traditional\proc\p18F4520.asm
                ADCON0bits   0x000fc2       data     extern C:\MCC18\v3_39\src\traditional\proc\p18F4520.asm
                    ADCON1   0x000fc1       data     extern C:\MCC18\v3_39\src\traditional\proc\p18F4520.asm
@@ -634,11 +309,7 @@ Linker Map File - Created Sat Oct 22 00:39:13 2011
                     PRODL   0x000ff3       data     extern C:\MCC18\v3_39\src\traditional\proc\p18F4520.asm
                   PWM1CON   0x000fb7       data     extern C:\MCC18\v3_39\src\traditional\proc\p18F4520.asm
               PWM1CONbits   0x000fb7       data     extern C:\MCC18\v3_39\src\traditional\proc\p18F4520.asm
-<<<<<<< HEAD
-               Parameters   0x0000d4       data     extern C:\Users\Ryan\Pacemaker\Microcontroller\Main.c
-=======
-               Parameters   0x0000b6       data     extern C:\Users\Vast Horizon\Desktop\Pacemaker\Microcontroller\Main.c
->>>>>>> origin/master
+               Parameters   0x0000d4       data     extern C:\Pacemaker1\Microcontroller\Main.c
                      RCON   0x000fd0       data     extern C:\MCC18\v3_39\src\traditional\proc\p18F4520.asm
                  RCONbits   0x000fd0       data     extern C:\MCC18\v3_39\src\traditional\proc\p18F4520.asm
                     RCREG   0x000fae       data     extern C:\MCC18\v3_39\src\traditional\proc\p18F4520.asm
@@ -725,61 +396,23 @@ Linker Map File - Created Sat Oct 22 00:39:13 2011
                  __TEMPB1   0x000012       data     extern C:\MCC18\v3_39\src\traditional\math\temparg.asm
                  __TEMPB2   0x000011       data     extern C:\MCC18\v3_39\src\traditional\math\temparg.asm
                  __TEMPB3   0x000010       data     extern C:\MCC18\v3_39\src\traditional\math\temparg.asm
-<<<<<<< HEAD
-                  __tmp_0   0x000014       data     static C:\Pacemaker\Microcontroller\Buffer.c
-                  __tmp_0   0x000014       data     static C:\Pacemaker\Microcontroller\Packet.c
-                  __tmp_0   0x000014       data     static C:\Pacemaker\Microcontroller\Adc.c
-                  __tmp_0   0x000014       data     static C:\Pacemaker\Microcontroller\ByteConversion.c
-                  __tmp_0   0x000014       data     static C:\Pacemaker\Microcontroller\Serial.c
-                  __tmp_0   0x000014       data     static C:\Pacemaker\Microcontroller\Main.c
-                  __tmp_1   0x000026       data     static C:\Pacemaker\Microcontroller\Main.c
-                curr_byte   0x0000cd       data     static C:\MCC18\v3_39\src\traditional\startup\c018i.c
-               curr_entry   0x0000cf       data     static C:\MCC18\v3_39\src\traditional\startup\c018i.c
-                 data_ptr   0x0000d1       data     static C:\MCC18\v3_39\src\traditional\startup\c018i.c
-                 i_CommIn   0x0000a6       data     extern C:\Pacemaker\Microcontroller\Main.c
-                 m_magnet   0x0000c9       data     extern C:\Pacemaker\Microcontroller\Main.c
-                o_CommOut   0x0000c3       data     extern C:\Pacemaker\Microcontroller\Main.c
-                  opState   0x0000c7       data     extern C:\Pacemaker\Microcontroller\Main.c
-                     prom   0x0000ca       data     static C:\MCC18\v3_39\src\traditional\startup\c018i.c
-                    rcbuf   0x000093       data     extern C:\Pacemaker\Microcontroller\Main.c
-                    txbuf   0x000080       data     extern C:\Pacemaker\Microcontroller\Main.c
-=======
-<<<<<<< HEAD
-                  __tmp_0   0x000014       data     static C:\Users\Ryan\Pacemaker\Microcontroller\Buffer.c
-                  __tmp_0   0x000014       data     static C:\Users\Ryan\Pacemaker\Microcontroller\Packet.c
-                  __tmp_0   0x000014       data     static C:\Users\Ryan\Pacemaker\Microcontroller\Adc.c
-                  __tmp_0   0x000014       data     static C:\Users\Ryan\Pacemaker\Microcontroller\ByteConversion.c
-                  __tmp_0   0x000014       data     static C:\Users\Ryan\Pacemaker\Microcontroller\Serial.c
-                  __tmp_0   0x000014       data     static C:\Users\Ryan\Pacemaker\Microcontroller\Main.c
-                  __tmp_1   0x000026       data     static C:\Users\Ryan\Pacemaker\Microcontroller\Main.c
-                curr_byte   0x0000e7       data     static C:\MCC18\v3_39\src\traditional\startup\c018i.c
-               curr_entry   0x0000e9       data     static C:\MCC18\v3_39\src\traditional\startup\c018i.c
-                 data_ptr   0x0000eb       data     static C:\MCC18\v3_39\src\traditional\startup\c018i.c
-                 i_CommIn   0x0000c4       data     extern C:\Users\Ryan\Pacemaker\Microcontroller\Main.c
-                 m_magnet   0x0000e3       data     extern C:\Users\Ryan\Pacemaker\Microcontroller\Main.c
-                  opState   0x0000e1       data     extern C:\Users\Ryan\Pacemaker\Microcontroller\Main.c
-                     prom   0x0000e4       data     static C:\MCC18\v3_39\src\traditional\startup\c018i.c
-                    rcbuf   0x0000a2       data     extern C:\Users\Ryan\Pacemaker\Microcontroller\Main.c
-                    txbuf   0x000080       data     extern C:\Users\Ryan\Pacemaker\Microcontroller\Main.c
-=======
-                  __tmp_0   0x000014       data     static C:\Users\Vast Horizon\Desktop\Pacemaker\Microcontroller\Buffer.c
-                  __tmp_0   0x000014       data     static C:\Users\Vast Horizon\Desktop\Pacemaker\Microcontroller\Packet.c
-                  __tmp_0   0x000014       data     static C:\Users\Vast Horizon\Desktop\Pacemaker\Microcontroller\Adc.c
-                  __tmp_0   0x000014       data     static C:\Users\Vast Horizon\Desktop\Pacemaker\Microcontroller\ByteConversion.c
-                  __tmp_0   0x000014       data     static C:\Users\Vast Horizon\Desktop\Pacemaker\Microcontroller\Serial.c
-                  __tmp_0   0x000014       data     static C:\Users\Vast Horizon\Desktop\Pacemaker\Microcontroller\Main.c
-                  __tmp_1   0x000026       data     static C:\Users\Vast Horizon\Desktop\Pacemaker\Microcontroller\Main.c
-                curr_byte   0x0000c9       data     static C:\MCC18\v3_39\src\traditional\startup\c018i.c
-               curr_entry   0x0000cb       data     static C:\MCC18\v3_39\src\traditional\startup\c018i.c
-                 data_ptr   0x0000cd       data     static C:\MCC18\v3_39\src\traditional\startup\c018i.c
-                 i_CommIn   0x0000a6       data     extern C:\Users\Vast Horizon\Desktop\Pacemaker\Microcontroller\Main.c
-                 m_magnet   0x0000c5       data     extern C:\Users\Vast Horizon\Desktop\Pacemaker\Microcontroller\Main.c
-                  opState   0x0000c3       data     extern C:\Users\Vast Horizon\Desktop\Pacemaker\Microcontroller\Main.c
-                     prom   0x0000c6       data     static C:\MCC18\v3_39\src\traditional\startup\c018i.c
-                    rcbuf   0x000093       data     extern C:\Users\Vast Horizon\Desktop\Pacemaker\Microcontroller\Main.c
-                    txbuf   0x000080       data     extern C:\Users\Vast Horizon\Desktop\Pacemaker\Microcontroller\Main.c
->>>>>>> origin/master
->>>>>>> origin/master
+                  __tmp_0   0x000026       data     static C:\Pacemaker1\Microcontroller\Buffer.c
+                  __tmp_0   0x000026       data     static C:\Pacemaker1\Microcontroller\Packet.c
+                  __tmp_0   0x000026       data     static C:\Pacemaker1\Microcontroller\Adc.c
+                  __tmp_0   0x000026       data     static C:\Pacemaker1\Microcontroller\ByteConversion.c
+                  __tmp_0   0x000026       data     static C:\Pacemaker1\Microcontroller\Serial.c
+                  __tmp_0   0x000026       data     static C:\Pacemaker1\Microcontroller\Main.c
+                  __tmp_1   0x000014       data     static C:\Pacemaker1\Microcontroller\Main.c
+                curr_byte   0x0000eb       data     static C:\MCC18\v3_39\src\traditional\startup\c018i.c
+               curr_entry   0x0000ed       data     static C:\MCC18\v3_39\src\traditional\startup\c018i.c
+                 data_ptr   0x0000ef       data     static C:\MCC18\v3_39\src\traditional\startup\c018i.c
+                 i_CommIn   0x0000c4       data     extern C:\Pacemaker1\Microcontroller\Main.c
+                 m_magnet   0x0000e7       data     extern C:\Pacemaker1\Microcontroller\Main.c
+                o_CommOut   0x0000e1       data     extern C:\Pacemaker1\Microcontroller\Main.c
+                  opState   0x0000e5       data     extern C:\Pacemaker1\Microcontroller\Main.c
+                     prom   0x0000e8       data     static C:\MCC18\v3_39\src\traditional\startup\c018i.c
+                    rcbuf   0x0000a2       data     extern C:\Pacemaker1\Microcontroller\Main.c
+                    txbuf   0x000080       data     extern C:\Pacemaker1\Microcontroller\Main.c
 
 
 
@@ -788,310 +421,105 @@ Linker Map File - Created Sat Oct 22 00:39:13 2011
                 ---------  ---------  ---------  --------- ---------                
                    _entry   0x000000    program     extern C:\MCC18\v3_39\src\traditional\startup\c018i.c
        ___return_lbl00000   0x000004    program     static                          
-<<<<<<< HEAD
-               intr_entry   0x000008    program     extern C:\Users\Ryan\Pacemaker\Microcontroller\Main.c
+               intr_entry   0x000008    program     extern C:\Pacemaker1\Microcontroller\Main.c
        ___return_lbl00000   0x00000c    program     static                          
-<<<<<<< HEAD
-             calcCheckSum   0x00000e    program     extern C:\Pacemaker\Microcontroller\Packet.c
-           paramsToPacket   0x000092    program     extern C:\Pacemaker\Microcontroller\Packet.c
-           packetToParams   0x000342    program     extern C:\Pacemaker\Microcontroller\Packet.c
-             buffToPacket   0x00049e    program     extern C:\Pacemaker\Microcontroller\Packet.c
-            egramToStream   0x000602    program     extern C:\Pacemaker\Microcontroller\Packet.c
-             intr_handler   0x0006cc    program     extern C:\Pacemaker\Microcontroller\Main.c
-                     main   0x000800    program     extern C:\Pacemaker\Microcontroller\Main.c
-                 initComm   0x000c06    program     extern C:\Pacemaker\Microcontroller\Serial.c
-              validHeader   0x000c26    program     extern C:\Pacemaker\Microcontroller\Serial.c
-               sendPacket   0x000c66    program     extern C:\Pacemaker\Microcontroller\Serial.c
-            receivePacket   0x000d2a    program     extern C:\Pacemaker\Microcontroller\Serial.c
-                 sendChar   0x000f7c    program     extern C:\Pacemaker\Microcontroller\Serial.c
-                sendSream   0x000faa    program     extern C:\Pacemaker\Microcontroller\Serial.c
-              timer0_init   0x00101a    program     extern C:\Pacemaker\Microcontroller\Adc.c
-               sense_init   0x001174    program     extern C:\Pacemaker\Microcontroller\Adc.c
-                 adc_init   0x001178    program     extern C:\Pacemaker\Microcontroller\Adc.c
-                  adc_get   0x00118a    program     extern C:\Pacemaker\Microcontroller\Adc.c
-                adc_start   0x001204    program     extern C:\Pacemaker\Microcontroller\Adc.c
-                 adc_stop   0x001212    program     extern C:\Pacemaker\Microcontroller\Adc.c
-                on_timer0   0x001218    program     extern C:\Pacemaker\Microcontroller\Adc.c
-                 FLO1632U   0x0013ca    program     extern C:\MCC18\v3_39\src\traditional\math\cast16FP.asm
-                 FLO1632S   0x0013ce    program     extern C:\MCC18\v3_39\src\traditional\math\cast16FP.asm
-                jI2F16Beg   0x0013de    program     static C:\MCC18\v3_39\src\traditional\math\cast16FP.asm
-                    FPD32   0x0013f4    program     extern C:\MCC18\v3_39\src\traditional\math\divFP.asm
-                 jANotInf   0x001412    program     static C:\MCC18\v3_39\src\traditional\math\divFP.asm
-              jSignedZero   0x00141c    program     static C:\MCC18\v3_39\src\traditional\math\divFP.asm
-                jANotZero   0x001426    program     static C:\MCC18\v3_39\src\traditional\math\divFP.asm
-                    jLoop   0x00144e    program     static C:\MCC18\v3_39\src\traditional\math\divFP.asm
-                jNoAdjust   0x001472    program     static C:\MCC18\v3_39\src\traditional\math\divFP.asm
-                    jNext   0x001474    program     static C:\MCC18\v3_39\src\traditional\math\divFP.asm
-                    FPM32   0x00149a    program     extern C:\MCC18\v3_39\src\traditional\math\mulFP.asm
-                 jANotInf   0x0014b8    program     static C:\MCC18\v3_39\src\traditional\math\mulFP.asm
-              jBothFinite   0x0014c6    program     static C:\MCC18\v3_39\src\traditional\math\mulFP.asm
-                jHaveZero   0x0014ce    program     static C:\MCC18\v3_39\src\traditional\math\mulFP.asm
-             jBothNotZero   0x0014d2    program     static C:\MCC18\v3_39\src\traditional\math\mulFP.asm
-                 FXD0808S   0x001574    program     extern C:\MCC18\v3_39\src\traditional\math\fxd0808s.asm
-                  DA0808S   0x001580    program     static C:\MCC18\v3_39\src\traditional\math\fxd0808s.asm
-                   D0808S   0x00158a    program     static C:\MCC18\v3_39\src\traditional\math\fxd0808s.asm
-                 D0808SOK   0x001594    program     static C:\MCC18\v3_39\src\traditional\math\fxd0808s.asm
-                D0808SNEG   0x001598    program     static C:\MCC18\v3_39\src\traditional\math\fxd0808s.asm
-                  D0808SX   0x00159e    program     static C:\MCC18\v3_39\src\traditional\math\fxd0808s.asm
-            __FpReturnNaN   0x0015a8    program     extern C:\MCC18\v3_39\src\traditional\math\packFP.asm
-                 __FpExit   0x0015b4    program     extern C:\MCC18\v3_39\src\traditional\math\packFP.asm
-        __FpReturnSignInf   0x0015b6    program     extern C:\MCC18\v3_39\src\traditional\math\packFP.asm
-         __FpReturnNegInf   0x0015ba    program     extern C:\MCC18\v3_39\src\traditional\math\packFP.asm
-         __FpReturnPosInf   0x0015c0    program     extern C:\MCC18\v3_39\src\traditional\math\packFP.asm
-           jReturnPosInf0   0x0015c4    program     static C:\MCC18\v3_39\src\traditional\math\packFP.asm
-               jZero1and2   0x0015c8    program     static C:\MCC18\v3_39\src\traditional\math\packFP.asm
-       __FpReturnSignZero   0x0015ce    program     extern C:\MCC18\v3_39\src\traditional\math\packFP.asm
-        __FpReturnNegZero   0x0015d2    program     extern C:\MCC18\v3_39\src\traditional\math\packFP.asm
-        __FpReturnPosZero   0x0015da    program     extern C:\MCC18\v3_39\src\traditional\math\packFP.asm
-                 __FpPack   0x0015e0    program     extern C:\MCC18\v3_39\src\traditional\math\packFP.asm
-                  jPkLoop   0x0015ee    program     static C:\MCC18\v3_39\src\traditional\math\packFP.asm
-             jPkShiftDone   0x00160a    program     static C:\MCC18\v3_39\src\traditional\math\packFP.asm
-               jPkRoundIt   0x001620    program     static C:\MCC18\v3_39\src\traditional\math\packFP.asm
-             jPkRoundDone   0x001638    program     static C:\MCC18\v3_39\src\traditional\math\packFP.asm
-              __FpReturnW   0x001638    program     extern C:\MCC18\v3_39\src\traditional\math\packFP.asm
-              __FpUnPackA   0x001658    program     extern C:\MCC18\v3_39\src\traditional\math\UnpackFP.asm
-                  jUnpkA1   0x001662    program     static C:\MCC18\v3_39\src\traditional\math\UnpackFP.asm
-                 jUnpkANZ   0x001670    program     static C:\MCC18\v3_39\src\traditional\math\UnpackFP.asm
-                  jUnpkA2   0x00167a    program     static C:\MCC18\v3_39\src\traditional\math\UnpackFP.asm
-                 jUnpkNaN   0x001684    program     static C:\MCC18\v3_39\src\traditional\math\UnpackFP.asm
-              __FpUnPackB   0x001688    program     extern C:\MCC18\v3_39\src\traditional\math\UnpackFP.asm
-                  jUnpkB1   0x001692    program     static C:\MCC18\v3_39\src\traditional\math\UnpackFP.asm
-                 jUnpkBNZ   0x0016a0    program     static C:\MCC18\v3_39\src\traditional\math\UnpackFP.asm
-                  jUnpkB2   0x0016aa    program     static C:\MCC18\v3_39\src\traditional\math\UnpackFP.asm
-                 BUF_INIT   0x0016b4    program     extern C:\Pacemaker\Microcontroller\Buffer.c
-                  BUF_GET   0x0016e4    program     extern C:\Pacemaker\Microcontroller\Buffer.c
-               BUF_LENGTH   0x001772    program     extern C:\Pacemaker\Microcontroller\Buffer.c
-                 BUF_SIZE   0x0017a4    program     extern C:\Pacemaker\Microcontroller\Buffer.c
-                BUF_EMPTY   0x0017bc    program     extern C:\Pacemaker\Microcontroller\Buffer.c
-                 BUF_FULL   0x001800    program     extern C:\Pacemaker\Microcontroller\Buffer.c
-                  BUF_ADD   0x001854    program     extern C:\Pacemaker\Microcontroller\Buffer.c
-               intToBytes   0x0018e2    program     extern C:\Pacemaker\Microcontroller\ByteConversion.c
-               bytesToInt   0x001958    program     extern C:\Pacemaker\Microcontroller\ByteConversion.c
-                _do_cinit   0x0019d0    program     extern C:\MCC18\v3_39\src\traditional\startup\c018i.c
-                     test   0x0019ea    program     static                          
-                copy_loop   0x001a42    program     static                          
-            copy_one_byte   0x001a48    program     static                          
-             done_copying   0x001a56    program     static                          
-                     done   0x001a6c    program     static                          
-       ___return_lbl00002   0x001a6c    program     static                          
-            __zero_memory   0x001a6e    program     extern C:\MCC18\v3_39\src\traditional\proc\p18F4520.asm
-               zero_block   0x001a7c    program     static C:\MCC18\v3_39\src\traditional\proc\p18F4520.asm
-                   loop_h   0x001a7c    program     static C:\MCC18\v3_39\src\traditional\proc\p18F4520.asm
-                compare_l   0x001a84    program     static C:\MCC18\v3_39\src\traditional\proc\p18F4520.asm
-                   loop_l   0x001a86    program     static C:\MCC18\v3_39\src\traditional\proc\p18F4520.asm
-                 _startup   0x001a8e    program     extern C:\MCC18\v3_39\src\traditional\startup\c018i.c
-                     loop   0x001a9e    program     static                          
-       ___return_lbl00001   0x001aa8    program     static                          
-                 FXD0808U   0x001aaa    program     extern C:\MCC18\v3_39\src\traditional\math\fxd0808u.c
-                     loop   0x001ab2    program     static                          
-                  endloop   0x001ac0    program     static                          
-       ___return_lbl00000   0x001ac4    program     static                          
-                   __init   0x001ac6    program     extern C:\MCC18\v3_39\src\traditional\stdclib\__init.c
-               __config_0   0x300001    program     static C:\Pacemaker\Microcontroller\Main.c
-               __config_1   0x300003    program     static C:\Pacemaker\Microcontroller\Main.c
-=======
-             calcCheckSum   0x00000e    program     extern C:\Users\Ryan\Pacemaker\Microcontroller\Packet.c
-           paramsToPacket   0x000092    program     extern C:\Users\Ryan\Pacemaker\Microcontroller\Packet.c
-           packetToParams   0x000320    program     extern C:\Users\Ryan\Pacemaker\Microcontroller\Packet.c
-             buffToPacket   0x00047c    program     extern C:\Users\Ryan\Pacemaker\Microcontroller\Packet.c
-            egramToPacket   0x0005e0    program     extern C:\Users\Ryan\Pacemaker\Microcontroller\Packet.c
-             intr_handler   0x0007aa    program     extern C:\Users\Ryan\Pacemaker\Microcontroller\Main.c
-                     main   0x000896    program     extern C:\Users\Ryan\Pacemaker\Microcontroller\Main.c
-                 initComm   0x000d8c    program     extern C:\Users\Ryan\Pacemaker\Microcontroller\Serial.c
-              validHeader   0x000dac    program     extern C:\Users\Ryan\Pacemaker\Microcontroller\Serial.c
-               sendPacket   0x000dec    program     extern C:\Users\Ryan\Pacemaker\Microcontroller\Serial.c
-            receivePacket   0x000eb0    program     extern C:\Users\Ryan\Pacemaker\Microcontroller\Serial.c
-                 sendChar   0x001102    program     extern C:\Users\Ryan\Pacemaker\Microcontroller\Serial.c
-                sendSream   0x001130    program     extern C:\Users\Ryan\Pacemaker\Microcontroller\Serial.c
-              timer0_init   0x0011a0    program     extern C:\Users\Ryan\Pacemaker\Microcontroller\Adc.c
-               sense_init   0x0012fa    program     extern C:\Users\Ryan\Pacemaker\Microcontroller\Adc.c
-                 adc_init   0x0012fe    program     extern C:\Users\Ryan\Pacemaker\Microcontroller\Adc.c
-                  adc_get   0x001310    program     extern C:\Users\Ryan\Pacemaker\Microcontroller\Adc.c
-                adc_start   0x00138a    program     extern C:\Users\Ryan\Pacemaker\Microcontroller\Adc.c
-                 adc_stop   0x001398    program     extern C:\Users\Ryan\Pacemaker\Microcontroller\Adc.c
-                on_timer0   0x00139e    program     extern C:\Users\Ryan\Pacemaker\Microcontroller\Adc.c
-                 FLO1632U   0x001550    program     extern C:\MCC18\v3_39\src\traditional\math\cast16FP.asm
-                 FLO1632S   0x001554    program     extern C:\MCC18\v3_39\src\traditional\math\cast16FP.asm
-                jI2F16Beg   0x001564    program     static C:\MCC18\v3_39\src\traditional\math\cast16FP.asm
-                    FPD32   0x00157a    program     extern C:\MCC18\v3_39\src\traditional\math\divFP.asm
-                 jANotInf   0x001598    program     static C:\MCC18\v3_39\src\traditional\math\divFP.asm
-              jSignedZero   0x0015a2    program     static C:\MCC18\v3_39\src\traditional\math\divFP.asm
-                jANotZero   0x0015ac    program     static C:\MCC18\v3_39\src\traditional\math\divFP.asm
-                    jLoop   0x0015d4    program     static C:\MCC18\v3_39\src\traditional\math\divFP.asm
-                jNoAdjust   0x0015f8    program     static C:\MCC18\v3_39\src\traditional\math\divFP.asm
-                    jNext   0x0015fa    program     static C:\MCC18\v3_39\src\traditional\math\divFP.asm
-                    FPM32   0x001620    program     extern C:\MCC18\v3_39\src\traditional\math\mulFP.asm
-                 jANotInf   0x00163e    program     static C:\MCC18\v3_39\src\traditional\math\mulFP.asm
-              jBothFinite   0x00164c    program     static C:\MCC18\v3_39\src\traditional\math\mulFP.asm
-                jHaveZero   0x001654    program     static C:\MCC18\v3_39\src\traditional\math\mulFP.asm
-             jBothNotZero   0x001658    program     static C:\MCC18\v3_39\src\traditional\math\mulFP.asm
-                 FXD0808S   0x0016fa    program     extern C:\MCC18\v3_39\src\traditional\math\fxd0808s.asm
-                  DA0808S   0x001706    program     static C:\MCC18\v3_39\src\traditional\math\fxd0808s.asm
-                   D0808S   0x001710    program     static C:\MCC18\v3_39\src\traditional\math\fxd0808s.asm
-                 D0808SOK   0x00171a    program     static C:\MCC18\v3_39\src\traditional\math\fxd0808s.asm
-                D0808SNEG   0x00171e    program     static C:\MCC18\v3_39\src\traditional\math\fxd0808s.asm
-                  D0808SX   0x001724    program     static C:\MCC18\v3_39\src\traditional\math\fxd0808s.asm
-            __FpReturnNaN   0x00172e    program     extern C:\MCC18\v3_39\src\traditional\math\packFP.asm
-                 __FpExit   0x00173a    program     extern C:\MCC18\v3_39\src\traditional\math\packFP.asm
-        __FpReturnSignInf   0x00173c    program     extern C:\MCC18\v3_39\src\traditional\math\packFP.asm
-         __FpReturnNegInf   0x001740    program     extern C:\MCC18\v3_39\src\traditional\math\packFP.asm
-         __FpReturnPosInf   0x001746    program     extern C:\MCC18\v3_39\src\traditional\math\packFP.asm
-           jReturnPosInf0   0x00174a    program     static C:\MCC18\v3_39\src\traditional\math\packFP.asm
-               jZero1and2   0x00174e    program     static C:\MCC18\v3_39\src\traditional\math\packFP.asm
-       __FpReturnSignZero   0x001754    program     extern C:\MCC18\v3_39\src\traditional\math\packFP.asm
-        __FpReturnNegZero   0x001758    program     extern C:\MCC18\v3_39\src\traditional\math\packFP.asm
-        __FpReturnPosZero   0x001760    program     extern C:\MCC18\v3_39\src\traditional\math\packFP.asm
-                 __FpPack   0x001766    program     extern C:\MCC18\v3_39\src\traditional\math\packFP.asm
-                  jPkLoop   0x001774    program     static C:\MCC18\v3_39\src\traditional\math\packFP.asm
-             jPkShiftDone   0x001790    program     static C:\MCC18\v3_39\src\traditional\math\packFP.asm
-               jPkRoundIt   0x0017a6    program     static C:\MCC18\v3_39\src\traditional\math\packFP.asm
-             jPkRoundDone   0x0017be    program     static C:\MCC18\v3_39\src\traditional\math\packFP.asm
-              __FpReturnW   0x0017be    program     extern C:\MCC18\v3_39\src\traditional\math\packFP.asm
-              __FpUnPackA   0x0017de    program     extern C:\MCC18\v3_39\src\traditional\math\UnpackFP.asm
-                  jUnpkA1   0x0017e8    program     static C:\MCC18\v3_39\src\traditional\math\UnpackFP.asm
-                 jUnpkANZ   0x0017f6    program     static C:\MCC18\v3_39\src\traditional\math\UnpackFP.asm
-                  jUnpkA2   0x001800    program     static C:\MCC18\v3_39\src\traditional\math\UnpackFP.asm
-                 jUnpkNaN   0x00180a    program     static C:\MCC18\v3_39\src\traditional\math\UnpackFP.asm
-              __FpUnPackB   0x00180e    program     extern C:\MCC18\v3_39\src\traditional\math\UnpackFP.asm
-                  jUnpkB1   0x001818    program     static C:\MCC18\v3_39\src\traditional\math\UnpackFP.asm
-                 jUnpkBNZ   0x001826    program     static C:\MCC18\v3_39\src\traditional\math\UnpackFP.asm
-                  jUnpkB2   0x001830    program     static C:\MCC18\v3_39\src\traditional\math\UnpackFP.asm
-                 BUF_INIT   0x00183a    program     extern C:\Users\Ryan\Pacemaker\Microcontroller\Buffer.c
-                  BUF_GET   0x00186a    program     extern C:\Users\Ryan\Pacemaker\Microcontroller\Buffer.c
-               BUF_LENGTH   0x0018ea    program     extern C:\Users\Ryan\Pacemaker\Microcontroller\Buffer.c
-                 BUF_SIZE   0x0019d6    program     extern C:\Users\Ryan\Pacemaker\Microcontroller\Buffer.c
-                BUF_EMPTY   0x0019ee    program     extern C:\Users\Ryan\Pacemaker\Microcontroller\Buffer.c
-                 BUF_FULL   0x001a32    program     extern C:\Users\Ryan\Pacemaker\Microcontroller\Buffer.c
-                  BUF_ADD   0x001a78    program     extern C:\Users\Ryan\Pacemaker\Microcontroller\Buffer.c
-               intToBytes   0x001af8    program     extern C:\Users\Ryan\Pacemaker\Microcontroller\ByteConversion.c
-               bytesToInt   0x001b9c    program     extern C:\Users\Ryan\Pacemaker\Microcontroller\ByteConversion.c
-                _do_cinit   0x001c14    program     extern C:\MCC18\v3_39\src\traditional\startup\c018i.c
-                     test   0x001c2e    program     static                          
-                copy_loop   0x001c86    program     static                          
-            copy_one_byte   0x001c8c    program     static                          
-             done_copying   0x001c9a    program     static                          
-                     done   0x001cb0    program     static                          
-       ___return_lbl00002   0x001cb0    program     static                          
-            __zero_memory   0x001cb2    program     extern C:\MCC18\v3_39\src\traditional\proc\p18F4520.asm
-               zero_block   0x001cc0    program     static C:\MCC18\v3_39\src\traditional\proc\p18F4520.asm
-                   loop_h   0x001cc0    program     static C:\MCC18\v3_39\src\traditional\proc\p18F4520.asm
-                compare_l   0x001cc8    program     static C:\MCC18\v3_39\src\traditional\proc\p18F4520.asm
-                   loop_l   0x001cca    program     static C:\MCC18\v3_39\src\traditional\proc\p18F4520.asm
-                 _startup   0x001cd2    program     extern C:\MCC18\v3_39\src\traditional\startup\c018i.c
-                     loop   0x001ce2    program     static                          
-       ___return_lbl00001   0x001cec    program     static                          
-                 FXD0808U   0x001cee    program     extern C:\MCC18\v3_39\src\traditional\math\fxd0808u.c
-                     loop   0x001cf6    program     static                          
-                  endloop   0x001d04    program     static                          
-       ___return_lbl00000   0x001d08    program     static                          
-                   __init   0x001d0a    program     extern C:\MCC18\v3_39\src\traditional\stdclib\__init.c
-               __config_0   0x300001    program     static C:\Users\Ryan\Pacemaker\Microcontroller\Main.c
-               __config_1   0x300003    program     static C:\Users\Ryan\Pacemaker\Microcontroller\Main.c
-=======
-               intr_entry   0x000008    program     extern C:\Users\Vast Horizon\Desktop\Pacemaker\Microcontroller\Main.c
-       ___return_lbl00001   0x00000c    program     static                          
-                   __init   0x00000e    program     extern C:\MCC18\v3_39\src\traditional\stdclib\__init.c
-            low_interrupt   0x000018    program     extern C:\Users\Vast Horizon\Desktop\Pacemaker\Microcontroller\Main.c
-       ___return_lbl00000   0x00001c    program     static                          
-             calcCheckSum   0x00001e    program     extern C:\Users\Vast Horizon\Desktop\Pacemaker\Microcontroller\Packet.c
-           paramsToPacket   0x0000a2    program     extern C:\Users\Vast Horizon\Desktop\Pacemaker\Microcontroller\Packet.c
-           packetToParams   0x000330    program     extern C:\Users\Vast Horizon\Desktop\Pacemaker\Microcontroller\Packet.c
-             buffToPacket   0x00048c    program     extern C:\Users\Vast Horizon\Desktop\Pacemaker\Microcontroller\Packet.c
-            egramToPacket   0x0005f0    program     extern C:\Users\Vast Horizon\Desktop\Pacemaker\Microcontroller\Packet.c
-             intr_handler   0x0007ba    program     extern C:\Users\Vast Horizon\Desktop\Pacemaker\Microcontroller\Main.c
-            tmr_interrupt   0x00089e    program     extern C:\Users\Vast Horizon\Desktop\Pacemaker\Microcontroller\Main.c
-                     main   0x0008b0    program     extern C:\Users\Vast Horizon\Desktop\Pacemaker\Microcontroller\Main.c
-                 initComm   0x000cb6    program     extern C:\Users\Vast Horizon\Desktop\Pacemaker\Microcontroller\Serial.c
-              validHeader   0x000cd6    program     extern C:\Users\Vast Horizon\Desktop\Pacemaker\Microcontroller\Serial.c
-               sendPacket   0x000d16    program     extern C:\Users\Vast Horizon\Desktop\Pacemaker\Microcontroller\Serial.c
-            receivePacket   0x000dda    program     extern C:\Users\Vast Horizon\Desktop\Pacemaker\Microcontroller\Serial.c
-                 sendChar   0x00102c    program     extern C:\Users\Vast Horizon\Desktop\Pacemaker\Microcontroller\Serial.c
-                sendSream   0x00105a    program     extern C:\Users\Vast Horizon\Desktop\Pacemaker\Microcontroller\Serial.c
-              timer0_init   0x0010ca    program     extern C:\Users\Vast Horizon\Desktop\Pacemaker\Microcontroller\Adc.c
-               sense_init   0x001224    program     extern C:\Users\Vast Horizon\Desktop\Pacemaker\Microcontroller\Adc.c
-                 adc_init   0x001228    program     extern C:\Users\Vast Horizon\Desktop\Pacemaker\Microcontroller\Adc.c
-                  adc_get   0x00123a    program     extern C:\Users\Vast Horizon\Desktop\Pacemaker\Microcontroller\Adc.c
-                adc_start   0x0012b4    program     extern C:\Users\Vast Horizon\Desktop\Pacemaker\Microcontroller\Adc.c
-                 adc_stop   0x0012c2    program     extern C:\Users\Vast Horizon\Desktop\Pacemaker\Microcontroller\Adc.c
-                on_timer0   0x0012c8    program     extern C:\Users\Vast Horizon\Desktop\Pacemaker\Microcontroller\Adc.c
-                 BUF_INIT   0x00147a    program     extern C:\Users\Vast Horizon\Desktop\Pacemaker\Microcontroller\Buffer.c
-                  BUF_GET   0x0014aa    program     extern C:\Users\Vast Horizon\Desktop\Pacemaker\Microcontroller\Buffer.c
-               BUF_LENGTH   0x001538    program     extern C:\Users\Vast Horizon\Desktop\Pacemaker\Microcontroller\Buffer.c
-                 BUF_SIZE   0x001670    program     extern C:\Users\Vast Horizon\Desktop\Pacemaker\Microcontroller\Buffer.c
-                BUF_EMPTY   0x001688    program     extern C:\Users\Vast Horizon\Desktop\Pacemaker\Microcontroller\Buffer.c
-                 BUF_FULL   0x0016cc    program     extern C:\Users\Vast Horizon\Desktop\Pacemaker\Microcontroller\Buffer.c
-                  BUF_ADD   0x001720    program     extern C:\Users\Vast Horizon\Desktop\Pacemaker\Microcontroller\Buffer.c
-                 FLO1632U   0x0017ae    program     extern C:\MCC18\v3_39\src\traditional\math\cast16FP.asm
-                 FLO1632S   0x0017b2    program     extern C:\MCC18\v3_39\src\traditional\math\cast16FP.asm
-                jI2F16Beg   0x0017c2    program     static C:\MCC18\v3_39\src\traditional\math\cast16FP.asm
-                    FPD32   0x0017d8    program     extern C:\MCC18\v3_39\src\traditional\math\divFP.asm
-                 jANotInf   0x0017f6    program     static C:\MCC18\v3_39\src\traditional\math\divFP.asm
-              jSignedZero   0x001800    program     static C:\MCC18\v3_39\src\traditional\math\divFP.asm
-                jANotZero   0x00180a    program     static C:\MCC18\v3_39\src\traditional\math\divFP.asm
-                    jLoop   0x001832    program     static C:\MCC18\v3_39\src\traditional\math\divFP.asm
-                jNoAdjust   0x001856    program     static C:\MCC18\v3_39\src\traditional\math\divFP.asm
-                    jNext   0x001858    program     static C:\MCC18\v3_39\src\traditional\math\divFP.asm
-                    FPM32   0x00187e    program     extern C:\MCC18\v3_39\src\traditional\math\mulFP.asm
-                 jANotInf   0x00189c    program     static C:\MCC18\v3_39\src\traditional\math\mulFP.asm
-              jBothFinite   0x0018aa    program     static C:\MCC18\v3_39\src\traditional\math\mulFP.asm
-                jHaveZero   0x0018b2    program     static C:\MCC18\v3_39\src\traditional\math\mulFP.asm
-             jBothNotZero   0x0018b6    program     static C:\MCC18\v3_39\src\traditional\math\mulFP.asm
-                 FXD0808S   0x001958    program     extern C:\MCC18\v3_39\src\traditional\math\fxd0808s.asm
-                  DA0808S   0x001964    program     static C:\MCC18\v3_39\src\traditional\math\fxd0808s.asm
-                   D0808S   0x00196e    program     static C:\MCC18\v3_39\src\traditional\math\fxd0808s.asm
-                 D0808SOK   0x001978    program     static C:\MCC18\v3_39\src\traditional\math\fxd0808s.asm
-                D0808SNEG   0x00197c    program     static C:\MCC18\v3_39\src\traditional\math\fxd0808s.asm
-                  D0808SX   0x001982    program     static C:\MCC18\v3_39\src\traditional\math\fxd0808s.asm
-            __FpReturnNaN   0x00198c    program     extern C:\MCC18\v3_39\src\traditional\math\packFP.asm
-                 __FpExit   0x001998    program     extern C:\MCC18\v3_39\src\traditional\math\packFP.asm
-        __FpReturnSignInf   0x00199a    program     extern C:\MCC18\v3_39\src\traditional\math\packFP.asm
-         __FpReturnNegInf   0x00199e    program     extern C:\MCC18\v3_39\src\traditional\math\packFP.asm
-         __FpReturnPosInf   0x0019a4    program     extern C:\MCC18\v3_39\src\traditional\math\packFP.asm
-           jReturnPosInf0   0x0019a8    program     static C:\MCC18\v3_39\src\traditional\math\packFP.asm
-               jZero1and2   0x0019ac    program     static C:\MCC18\v3_39\src\traditional\math\packFP.asm
-       __FpReturnSignZero   0x0019b2    program     extern C:\MCC18\v3_39\src\traditional\math\packFP.asm
-        __FpReturnNegZero   0x0019b6    program     extern C:\MCC18\v3_39\src\traditional\math\packFP.asm
-        __FpReturnPosZero   0x0019be    program     extern C:\MCC18\v3_39\src\traditional\math\packFP.asm
-                 __FpPack   0x0019c4    program     extern C:\MCC18\v3_39\src\traditional\math\packFP.asm
-                  jPkLoop   0x0019d2    program     static C:\MCC18\v3_39\src\traditional\math\packFP.asm
-             jPkShiftDone   0x0019ee    program     static C:\MCC18\v3_39\src\traditional\math\packFP.asm
-               jPkRoundIt   0x001a04    program     static C:\MCC18\v3_39\src\traditional\math\packFP.asm
-              __FpReturnW   0x001a1c    program     extern C:\MCC18\v3_39\src\traditional\math\packFP.asm
-             jPkRoundDone   0x001a1c    program     static C:\MCC18\v3_39\src\traditional\math\packFP.asm
-              __FpUnPackA   0x001a3c    program     extern C:\MCC18\v3_39\src\traditional\math\UnpackFP.asm
-                  jUnpkA1   0x001a46    program     static C:\MCC18\v3_39\src\traditional\math\UnpackFP.asm
-                 jUnpkANZ   0x001a54    program     static C:\MCC18\v3_39\src\traditional\math\UnpackFP.asm
-                  jUnpkA2   0x001a5e    program     static C:\MCC18\v3_39\src\traditional\math\UnpackFP.asm
-                 jUnpkNaN   0x001a68    program     static C:\MCC18\v3_39\src\traditional\math\UnpackFP.asm
-              __FpUnPackB   0x001a6c    program     extern C:\MCC18\v3_39\src\traditional\math\UnpackFP.asm
-                  jUnpkB1   0x001a76    program     static C:\MCC18\v3_39\src\traditional\math\UnpackFP.asm
-                 jUnpkBNZ   0x001a84    program     static C:\MCC18\v3_39\src\traditional\math\UnpackFP.asm
-                  jUnpkB2   0x001a8e    program     static C:\MCC18\v3_39\src\traditional\math\UnpackFP.asm
-               intToBytes   0x001a98    program     extern C:\Users\Vast Horizon\Desktop\Pacemaker\Microcontroller\ByteConversion.c
-               bytesToInt   0x001b0e    program     extern C:\Users\Vast Horizon\Desktop\Pacemaker\Microcontroller\ByteConversion.c
-                _do_cinit   0x001b86    program     extern C:\MCC18\v3_39\src\traditional\startup\c018i.c
-                     test   0x001ba0    program     static                          
-                copy_loop   0x001bf8    program     static                          
-            copy_one_byte   0x001bfe    program     static                          
-             done_copying   0x001c0c    program     static                          
-       ___return_lbl00002   0x001c22    program     static                          
-                     done   0x001c22    program     static                          
-            __zero_memory   0x001c24    program     extern C:\MCC18\v3_39\src\traditional\proc\p18F4520.asm
-               zero_block   0x001c32    program     static C:\MCC18\v3_39\src\traditional\proc\p18F4520.asm
-                   loop_h   0x001c32    program     static C:\MCC18\v3_39\src\traditional\proc\p18F4520.asm
-                compare_l   0x001c3a    program     static C:\MCC18\v3_39\src\traditional\proc\p18F4520.asm
-                   loop_l   0x001c3c    program     static C:\MCC18\v3_39\src\traditional\proc\p18F4520.asm
-                 _startup   0x001c44    program     extern C:\MCC18\v3_39\src\traditional\startup\c018i.c
-                     loop   0x001c54    program     static                          
-       ___return_lbl00001   0x001c5e    program     static                          
-                 FXD0808U   0x001c60    program     extern C:\MCC18\v3_39\src\traditional\math\fxd0808u.c
-                     loop   0x001c68    program     static                          
-                  endloop   0x001c76    program     static                          
-       ___return_lbl00000   0x001c7a    program     static                          
-               __config_0   0x300001    program     static C:\Users\Vast Horizon\Desktop\Pacemaker\Microcontroller\Main.c
-               __config_1   0x300003    program     static C:\Users\Vast Horizon\Desktop\Pacemaker\Microcontroller\Main.c
->>>>>>> origin/master
->>>>>>> origin/master
+             calcCheckSum   0x00000e    program     extern C:\Pacemaker1\Microcontroller\Packet.c
+           paramsToPacket   0x000092    program     extern C:\Pacemaker1\Microcontroller\Packet.c
+           packetToParams   0x000320    program     extern C:\Pacemaker1\Microcontroller\Packet.c
+             buffToPacket   0x00047c    program     extern C:\Pacemaker1\Microcontroller\Packet.c
+            egramToPacket   0x0005e0    program     extern C:\Pacemaker1\Microcontroller\Packet.c
+             intr_handler   0x0007aa    program     extern C:\Pacemaker1\Microcontroller\Main.c
+                     main   0x00094e    program     extern C:\Pacemaker1\Microcontroller\Main.c
+                 initComm   0x000e44    program     extern C:\Pacemaker1\Microcontroller\Serial.c
+              validHeader   0x000e64    program     extern C:\Pacemaker1\Microcontroller\Serial.c
+               sendPacket   0x000ea4    program     extern C:\Pacemaker1\Microcontroller\Serial.c
+            receivePacket   0x000f68    program     extern C:\Pacemaker1\Microcontroller\Serial.c
+                 sendChar   0x0011ba    program     extern C:\Pacemaker1\Microcontroller\Serial.c
+                sendSream   0x0011e8    program     extern C:\Pacemaker1\Microcontroller\Serial.c
+                 BUF_INIT   0x001258    program     extern C:\Pacemaker1\Microcontroller\Buffer.c
+                  BUF_GET   0x001288    program     extern C:\Pacemaker1\Microcontroller\Buffer.c
+               BUF_LENGTH   0x001308    program     extern C:\Pacemaker1\Microcontroller\Buffer.c
+                 BUF_SIZE   0x001520    program     extern C:\Pacemaker1\Microcontroller\Buffer.c
+                BUF_EMPTY   0x001538    program     extern C:\Pacemaker1\Microcontroller\Buffer.c
+                 BUF_FULL   0x00157c    program     extern C:\Pacemaker1\Microcontroller\Buffer.c
+                  BUF_ADD   0x0015c2    program     extern C:\Pacemaker1\Microcontroller\Buffer.c
+                 FLO1632U   0x001642    program     extern C:\MCC18\v3_39\src\traditional\math\cast16FP.asm
+                 FLO1632S   0x001646    program     extern C:\MCC18\v3_39\src\traditional\math\cast16FP.asm
+                jI2F16Beg   0x001656    program     static C:\MCC18\v3_39\src\traditional\math\cast16FP.asm
+                    FPD32   0x00166c    program     extern C:\MCC18\v3_39\src\traditional\math\divFP.asm
+                 jANotInf   0x00168a    program     static C:\MCC18\v3_39\src\traditional\math\divFP.asm
+              jSignedZero   0x001694    program     static C:\MCC18\v3_39\src\traditional\math\divFP.asm
+                jANotZero   0x00169e    program     static C:\MCC18\v3_39\src\traditional\math\divFP.asm
+                    jLoop   0x0016c6    program     static C:\MCC18\v3_39\src\traditional\math\divFP.asm
+                jNoAdjust   0x0016ea    program     static C:\MCC18\v3_39\src\traditional\math\divFP.asm
+                    jNext   0x0016ec    program     static C:\MCC18\v3_39\src\traditional\math\divFP.asm
+                    FPM32   0x001712    program     extern C:\MCC18\v3_39\src\traditional\math\mulFP.asm
+                 jANotInf   0x001730    program     static C:\MCC18\v3_39\src\traditional\math\mulFP.asm
+              jBothFinite   0x00173e    program     static C:\MCC18\v3_39\src\traditional\math\mulFP.asm
+                jHaveZero   0x001746    program     static C:\MCC18\v3_39\src\traditional\math\mulFP.asm
+             jBothNotZero   0x00174a    program     static C:\MCC18\v3_39\src\traditional\math\mulFP.asm
+                 FXD0808S   0x0017ec    program     extern C:\MCC18\v3_39\src\traditional\math\fxd0808s.asm
+                  DA0808S   0x0017f8    program     static C:\MCC18\v3_39\src\traditional\math\fxd0808s.asm
+                   D0808S   0x001802    program     static C:\MCC18\v3_39\src\traditional\math\fxd0808s.asm
+                 D0808SOK   0x00180c    program     static C:\MCC18\v3_39\src\traditional\math\fxd0808s.asm
+                D0808SNEG   0x001810    program     static C:\MCC18\v3_39\src\traditional\math\fxd0808s.asm
+                  D0808SX   0x001816    program     static C:\MCC18\v3_39\src\traditional\math\fxd0808s.asm
+            __FpReturnNaN   0x001820    program     extern C:\MCC18\v3_39\src\traditional\math\packFP.asm
+                 __FpExit   0x00182c    program     extern C:\MCC18\v3_39\src\traditional\math\packFP.asm
+        __FpReturnSignInf   0x00182e    program     extern C:\MCC18\v3_39\src\traditional\math\packFP.asm
+         __FpReturnNegInf   0x001832    program     extern C:\MCC18\v3_39\src\traditional\math\packFP.asm
+         __FpReturnPosInf   0x001838    program     extern C:\MCC18\v3_39\src\traditional\math\packFP.asm
+           jReturnPosInf0   0x00183c    program     static C:\MCC18\v3_39\src\traditional\math\packFP.asm
+               jZero1and2   0x001840    program     static C:\MCC18\v3_39\src\traditional\math\packFP.asm
+       __FpReturnSignZero   0x001846    program     extern C:\MCC18\v3_39\src\traditional\math\packFP.asm
+        __FpReturnNegZero   0x00184a    program     extern C:\MCC18\v3_39\src\traditional\math\packFP.asm
+        __FpReturnPosZero   0x001852    program     extern C:\MCC18\v3_39\src\traditional\math\packFP.asm
+                 __FpPack   0x001858    program     extern C:\MCC18\v3_39\src\traditional\math\packFP.asm
+                  jPkLoop   0x001866    program     static C:\MCC18\v3_39\src\traditional\math\packFP.asm
+             jPkShiftDone   0x001882    program     static C:\MCC18\v3_39\src\traditional\math\packFP.asm
+               jPkRoundIt   0x001898    program     static C:\MCC18\v3_39\src\traditional\math\packFP.asm
+              __FpReturnW   0x0018b0    program     extern C:\MCC18\v3_39\src\traditional\math\packFP.asm
+             jPkRoundDone   0x0018b0    program     static C:\MCC18\v3_39\src\traditional\math\packFP.asm
+              __FpUnPackA   0x0018d0    program     extern C:\MCC18\v3_39\src\traditional\math\UnpackFP.asm
+                  jUnpkA1   0x0018da    program     static C:\MCC18\v3_39\src\traditional\math\UnpackFP.asm
+                 jUnpkANZ   0x0018e8    program     static C:\MCC18\v3_39\src\traditional\math\UnpackFP.asm
+                  jUnpkA2   0x0018f2    program     static C:\MCC18\v3_39\src\traditional\math\UnpackFP.asm
+                 jUnpkNaN   0x0018fc    program     static C:\MCC18\v3_39\src\traditional\math\UnpackFP.asm
+              __FpUnPackB   0x001900    program     extern C:\MCC18\v3_39\src\traditional\math\UnpackFP.asm
+                  jUnpkB1   0x00190a    program     static C:\MCC18\v3_39\src\traditional\math\UnpackFP.asm
+                 jUnpkBNZ   0x001918    program     static C:\MCC18\v3_39\src\traditional\math\UnpackFP.asm
+                  jUnpkB2   0x001922    program     static C:\MCC18\v3_39\src\traditional\math\UnpackFP.asm
+              timer1_init   0x00192c    program     extern C:\Pacemaker1\Microcontroller\Adc.c
+               sense_init   0x00194e    program     extern C:\Pacemaker1\Microcontroller\Adc.c
+                 adc_init   0x001952    program     extern C:\Pacemaker1\Microcontroller\Adc.c
+                  adc_get   0x001964    program     extern C:\Pacemaker1\Microcontroller\Adc.c
+                adc_start   0x0019de    program     extern C:\Pacemaker1\Microcontroller\Adc.c
+                 adc_stop   0x0019ec    program     extern C:\Pacemaker1\Microcontroller\Adc.c
+                on_timer1   0x0019f2    program     extern C:\Pacemaker1\Microcontroller\Adc.c
+               intToBytes   0x001ba4    program     extern C:\Pacemaker1\Microcontroller\ByteConversion.c
+               bytesToInt   0x001c48    program     extern C:\Pacemaker1\Microcontroller\ByteConversion.c
+                _do_cinit   0x001cc0    program     extern C:\MCC18\v3_39\src\traditional\startup\c018i.c
+                     test   0x001cda    program     static                          
+                copy_loop   0x001d32    program     static                          
+            copy_one_byte   0x001d38    program     static                          
+             done_copying   0x001d46    program     static                          
+                     done   0x001d5c    program     static                          
+       ___return_lbl00002   0x001d5c    program     static                          
+            __zero_memory   0x001d5e    program     extern C:\MCC18\v3_39\src\traditional\proc\p18F4520.asm
+               zero_block   0x001d6c    program     static C:\MCC18\v3_39\src\traditional\proc\p18F4520.asm
+                   loop_h   0x001d6c    program     static C:\MCC18\v3_39\src\traditional\proc\p18F4520.asm
+                compare_l   0x001d74    program     static C:\MCC18\v3_39\src\traditional\proc\p18F4520.asm
+                   loop_l   0x001d76    program     static C:\MCC18\v3_39\src\traditional\proc\p18F4520.asm
+                 _startup   0x001d7e    program     extern C:\MCC18\v3_39\src\traditional\startup\c018i.c
+                     loop   0x001d8e    program     static                          
+       ___return_lbl00001   0x001d98    program     static                          
+                 FXD0808U   0x001d9a    program     extern C:\MCC18\v3_39\src\traditional\math\fxd0808u.c
+                     loop   0x001da2    program     static                          
+                  endloop   0x001db0    program     static                          
+       ___return_lbl00000   0x001db4    program     static                          
+                   __init   0x001db6    program     extern C:\MCC18\v3_39\src\traditional\stdclib\__init.c
+               __config_0   0x300001    program     static C:\Pacemaker1\Microcontroller\Main.c
+               __config_1   0x300003    program     static C:\Pacemaker1\Microcontroller\Main.c
                      SIGN   0x000000       data     extern C:\MCC18\v3_39\src\traditional\math\cmath18.asm
                 __FPFLAGS   0x000001       data     extern C:\MCC18\v3_39\src\traditional\math\cmath18.asm
             __FPFLAGSbits   0x000001       data     extern C:\MCC18\v3_39\src\traditional\math\cmath18.asm
@@ -1118,64 +546,24 @@ Linker Map File - Created Sat Oct 22 00:39:13 2011
                  __TEMPB1   0x000012       data     extern C:\MCC18\v3_39\src\traditional\math\temparg.asm
                    __TEMP   0x000013       data     extern C:\MCC18\v3_39\src\traditional\math\temparg.asm
                  __TEMPB0   0x000013       data     extern C:\MCC18\v3_39\src\traditional\math\temparg.asm
-<<<<<<< HEAD
-                  __tmp_0   0x000014       data     static C:\Pacemaker\Microcontroller\Packet.c
-                  __tmp_0   0x000014       data     static C:\Pacemaker\Microcontroller\Adc.c
-                  __tmp_0   0x000014       data     static C:\Pacemaker\Microcontroller\ByteConversion.c
-                  __tmp_0   0x000014       data     static C:\Pacemaker\Microcontroller\Serial.c
-                  __tmp_0   0x000014       data     static C:\Pacemaker\Microcontroller\Main.c
-                  __tmp_0   0x000014       data     static C:\Pacemaker\Microcontroller\Buffer.c
-                  __tmp_1   0x000026       data     static C:\Pacemaker\Microcontroller\Main.c
-                    txbuf   0x000080       data     extern C:\Pacemaker\Microcontroller\Main.c
-                    rcbuf   0x000093       data     extern C:\Pacemaker\Microcontroller\Main.c
-                 i_CommIn   0x0000a6       data     extern C:\Pacemaker\Microcontroller\Main.c
-               Parameters   0x0000b6       data     extern C:\Pacemaker\Microcontroller\Main.c
-                o_CommOut   0x0000c3       data     extern C:\Pacemaker\Microcontroller\Main.c
-                  opState   0x0000c7       data     extern C:\Pacemaker\Microcontroller\Main.c
-                 m_magnet   0x0000c9       data     extern C:\Pacemaker\Microcontroller\Main.c
-                     prom   0x0000ca       data     static C:\MCC18\v3_39\src\traditional\startup\c018i.c
-                curr_byte   0x0000cd       data     static C:\MCC18\v3_39\src\traditional\startup\c018i.c
-               curr_entry   0x0000cf       data     static C:\MCC18\v3_39\src\traditional\startup\c018i.c
-                 data_ptr   0x0000d1       data     static C:\MCC18\v3_39\src\traditional\startup\c018i.c
-=======
-<<<<<<< HEAD
-                  __tmp_0   0x000014       data     static C:\Users\Ryan\Pacemaker\Microcontroller\Buffer.c
-                  __tmp_0   0x000014       data     static C:\Users\Ryan\Pacemaker\Microcontroller\Packet.c
-                  __tmp_0   0x000014       data     static C:\Users\Ryan\Pacemaker\Microcontroller\Adc.c
-                  __tmp_0   0x000014       data     static C:\Users\Ryan\Pacemaker\Microcontroller\ByteConversion.c
-                  __tmp_0   0x000014       data     static C:\Users\Ryan\Pacemaker\Microcontroller\Serial.c
-                  __tmp_0   0x000014       data     static C:\Users\Ryan\Pacemaker\Microcontroller\Main.c
-                  __tmp_1   0x000026       data     static C:\Users\Ryan\Pacemaker\Microcontroller\Main.c
-                    txbuf   0x000080       data     extern C:\Users\Ryan\Pacemaker\Microcontroller\Main.c
-                    rcbuf   0x0000a2       data     extern C:\Users\Ryan\Pacemaker\Microcontroller\Main.c
-                 i_CommIn   0x0000c4       data     extern C:\Users\Ryan\Pacemaker\Microcontroller\Main.c
-               Parameters   0x0000d4       data     extern C:\Users\Ryan\Pacemaker\Microcontroller\Main.c
-                  opState   0x0000e1       data     extern C:\Users\Ryan\Pacemaker\Microcontroller\Main.c
-                 m_magnet   0x0000e3       data     extern C:\Users\Ryan\Pacemaker\Microcontroller\Main.c
-                     prom   0x0000e4       data     static C:\MCC18\v3_39\src\traditional\startup\c018i.c
-                curr_byte   0x0000e7       data     static C:\MCC18\v3_39\src\traditional\startup\c018i.c
-               curr_entry   0x0000e9       data     static C:\MCC18\v3_39\src\traditional\startup\c018i.c
-                 data_ptr   0x0000eb       data     static C:\MCC18\v3_39\src\traditional\startup\c018i.c
-=======
-                  __tmp_0   0x000014       data     static C:\Users\Vast Horizon\Desktop\Pacemaker\Microcontroller\Buffer.c
-                  __tmp_0   0x000014       data     static C:\Users\Vast Horizon\Desktop\Pacemaker\Microcontroller\Packet.c
-                  __tmp_0   0x000014       data     static C:\Users\Vast Horizon\Desktop\Pacemaker\Microcontroller\Adc.c
-                  __tmp_0   0x000014       data     static C:\Users\Vast Horizon\Desktop\Pacemaker\Microcontroller\ByteConversion.c
-                  __tmp_0   0x000014       data     static C:\Users\Vast Horizon\Desktop\Pacemaker\Microcontroller\Serial.c
-                  __tmp_0   0x000014       data     static C:\Users\Vast Horizon\Desktop\Pacemaker\Microcontroller\Main.c
-                  __tmp_1   0x000026       data     static C:\Users\Vast Horizon\Desktop\Pacemaker\Microcontroller\Main.c
-                    txbuf   0x000080       data     extern C:\Users\Vast Horizon\Desktop\Pacemaker\Microcontroller\Main.c
-                    rcbuf   0x000093       data     extern C:\Users\Vast Horizon\Desktop\Pacemaker\Microcontroller\Main.c
-                 i_CommIn   0x0000a6       data     extern C:\Users\Vast Horizon\Desktop\Pacemaker\Microcontroller\Main.c
-               Parameters   0x0000b6       data     extern C:\Users\Vast Horizon\Desktop\Pacemaker\Microcontroller\Main.c
-                  opState   0x0000c3       data     extern C:\Users\Vast Horizon\Desktop\Pacemaker\Microcontroller\Main.c
-                 m_magnet   0x0000c5       data     extern C:\Users\Vast Horizon\Desktop\Pacemaker\Microcontroller\Main.c
-                     prom   0x0000c6       data     static C:\MCC18\v3_39\src\traditional\startup\c018i.c
-                curr_byte   0x0000c9       data     static C:\MCC18\v3_39\src\traditional\startup\c018i.c
-               curr_entry   0x0000cb       data     static C:\MCC18\v3_39\src\traditional\startup\c018i.c
-                 data_ptr   0x0000cd       data     static C:\MCC18\v3_39\src\traditional\startup\c018i.c
->>>>>>> origin/master
->>>>>>> origin/master
+                  __tmp_1   0x000014       data     static C:\Pacemaker1\Microcontroller\Main.c
+                  __tmp_0   0x000026       data     static C:\Pacemaker1\Microcontroller\Packet.c
+                  __tmp_0   0x000026       data     static C:\Pacemaker1\Microcontroller\Adc.c
+                  __tmp_0   0x000026       data     static C:\Pacemaker1\Microcontroller\ByteConversion.c
+                  __tmp_0   0x000026       data     static C:\Pacemaker1\Microcontroller\Serial.c
+                  __tmp_0   0x000026       data     static C:\Pacemaker1\Microcontroller\Main.c
+                  __tmp_0   0x000026       data     static C:\Pacemaker1\Microcontroller\Buffer.c
+                    txbuf   0x000080       data     extern C:\Pacemaker1\Microcontroller\Main.c
+                    rcbuf   0x0000a2       data     extern C:\Pacemaker1\Microcontroller\Main.c
+                 i_CommIn   0x0000c4       data     extern C:\Pacemaker1\Microcontroller\Main.c
+               Parameters   0x0000d4       data     extern C:\Pacemaker1\Microcontroller\Main.c
+                o_CommOut   0x0000e1       data     extern C:\Pacemaker1\Microcontroller\Main.c
+                  opState   0x0000e5       data     extern C:\Pacemaker1\Microcontroller\Main.c
+                 m_magnet   0x0000e7       data     extern C:\Pacemaker1\Microcontroller\Main.c
+                     prom   0x0000e8       data     static C:\MCC18\v3_39\src\traditional\startup\c018i.c
+                curr_byte   0x0000eb       data     static C:\MCC18\v3_39\src\traditional\startup\c018i.c
+               curr_entry   0x0000ed       data     static C:\MCC18\v3_39\src\traditional\startup\c018i.c
+                 data_ptr   0x0000ef       data     static C:\MCC18\v3_39\src\traditional\startup\c018i.c
                 PORTAbits   0x000f80       data     extern C:\MCC18\v3_39\src\traditional\proc\p18F4520.asm
                     PORTA   0x000f80       data     extern C:\MCC18\v3_39\src\traditional\proc\p18F4520.asm
                     PORTB   0x000f81       data     extern C:\MCC18\v3_39\src\traditional\proc\p18F4520.asm

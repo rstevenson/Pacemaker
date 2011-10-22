@@ -14,12 +14,12 @@ struct packet paramsToPacket(struct params par);
 
 struct packet egramToPacket(char FnCode, int m_vrawValue, int f_markerValue);
 
-struct stream egramToStream(int m_vrawValue, int f_markerValue);
+
 //name: buffToPacket
 //description: takes data from a buffer and puts it into a packet
 //params: struct buffer *buf - buffer to take data from
 //return: struct packet
-
+struct packet egramToPacket(char FnCode, int m_vrawValue, int f_markerValue);
 struct packet buffToPacket(struct buffer *rbuf);
 
 //name: packetToParams
