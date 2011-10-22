@@ -22,6 +22,8 @@ struct packet i_CommIn; // structure of package based on requirements given
 
 struct params Parameters;
 
+struct stream  o_CommOut;
+
 unsigned int opState; //Operation state of the FSM
 
 enum y_magnet m_magnet;
@@ -40,7 +42,19 @@ void intr_entry(void) {
 /* Interrupt handler function */
 #pragma interrupt intr_handler
 void intr_handler(void) {
+<<<<<<< HEAD
+
+   // Checks to see if the timer interrupt has been fired.
+     if(INTCONbits.TMR0IF==1)
+		{
+			sendSream(egramToStream (2, 5),&txbuf);// sends a egram package with 4 bytes containing random values of m_vraw and f_marker for testing purposes.
+		}
+			
+			
+    /* If the microcontroller received a byte */ 
+=======
     /* If the microcontroller received a byte */
+>>>>>>> origin/master
     if (PIR1bits.RCIF) {
 	/* Add the byte into receiving buffer */
 		BUF_ADD(&rcbuf, RCREG);
@@ -57,6 +71,8 @@ void intr_handler(void) {
 			TXREG = BUF_GET(&txbuf);
 		}
     }
+
+ 			
 }
 
 /* Main entrance */
