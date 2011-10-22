@@ -1,5 +1,5 @@
 /* Initialize buffer size */
-#define e_BUF_SIZE 17
+#define e_BUF_SIZE 32
 
 /* Define the buffer structure */
 struct buffer 

@@ -9,15 +9,14 @@
 
 void initComm()
 {
-    SPBRG = (FOSC/(BAUD_RATE*4))-1; //calculates the SPGRG value for 16 bit BRG
+    SPBRG = 16; //calculates the SPGRG value for 16 bit BRG
     /* Configure the pins for UART */
     TRISCbits.TRISC6 = 1;
     TRISCbits.TRISC7 = 1;
-
-    /* Enable serial port */
-    RCSTAbits.SPEN = 1;
     /* Enable asynchronous mode */
     TXSTAbits.SYNC = 0;
+    /* Enable serial port */
+    RCSTAbits.SPEN = 1;
     /* Enable transmission (sending) */
     TXSTAbits.TXEN = 1;
 	TXSTAbits.BRGH = 1;

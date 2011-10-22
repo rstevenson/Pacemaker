@@ -4,13 +4,14 @@
 //description: converts an integer to two bytes
 //params: int temp - integer to split into bytes
 //returns: char * - pointer to the bytes of data
-char *intToBytes(int temp)
+char *intToBytes(int tint)
 {
 	char byte[2];
-	temp &= 0xFF00;
-	temp >> 8;
+	int temp;
+	temp = tint & 0xFF00;
+	temp = temp >> 8;
 	byte[0] = temp;
-	temp &= 0x00FF;
+	temp = tint & 0x00FF;
 	byte[1] = temp;
 	return byte;
 }

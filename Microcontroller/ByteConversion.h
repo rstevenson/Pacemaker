@@ -6,6 +6,6 @@ int bytesToInt(char b1, char b2);
 
 //name : intToBytes
 //description: converts an integer to two bytes
-//params: int temp - integer to split into bytes
+//params: int tint - integer to split into bytes
 //returns: char * - pointer to the bytes of data
-char *intToBytes(int temp);
+char *intToBytes(int tint);
