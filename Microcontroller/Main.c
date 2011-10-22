@@ -76,7 +76,7 @@ void main(void) {
     BUF_INIT(&rcbuf);
     BUF_INIT(&txbuf);
     BUF_ADD(&rcbuf, k_sync);
-    BUF_ADD(&rcbuf, k_egram);
+    BUF_ADD(&rcbuf, k_echo);
     BUF_ADD(&rcbuf, 0x55);
     BUF_ADD(&rcbuf, 0x1F);
     BUF_ADD(&rcbuf, 0x55);
@@ -92,7 +92,7 @@ void main(void) {
     BUF_ADD(&rcbuf, 0x55);
 	BUF_ADD(&rcbuf, 0x55);
 	opState = k_commState;
-    while (1) {    
+    while (1) {
 		if (opState == k_commState){
 			if (BUF_FULL(&rcbuf))//checks to see if the recieving buffer is full
 	    	{
@@ -104,36 +104,20 @@ void main(void) {
 						sendPacket(paramsToPacket(Parameters),&txbuf);
 					else if(i_CommIn.FnCode == k_egram)
 					{
-						sendPacket(egramToPacket(k_egram,'--',2000),&txbuf);
+					//	sendPacket(egramToPacket(egram),&txbuf);
 						opState = k_stream;
 					}
 			}
-		}else if(opState == k_stream){
-				BUF_ADD(&rcbuf, k_sync);
-   	 			BUF_ADD(&rcbuf, k_egram);
-    			BUF_ADD(&rcbuf, 0x55);
-    			BUF_ADD(&rcbuf, 0x1F);
-    			BUF_ADD(&rcbuf, 0x55);
-    			BUF_ADD(&rcbuf, 0x1F);
-    			BUF_ADD(&rcbuf, 0x55);
-    			BUF_ADD(&rcbuf, 0x1F);
-    			BUF_ADD(&rcbuf, 0x55);
-    			BUF_ADD(&rcbuf, 0x1F);
-    			BUF_ADD(&rcbuf, 0x55);
-    			BUF_ADD(&rcbuf, 0x1F);
-    			BUF_ADD(&rcbuf, 0x55);
-    			BUF_ADD(&rcbuf, 0x1F);
-    			BUF_ADD(&rcbuf, 0x55);
-				BUF_ADD(&rcbuf, 0x55);
+		}
+		if(opState == k_stream){
 			i_CommIn = receivePacket(&rcbuf);
 			if (!i_CommIn.SYNC == 0x00)
 				if(i_CommIn.FnCode == k_estop)
 				{	
 					opState = k_commState; 
-					sendPacket(egramToPacket(k_estop,'--',3000),&txbuf);
-			 	}else
-			 		sendPacket(i_CommIn,&txbuf);
-		}	
+			//		sendPacket(egramToPacket(egram),&txbuf);
+			 	}
+		}				
 //			
 		//	OSCCONbits.IDLEN = 1;
     	//	Sleep(); //makes the microcontroller sleep

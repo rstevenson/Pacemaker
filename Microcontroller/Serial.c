@@ -80,3 +80,14 @@ short sendChar(char c, struct buffer *tbuf)
 	BUF_ADD(tbuf,c); //adds the char to the buffer
 	PIE1bits.TXIE = 1;	//enables sending interrupt	
 }
+
+
+void sendSream(struct stream streamPackage, struct buffer *txbuf)// puts the stream packet together in a buffer
+{
+	char _i;
+    for (_i = 0; _i<3; _i++)// Inserts data 
+		{
+			BUF_ADD(txbuf, streamPackage.streamArray[_i]);// inserts the bytes contained the streamPackage in the buffer
+		}
+	PIE1bits.TXIE = 1;	//enables sending interrupt	
+}
