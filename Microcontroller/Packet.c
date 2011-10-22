@@ -86,5 +86,6 @@ struct packet egramToPacket(char FnCode, int f_marker, int m_vraw)
 	commOut.Data[3] = tByte[1];
 	for (i=4; i<13; i++)
 		commOut.Data[i] = 0;
+	commOut.ChkSum = calcCheckSum(commOut.Data);
 	return commOut;
 }	

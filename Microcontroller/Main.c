@@ -28,6 +28,12 @@ enum y_magnet m_magnet;
 
 /* Interrupt handler function */
 void intr_handler(void);
+void tmr_interrupt (void);
+
+#pragma code low_interrupt = 0x18
+void low_interrupt  (void){
+	_asm goto tmr_interrupt _endasm
+} 
 
 /* Setting interrupt entrance on PIC18 */
 #pragma code intr_section = 0x8
@@ -57,6 +63,12 @@ void intr_handler(void) {
 	}
     }
 }
+/* Interrupt handler function */
+#pragma interrupt tmr_interrupt
+void tmr_interrupt (void)
+{
+	
+}	
 
 /* Main entrance */
 void main(void) {
