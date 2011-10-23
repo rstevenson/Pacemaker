@@ -10,6 +10,7 @@
 #include "Buffer.h"
 #include "Serial.h"
 #include "Packet.h"
+#include "Adc.h"
 
 /* Value of the SPBRG registor for the given baud rate */
 
@@ -42,18 +43,23 @@ void intr_entry(void) {
 /* Interrupt handler function */
 #pragma interrupt intr_handler
 void intr_handler(void) {
+
    // Checks to see if the timer interrupt has been fired.
-     if(INTCONbits.TMR0IF==1)
+     if(PIR1bits.TMR1IF == 1)
 		{
-			sendSream(egramToStream (2, 5),&txbuf);// sends a egram package with 4 bytes containing random values of m_vraw and f_marker for testing purposes.
+			on_timer1();
+			sendStream(egramToStream(get_VVoltage(),'--'),&txbuf);  // sends a egram package with 4 bytes containing random values of m_vraw and f_marker for testing purposes.
+			OSCCONbits.IDLEN = 1;
+     		Sleep(); //makes the microcontroller sleep
 		}
-			
-			
-    /* If the microcontroller received a byte */ 
+
+    /* If the microcontroller received a byte */
+
     if (PIR1bits.RCIF) {
 	/* Add the byte into receiving buffer */
 		BUF_ADD(&rcbuf, RCREG);
-		opState = k_commState;
+		if ((BUF_LENGTH(&rcbuf) ==16)&&(opState==k_idle))
+			opState = k_commState;
     }
     /* If the microcontroller sent a byte */
     if (PIR1bits.TXIF) {
@@ -73,11 +79,12 @@ void intr_handler(void) {
 /* Main entrance */
 void main(void) {
     initComm();
+    sense_init();
+    adc_init();
     BUF_INIT(&rcbuf);
     BUF_INIT(&txbuf);
 	opState = k_idle;
     while (1) {
-	    while (opState == k_idle);
 		if (opState == k_commState){
 			if (BUF_LENGTH(&rcbuf)==16)//checks to see if the recieving buffer is full
 			{
@@ -89,27 +96,29 @@ void main(void) {
 						sendPacket(paramsToPacket(Parameters),&txbuf);
 					}else if(i_CommIn.FnCode == k_egram)
 					{
-						sendPacket(egramToPacket(k_egram,0xffff,'--'),&txbuf);
+						sendPacket(egramToPacket(k_egram,get_VVoltage(),'--'),&txbuf);
+						timer1_init();
 						opState = k_stream;
 					}
 				}	
 			}
 		}else if(opState == k_stream){
-			sendPacket(egramToPacket(k_egram,0xff2d,'--'),&txbuf); //just a egram to send (wont be here in actual code)	
 			if (BUF_LENGTH(&rcbuf)==16)
 			{
 				i_CommIn = receivePacket(&rcbuf);
 				if (!i_CommIn.SYNC == 0x00){
 					if(i_CommIn.FnCode == k_estop)
 					{
-						sendPacket(egramToPacket(k_estop,0x2343,'--'),&txbuf);
+						sendPacket(egramToPacket(k_estop,get_VVoltage(),'--'),&txbuf);
 						opState = k_commState;
+						PIE1bits.TMR1IE = 0;
+						PIR1bits.TMR1IF = 0;
+						T1CONbits.TMR1ON = 0;
 					}
 				}	
 			}	
 		}		
-//
-// OSCCONbits.IDLEN = 1;
-     // Sleep(); //makes the microcontroller sleep
+	// OSCCONbits.IDLEN = 1;
+   //  Sleep(); //makes the microcontroller sleep
     }
 }

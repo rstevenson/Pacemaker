@@ -18,6 +18,8 @@ void sendPacket(struct packet commOut, struct buffer *tbuf);
 //return: if invalid data, sets the SYNC byte to 0x00
 struct packet receivePacket(struct buffer *rbuf);
 
+struct stream egramToStream (int m_vrawValue, int f_markerValue);
+
 void sendStream(struct stream streamPackage, struct buffer *txbuf);
 
 //name: calcCheckSum

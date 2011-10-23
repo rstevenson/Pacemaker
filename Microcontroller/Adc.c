@@ -6,33 +6,21 @@
 
 /* Timer0 interval in microseconds */
 #define TIMER0                  500000
-
-
+unsigned int AVoltage;
+unsigned int VVoltage;
 /* Initialize Timer0 */
-void timer0_init(void) {
-    /* Clock periods needed to get the time interval */
-    unsigned long i     = (float)FOSC * TIMER0 / 1000000;
+void timer1_init(void) {
+ 
+   T1CON               = 0b11110001;
 
-    /* TMR0ON T08BIT T0CS T0SE PSA T0PS2 T0PS1 T0PS0 */
-    T0CON               = 0b10000000;
-
-    /* Set prescaler */
-    if (i >> 16) {
-        for (i >>= 1; i >> 16; i >>= 1, T0CON++);
-    } else {
-        T0CON |= 8;
-    }
-
-    /* Set TMR0 = 65536 - i, so after i periods, an interrupt will
-       fire up */
-    i                   = (0xFFFF ^ i) + 1;
-    TMR0H               =  i >> 8;
-    TMR0L               = i & 0xFF;
+    /* Set TMR1 to fire an interrupt up after 500 cycles */ 
+    TMR1H               = 0x00;
+    TMR1L               = 0x0B;
 
     /* Clear TMR0IF flag */
-    INTCONbits.TMR0IF   = 0;
-    /* Enable Timer0 interrupt */
-    INTCONbits.TMR0IE   = 1;
+     PIR1bits.TMR1IF   = 0;
+    /* Enable Timer1 interrupt */
+    PIE1bits.TMR1IE   = 1;
 }
 
 /* Initialize ventricle sense */
@@ -97,30 +85,33 @@ void adc_stop(void) {
     PORTCbits.SDO       = 0;
 }
 
+unsigned int get_VVoltage(void){
+	return VVoltage;
+}		
 
 /* Timer0 event handler */
-void on_timer0(void) {
-    char                buf[6];
-    unsigned int        d;
-    float               v;
-
-    /* Reset Timer0 */
-    timer0_init();
+void on_timer1(void) {
+    /* Reset Timer1 */
+    timer1_init();
     
     /* Start conversation with A/D converter */
     adc_start();
 
 
     /* Get ventricle voltage */
-    v   = 5.0 * adc_get() / 65535;
+    AVoltage   = (int)(5.0 * adc_get() / 65535 * 1000);
    
    
 
     /* Get atrial voltage */
-    v   = 5.0 * adc_get() / 65535;
+    VVoltage   = (int)(5.0 * adc_get() / 65535 * 1000);
    
     /* Stop conversation with A/D converter */
     adc_stop();
 
   
+}
+
+unsigned int get_AVoltage(void){
+	return AVoltage;
 }

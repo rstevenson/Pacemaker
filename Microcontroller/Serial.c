@@ -3,6 +3,7 @@
 //Calculates a checksum based on the data given
 
 #include "Buffer.h"
+#include "ByteConversion.h"
 #include "Globals.h"
 #include "Packet.h"
 #include <p18cxxx.h>
@@ -80,13 +81,27 @@ short sendChar(char c, struct buffer *tbuf)
 	PIE1bits.TXIE = 1;	//enables sending interrupt	
 }
 
+struct stream egramToStream (int m_vrawValue, int f_markerValue)
 
-void sendSream(struct stream streamPackage, struct buffer *txbuf)// puts the stream packet together in a buffer
+{
+ 	char *temp;
+   	struct stream streamPackage;
+    temp = intToBytes(m_vrawValue);// converts m_vraw into 2 bytes
+    streamPackage.streamArray[0]= temp[0];// puts the first byte of m_vraw into an array
+    streamPackage.streamArray[1]= temp[1];// puts the second byte of m_vraw into an array
+    temp= intToBytes(f_markerValue);// converts f_marker into 2 bytes
+ 	streamPackage.streamArray[2]= temp[0];// puts the first byte of f_marker into an array
+    streamPackage.streamArray[3]= temp[1];// puts the second byte of f_marker into an array
+   	return  streamPackage;// returns the structure
+}
+
+
+void sendStream(struct stream streamPackage, struct buffer *tbuf)// puts the stream packet together in a buffer
 {
 	char _i;
-    for (_i = 0; _i<3; _i++)// Inserts data 
+    for (_i = 0; _i<4; _i++)// Inserts data 
 		{
-			BUF_ADD(txbuf, streamPackage.streamArray[_i]);// inserts the bytes contained the streamPackage in the buffer
+			BUF_ADD(tbuf, streamPackage.streamArray[_i]);// inserts the bytes contained the streamPackage in the buffer
 		}
 	PIE1bits.TXIE = 1;	//enables sending interrupt	
 }
