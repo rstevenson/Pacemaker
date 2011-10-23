@@ -117,8 +117,10 @@ void main(void) {
 					}
 				}	
 			}	
-		}		
-	// OSCCONbits.IDLEN = 1;
-   //  Sleep(); //makes the microcontroller sleep
+		}
+	 //sendPacket(egramToPacket(k_egram,0x0000,'--'),&txbuf);			
+	 //OSCCONbits.IDLEN = 1;
+	 //BAUDCONbits.WUE = 1;
+     //Sleep(); //makes the microcontroller sleep
     }
 }

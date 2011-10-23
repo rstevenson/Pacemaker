@@ -7,24 +7,18 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 using System.IO.Ports;
-
+using System.Threading;
 
 namespace DCM
 {
     public partial class Form1 : Form
     {
-        public const byte k_egram = 0x47;
-        public const byte k_echo = 0x49;
-        public const byte k_estop = 0x62;
-        public const byte k_pparams = 0x55;
-
-        public const byte k_sync = 0x16;
 
         public SerialPort connection = new SerialPort();
-        public byte[] CurrentData=new byte[16];
+        public byte[] IncomingData = new byte[16];
+        public byte[] OutgoingData = new byte[16];
+
         public int DataPosition = 0;
-        public bool DataProcess = false;
-        public int I = 0;
 
         public Form1()
         {
@@ -37,26 +31,29 @@ namespace DCM
             {
                 try
                 {
-                    connection.Open();
-                    cmdCon.Text = "Disconnect"; //If connection successfully opens, the button text is changed
-                    cmdSend.Enabled = true; //Send Button is enabled
-                    timerReceive.Start(); //Check if there is data to receive on small time interval
-                    txtDisplay.Text = "";
+                    connection.Open();          //If connection fails to open, the code will jump directly to error handling
+
+                    cmdCon.Text = "Disconnect"; //The button text changes from "Connect" to "Disconnect"
+                    cmdSend.Enabled = true;     //Send Button is enabled
+                    timerReceive.Start();       //Start the timer that check if there is data coming from the port
+
+                    txtDisplay.Text = "";       //Clear Display Box
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show(ex.Message); //Error Handling
+                    MessageBox.Show(ex.Message);    //Error Handling
                 }
 
             }
             else
             {
-                cmdCon.Text = "Connect";
-                cmdSend.Enabled = false;
-                if (connection.IsOpen) //in case connection was previously interrupted
+                cmdCon.Text = "Connect";    //The button text changes from "Disconnect" to "Connect"
+                cmdSend.Enabled = false;    //Send Button is disabled
+
+                if (connection.IsOpen)      //Check if the connection is still opened
                 {
-                    connection.Close();
-                    timerReceive.Stop(); //Stop checking data to receive
+                    connection.Close();     //Close connection
+                    timerReceive.Stop();    //Stop checking data to receive
                 }
             }
             
@@ -64,24 +61,47 @@ namespace DCM
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            // Initialize Port Parameters
-            connection.BaudRate = 19200;
+            // Initialize Port Parameters, hard coded for now
+            connection.BaudRate = 57600;
             connection.DataBits = 8;
             connection.Parity = System.IO.Ports.Parity.None;
             connection.PortName = "COM1";
             connection.StopBits = StopBits.One;
-            
         }
 
         private bool CheckFnCode(byte Input)
         {
-            if (Input == k_echo || Input == k_egram || Input == k_estop || Input == k_pparams)
+            if (Input == (byte)InternalConstant.k_echo || Input == (byte)InternalConstant.k_egram || Input == (byte)InternalConstant.k_estop || Input == (byte)InternalConstant.k_pparams)
             {
                 return true;
             }
             else
             {
                 return false;
+            }
+        }
+
+        private string ReturnFnCode(byte Input)
+        {
+            if (Input == (byte)InternalConstant.k_echo)
+            {
+                return "k_echo";
+            }
+            else if(Input == (byte)InternalConstant.k_egram)
+            {
+                return "k_egram";
+            }            
+            else if(Input == (byte)InternalConstant.k_estop)
+            {
+                return "k_estop";
+            }
+            else if (Input == (byte)InternalConstant.k_pparams)
+            {
+                return "k_pparams";
+            }
+            else
+            {
+                return "FnCode not recognized";
             }
         }
 
@@ -104,34 +124,13 @@ namespace DCM
         private void timerReceive_Tick(object sender, EventArgs e)
         {
 
-            if (connection.BytesToRead > 0)
+            if (connection.BytesToRead > 0) //Check if there is data in the receiving buffer of the port
             {
-                while (connection.BytesToRead > 0)
+                while (connection.BytesToRead > 0)         //If there is still data in buffer and data packet is not complete
                 {
-                    CurrentData[DataPosition]=(byte)connection.ReadByte();
-                    DataPosition++;
-                    if (DataPosition==16){
-                        DataPosition = 0;
-                        break;
-                    }
+                    txtDisplay.Text += connection.ReadByte().ToString("X") + " ";
                 }
-                if (DataPosition == 0)
-                {
-                    if ((CurrentData[0] == k_sync) && (CheckFnCode(CurrentData[1]) == true) && CheckSum(CurrentData) == true)
-                    {
-                        string Output = "";
-
-                        for (int j = 0; j < 16; j++)
-                        {
-                            Output += CurrentData[j].ToString() + " ";
-                        }
-                        txtDisplay.Text += "Data Received: " + Output + "\r\n";
-                    }
-                    else
-                    {
-                        txtDisplay.Text += "Invalid Data Received!" + "\r\n";
-                    }
-                }
+                txtDisplay.Text += "\r\n";
             }
 
         }
@@ -139,48 +138,57 @@ namespace DCM
         private void cmdSend_Click(object sender, EventArgs e)
         {
 
-            dataPackage DataP;
-            DataP.data = new Byte[16];
-            DataP.data[0] = k_sync;
+            //Check which Synchronization byte the user would like to send
+            if (radioButton6.Checked == true)
+            {
+                OutgoingData[0] = (byte)InternalConstant.k_sync;
+            }
+            else if (radioButton7.Checked == true)
+            {
+                OutgoingData[0] = (byte)InternalConstant.k_sync-1;
+            }
+
+            //Check which FnCode the user would like to send
             if (radioButton1.Checked == true)
             {
-                DataP.data[1]=k_egram;
+                OutgoingData[1]=(byte)InternalConstant.k_egram;
             }
             else if (radioButton2.Checked == true)
             {
-                DataP.data[1]=k_echo;
+                OutgoingData[1] = (byte)InternalConstant.k_echo;
             }
             else if (radioButton3.Checked == true)
             {
-                DataP.data[1] = k_estop;
+                OutgoingData[1] = (byte)InternalConstant.k_estop;
             }
             else if (radioButton4.Checked == true)
             {
-                DataP.data[1] = k_pparams;
+                OutgoingData[1] = (byte)InternalConstant.k_pparams;
             }
             else if (radioButton5.Checked == true)
             {
-                DataP.data[1] = 0x53;
-            }
-            DataP.data[2] = 2;
-            DataP.data[3] = 3;
-            DataP.data[4] = 4;
-            DataP.data[5] = 5;
-            DataP.data[6] = 6;
-            DataP.data[7] = 7;
-            DataP.data[8] = 8;
-            DataP.data[9] = 9;
-            DataP.data[10] = 54;
-            DataP.data[11] = 11;
-            DataP.data[12] = 12;
-            DataP.data[13] = 13;
-            DataP.data[14] = 14;
-            for (int j = 2; j < 15; j++)
-            {
-                DataP.data[15] ^= DataP.data[j];
+                OutgoingData[1] = 0x53; //Use an invalid FnCode
             }
 
-            connection.Write(DataP.data, 0, 16);
+            Random rndGen=new Random();
+            connection.Write(OutgoingData, 0, 2);
+            OutgoingData[2] = (byte)rndGen.Next(254);
+            OutgoingData[15] = OutgoingData[2];
+            connection.Write(OutgoingData, 2, 1);
+            Thread.Sleep(2);
+            //Calculate the Check Sum of the data packet
+            for (int j = 3; j < 15; j++)
+            {
+                OutgoingData[j] = (byte)rndGen.Next(254);
+                OutgoingData[15] ^= OutgoingData[j];
+                connection.Write(OutgoingData, j, 1);
+                Thread.Sleep(2);
+            }
+            //Send the data packet through the port
+            connection.Write(OutgoingData,15, 1);
+
+            txtDisplay.SelectionStart=txtDisplay.Text.Length;
+            txtDisplay.ScrollToCaret();
         }
     }
 }
