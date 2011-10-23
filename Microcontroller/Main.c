@@ -42,8 +42,6 @@ void intr_entry(void) {
 /* Interrupt handler function */
 #pragma interrupt intr_handler
 void intr_handler(void) {
-<<<<<<< HEAD
-
    // Checks to see if the timer interrupt has been fired.
      if(INTCONbits.TMR0IF==1)
 		{
@@ -52,9 +50,6 @@ void intr_handler(void) {
 			
 			
     /* If the microcontroller received a byte */ 
-=======
-    /* If the microcontroller received a byte */
->>>>>>> origin/master
     if (PIR1bits.RCIF) {
 	/* Add the byte into receiving buffer */
 		BUF_ADD(&rcbuf, RCREG);
