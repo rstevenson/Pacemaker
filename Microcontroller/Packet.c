@@ -54,20 +54,20 @@ struct params packetToParams(struct packet commIn)
 	return temp;	
 }
 
-struct packet buffToPacket(struct buffer *rbuf)
+struct packet buffToPacket(void)
 
 // Recieves data from buffer and put it in the package structure 
 
 {
 		struct packet temp;
 		char i,chk;
-		temp.SYNC = BUF_GET(rbuf); // inserts the first byte into the sync variable from the program
-		temp.FnCode = BUF_GET(rbuf);// inserts the second byte in the function code variable
+		temp.SYNC = RcBUF_GET(); // inserts the first byte into the sync variable from the program
+		temp.FnCode = RcBUF_GET();// inserts the second byte in the function code variable
 		for (i=0; i<13; i++) // inserts the next 12 bytes into the data character array
 		     {
-		       temp.Data[i]=BUF_GET(rbuf);
+		       temp.Data[i]=RcBUF_GET();
 		     } 
-	    temp.ChkSum=BUF_GET(rbuf); // inserts the last byte into the checksum variable
+	    temp.ChkSum=RcBUF_GET(); // inserts the last byte into the checksum variable
 		return temp; //returns temp
 } 
 

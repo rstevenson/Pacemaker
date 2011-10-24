@@ -20,7 +20,7 @@ struct packet egramToPacket(char FnCode, int m_vrawValue, int f_markerValue);
 //params: struct buffer *buf - buffer to take data from
 //return: struct packet
 
-struct packet buffToPacket(struct buffer *rbuf);
+struct packet buffToPacket(void);
 
 //name: packetToParams
 //description: takes a packet and outputs the parameters

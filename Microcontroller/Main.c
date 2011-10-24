@@ -14,16 +14,9 @@
 
 /* Value of the SPBRG registor for the given baud rate */
 
-/* Sending buffer */
-struct buffer txbuf;
-/* Receiving buffer */
-struct buffer rcbuf;
-
 struct packet i_CommIn; // structure of package based on requirements given
 
 struct params Parameters;
-
-struct stream  o_CommOut;
 
 unsigned int opState; //Operation state of the FSM
 
@@ -43,33 +36,38 @@ void intr_entry(void) {
 /* Interrupt handler function */
 #pragma interrupt intr_handler
 void intr_handler(void) {
+    /* If the microcontroller received a byte */
+       if (PIR1bits.RCIF) {
 
+		if (RCSTAbits.OERR){  //checks for error and reinitializes rcbuffer
+			RCSTAbits.CREN = 0;
+			RCSTAbits.CREN = 1;
+			RcBUF_ADD(RCREG);
+			RcBUF_INIT();
+		}else{
+			RcBUF_ADD(RCREG); 	// Add the byte into receiving buffer
+			if ((RcBUF_LENGTH() ==16))
+				opState = k_commState;
+		}		
+    }
    // Checks to see if the timer interrupt has been fired.
      if(PIR1bits.TMR1IF == 1)
 		{
 			on_timer1();
-			sendStream(egramToStream(get_VVoltage(),'--'),&txbuf);  // sends a egram package with 4 bytes containing random values of m_vraw and f_marker for testing purposes.
+			sendStream(egramToStream(get_VVoltage(),'--'));  // sends a egram package with 4 bytes containing m_vraw and f_marker.
 			OSCCONbits.IDLEN = 1;
      		Sleep(); //makes the microcontroller sleep
 		}
 
-    /* If the microcontroller received a byte */
-
-    if (PIR1bits.RCIF) {
-	/* Add the byte into receiving buffer */
-		BUF_ADD(&rcbuf, RCREG);
-		if ((BUF_LENGTH(&rcbuf) ==16)&&(opState==k_idle))
-			opState = k_commState;
-    }
     /* If the microcontroller sent a byte */
     if (PIR1bits.TXIF) {
 /* If there is nothing to send (the sending buffer is empty) */
-		if (BUF_EMPTY(&txbuf)) {
+		if (TxBUF_EMPTY()) {
 /* Turn off sending interrupt */
 			PIE1bits.TXIE = 0;
 		} else {
 /* Send the first byte in the sending buffer */
-			TXREG = BUF_GET(&txbuf);
+			TXREG = TxBUF_GET();
 		}
     }
 
@@ -81,41 +79,45 @@ void main(void) {
     initComm();
     sense_init();
     adc_init();
-    BUF_INIT(&rcbuf);
-    BUF_INIT(&txbuf);
+    RcBUF_INIT();
+    TxBUF_INIT();
 	opState = k_idle;
     while (1) {
 		if (opState == k_commState){
-			if (BUF_LENGTH(&rcbuf)==16)//checks to see if the recieving buffer is "full"
+			if (RcBUF_LENGTH()==16)//checks to see if the recieving buffer is "full"
 			{
-				i_CommIn = receivePacket(&rcbuf); // if so it recieves the data from the buffer and puts into a package structure
+				i_CommIn = receivePacket(); // if so it recieves the data from the buffer and puts into a package structure
 				if (!i_CommIn.SYNC == 0x00){
 					if (i_CommIn.FnCode == k_pparams){
 						Parameters = packetToParams(i_CommIn);
+						opState = k_idle;
 					}else if(i_CommIn.FnCode == k_echo){
-						sendPacket(paramsToPacket(Parameters),&txbuf);
+						sendPacket(paramsToPacket(Parameters));
+						opState = k_idle;
 					}else if(i_CommIn.FnCode == k_egram)
 					{
-						sendPacket(egramToPacket(k_egram,get_VVoltage(),'--'),&txbuf);
+						sendPacket(egramToPacket(k_egram,get_VVoltage(),'--'));
 						timer1_init();
 						opState = k_stream;
 					}
-				}	
+				}else
+					opState = k_idle;	
 			}
 		}else if(opState == k_stream){
-			if (BUF_LENGTH(&rcbuf)==16)
+			if (RcBUF_LENGTH()==16)
 			{
-				i_CommIn = receivePacket(&rcbuf);
+				i_CommIn = receivePacket();
 				if (!i_CommIn.SYNC == 0x00){
 					if(i_CommIn.FnCode == k_estop)
 					{
-						sendPacket(egramToPacket(k_estop,get_VVoltage(),'--'),&txbuf);
-						opState = k_commState;
+						sendPacket(egramToPacket(k_estop,get_VVoltage(),'--'));
+						opState = k_idle;
 						PIE1bits.TMR1IE = 0;
 						PIR1bits.TMR1IF = 0;
 						T1CONbits.TMR1ON = 0;
 					}
-				}	
+				}
+				opState = k_idle;	
 			}	
 		}			
 	 OSCCONbits.IDLEN = 1;

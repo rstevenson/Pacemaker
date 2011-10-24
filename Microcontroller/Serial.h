@@ -9,18 +9,18 @@ void initComm(void);
 //description: sends a packet
 //params: struct packet commOut - packet to send
 //params: struct buffer *tbuf - sending buffer
-void sendPacket(struct packet commOut, struct buffer *tbuf);
+void sendPacket(struct packet commOut);
 
 //name: receivePacket
 //description: receives a packet
 //params: struct buffer rbuf - receiving buffer
 //return: struct packet
 //return: if invalid data, sets the SYNC byte to 0x00
-struct packet receivePacket(struct buffer *rbuf);
+struct packet receivePacket(void);
 
 struct stream egramToStream (int m_vrawValue, int f_markerValue);
 
-void sendStream(struct stream streamPackage, struct buffer *txbuf);
+void sendStream(struct stream streamPackage);
 
 //name: calcCheckSum
 //description: calculates the checksum

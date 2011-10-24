@@ -47,22 +47,22 @@ short validHeader(char fncode)// Checks to see if the header is valid as per req
 		return 0;
 }
 
-void sendPacket(struct packet commOut, struct buffer *tbuf)// puts the send packet together in a buffer
+void sendPacket(struct packet commOut)// puts the send packet together in a buffer
 {
 	char _i;
-	BUF_ADD(tbuf, commOut.SYNC);// inserts SYNC variable in first
-	BUF_ADD(tbuf, commOut.FnCode);// inserts the FnCode
+	TxBUF_ADD(commOut.SYNC);// inserts SYNC variable in first
+	TxBUF_ADD(commOut.FnCode);// inserts the FnCode
 	for (_i = 0; _i<13; _i++)// Inserts data 
-		BUF_ADD(tbuf, commOut.Data[_i]);
-	BUF_ADD(tbuf,commOut.ChkSum);// inserts checksum
+		TxBUF_ADD(commOut.Data[_i]);
+	TxBUF_ADD(commOut.ChkSum);// inserts checksum
 	PIE1bits.TXIE = 1;	//enables sending interrupt	
 }
 
-struct packet receivePacket(struct buffer *rbuf)// takes receiving buffer and puts it in a packet
+struct packet receivePacket(void)// takes receiving buffer and puts it in a packet
 {
 	struct packet temp;
 	char chk;
-	temp = buffToPacket(rbuf);
+	temp = buffToPacket();
 	chk = calcCheckSum(temp.Data);
 	if ((validHeader(temp.FnCode)) && 
 		(temp.SYNC == k_sync) && 
@@ -75,9 +75,9 @@ struct packet receivePacket(struct buffer *rbuf)// takes receiving buffer and pu
 	}	
 }
 
-short sendChar(char c, struct buffer *tbuf)
+short sendChar(char c)
 {
-	BUF_ADD(tbuf,c); //adds the char to the buffer
+	TxBUF_ADD(c); //adds the char to the buffer
 	PIE1bits.TXIE = 1;	//enables sending interrupt	
 }
 
@@ -96,12 +96,12 @@ struct stream egramToStream (int m_vrawValue, int f_markerValue)
 }
 
 
-void sendStream(struct stream streamPackage, struct buffer *tbuf)// puts the stream packet together in a buffer
+void sendStream(struct stream streamPackage)// puts the stream packet together in a buffer
 {
 	char _i;
     for (_i = 0; _i<4; _i++)// Inserts data 
 		{
-			BUF_ADD(tbuf, streamPackage.streamArray[_i]);// inserts the bytes contained the streamPackage in the buffer
+			TxBUF_ADD(streamPackage.streamArray[_i]);// inserts the bytes contained the streamPackage in the buffer
 		}
 	PIE1bits.TXIE = 1;	//enables sending interrupt	
 }
