@@ -86,7 +86,7 @@ void main(void) {
 	opState = k_idle;
     while (1) {
 		if (opState == k_commState){
-			if (BUF_LENGTH(&rcbuf)==16)//checks to see if the recieving buffer is full
+			if (BUF_LENGTH(&rcbuf)==16)//checks to see if the recieving buffer is "full"
 			{
 				i_CommIn = receivePacket(&rcbuf); // if so it recieves the data from the buffer and puts into a package structure
 				if (!i_CommIn.SYNC == 0x00){
@@ -117,10 +117,8 @@ void main(void) {
 					}
 				}	
 			}	
-		}
-	 //sendPacket(egramToPacket(k_egram,0x0000,'--'),&txbuf);			
-	 //OSCCONbits.IDLEN = 1;
-	 //BAUDCONbits.WUE = 1;
-     //Sleep(); //makes the microcontroller sleep
+		}			
+	 OSCCONbits.IDLEN = 1;
+     Sleep(); //makes the microcontroller sleep after data is processed, waits for more data
     }
 }

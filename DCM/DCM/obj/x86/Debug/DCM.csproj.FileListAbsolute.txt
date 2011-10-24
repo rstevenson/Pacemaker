@@ -43,3 +43,12 @@ C:\Users\Ryan\Desktop\DCM Test\DCM\obj\x86\Debug\DCM.Form1.resources
 C:\Users\Ryan\Desktop\DCM Test\DCM\obj\x86\Debug\DCM.Properties.Resources.resources
 C:\Users\Ryan\Desktop\DCM Test\DCM\obj\x86\Debug\GenerateResource.read.1.tlog
 C:\Users\Ryan\Desktop\DCM Test\DCM\obj\x86\Debug\GenerateResource.write.1.tlog
+C:\Users\Ryan\Pacemaker\DCM\DCM\obj\x86\Debug\DCM.exe
+C:\Users\Ryan\Pacemaker\DCM\DCM\obj\x86\Debug\DCM.pdb
+C:\Users\Ryan\Pacemaker\DCM\DCM\bin\Debug\DCM.exe
+C:\Users\Ryan\Pacemaker\DCM\DCM\bin\Debug\DCM.pdb
+C:\Users\Ryan\Pacemaker\DCM\DCM\obj\x86\Debug\ResolveAssemblyReference.cache
+C:\Users\Ryan\Pacemaker\DCM\DCM\obj\x86\Debug\DCM.Form1.resources
+C:\Users\Ryan\Pacemaker\DCM\DCM\obj\x86\Debug\DCM.Properties.Resources.resources
+C:\Users\Ryan\Pacemaker\DCM\DCM\obj\x86\Debug\GenerateResource.read.1.tlog
+C:\Users\Ryan\Pacemaker\DCM\DCM\obj\x86\Debug\GenerateResource.write.1.tlog

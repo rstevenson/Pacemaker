@@ -4,8 +4,6 @@
 #include "Serial.h"
 
 
-/* Timer0 interval in microseconds */
-#define TIMER0                  500000
 unsigned int AVoltage;
 unsigned int VVoltage;
 /* Initialize Timer0 */
@@ -13,9 +11,9 @@ void timer1_init(void) {
  
    T1CON               = 0b11110001;
 
-    /* Set TMR1 to fire an interrupt up after 500 cycles */ 
-    TMR1H               = 0x00;
-    TMR1L               = 0x0B;
+    /* Set TMR1 to fire an interrupt up after 750 ticks (3ms) */ 
+    TMR1H               = 0xFD;
+    TMR1L               = 0x11;
 
     /* Clear TMR0IF flag */
      PIR1bits.TMR1IF   = 0;
@@ -98,12 +96,10 @@ void on_timer1(void) {
     adc_start();
 
 
-    /* Get ventricle voltage */
     AVoltage   = (int)(5.0 * adc_get() / 65535 * 1000);
    
    
 
-    /* Get atrial voltage */
     VVoltage   = (int)(5.0 * adc_get() / 65535 * 1000);
    
     /* Stop conversation with A/D converter */
