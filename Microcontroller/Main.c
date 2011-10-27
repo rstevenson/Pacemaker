@@ -11,12 +11,21 @@
 #include "Serial.h"
 #include "Packet.h"
 #include "Adc.h"
+#include "Timer.h"
 
 /* Value of the SPBRG registor for the given baud rate */
 
 struct packet i_CommIn; // structure of package based on requirements given
 
 struct params Parameters;
+
+unsigned int Tnow;
+
+unsigned int Tm_sVRP;
+
+unsigned int Tm_pVRP;
+
+unsigned int Tm_vPace;
 
 unsigned int opState; //Operation state of the FSM
 
@@ -59,6 +68,15 @@ void intr_handler(void) {
      		Sleep(); //makes the microcontroller sleep
 		}
 
+		if (PIR2bits.TMR3IF==1)
+		{
+			Tnow++;
+			if (SenseVRP())
+				Tm_sVRP = Tnow;
+			UpdateVRP(Tnow,Tm_sVRP,Parameters.p_VRP);
+			adc_start();
+				
+		}
     /* If the microcontroller sent a byte */
     if (PIR1bits.TXIF) {
 /* If there is nothing to send (the sending buffer is empty) */
@@ -91,10 +109,12 @@ void main(void) {
 					if (i_CommIn.FnCode == k_pparams){
 						Parameters = packetToParams(i_CommIn);
 						opState = k_idle;
-					}else if(i_CommIn.FnCode == k_echo){
+					}
+					else if(i_CommIn.FnCode == k_echo){
 						sendPacket(paramsToPacket(Parameters));
 						opState = k_idle;
-					}else if(i_CommIn.FnCode == k_egram)
+					}
+					else if(i_CommIn.FnCode == k_egram)
 					{
 						sendPacket(egramToPacket(k_egram,get_VVoltage(),'--'));
 						timer1_init();

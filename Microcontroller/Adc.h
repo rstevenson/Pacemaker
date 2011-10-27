@@ -8,3 +8,5 @@ void on_timer1(void);
 void adc_init(void);
 unsigned int get_VVoltage(void);
 unsigned int get_AVoltage(void);
+void UpdateVRP(unsigned int Tn, unsigned intTm, unsigned intVRP);
+short SenseVRP (void);
