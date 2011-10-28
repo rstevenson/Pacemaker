@@ -12,6 +12,7 @@
 #include "Packet.h"
 #include "Adc.h"
 #include "Timer.h"
+#include "PaceSense.h"
 
 /* Value of the SPBRG registor for the given baud rate */
 
@@ -63,7 +64,7 @@ void intr_handler(void) {
      if(PIR1bits.TMR1IF == 1)
 		{
 			on_timer1();
-			sendStream(egramToStream(get_VVoltage(),'--'));  // sends a egram package with 4 bytes containing m_vraw and f_marker.
+			sendStream(egramToStream(get_VVoltage(),get_fmarker()));  // sends a egram package with 4 bytes containing m_vraw and f_marker.
 			OSCCONbits.IDLEN = 1;
      		Sleep(); //makes the microcontroller sleep
 		}
@@ -73,8 +74,11 @@ void intr_handler(void) {
 			Tnow++;
 			if (SenseVRP())
 				Tm_sVRP = Tnow;
-			UpdateVRP(Tnow,Tm_sVRP,Parameters.p_VRP);
-			adc_start();
+			if (PaceVRP(Parameters.p_vPaceAmp))
+				Tm_pVRP = Tnow;
+			Update_sVRP(Tnow,Tm_sVRP,Parameters.p_VRP);
+			Update_pVRP(Tnow,Tm_sVRP,Parameters.p_VRP);
+		//	adc_start();
 				
 		}
     /* If the microcontroller sent a byte */
