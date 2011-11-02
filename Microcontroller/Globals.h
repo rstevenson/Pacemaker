@@ -10,8 +10,8 @@ enum y_magnet  {INPLACE,NOT_INPLACE};
 
 typedef enum
 {
-    FALSE=0,
-    TRUE
+    false=0,
+    true
 } Bool; 
 
 struct packet

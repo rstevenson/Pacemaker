@@ -28,6 +28,10 @@ unsigned int Tm_pVRP;
 
 unsigned int Tm_vPace;
 
+unsigned short condS[2]; //sense condition (current and previous)
+
+unsigned short condP[2]; //pace condition (current and previous)
+
 unsigned int opState; //Operation state of the FSM
 
 enum y_magnet m_magnet;
@@ -47,7 +51,7 @@ void intr_entry(void) {
 #pragma interrupt intr_handler
 void intr_handler(void) {
     /* If the microcontroller received a byte */
-       if (PIR1bits.RCIF) {
+	if (PIR1bits.RCIF) {
 
 		if (RCSTAbits.OERR){  //checks for error and reinitializes rcbuffer
 			RCSTAbits.CREN = 0;
@@ -61,26 +65,30 @@ void intr_handler(void) {
 		}		
     }
    // Checks to see if the timer interrupt has been fired.
-     if(PIR1bits.TMR1IF == 1)
-		{
-			on_timer1();
-			sendStream(egramToStream(get_VVoltage(),get_fmarker()));  // sends a egram package with 4 bytes containing m_vraw and f_marker.
-			OSCCONbits.IDLEN = 1;
-     		Sleep(); //makes the microcontroller sleep
-		}
+    if(PIR1bits.TMR1IF == 1)
+	{
+		on_timer1();
+		sendStream(egramToStream(get_VVoltage(),get_fmarker()));  // sends a egram package with 4 bytes containing m_vraw and f_marker.
+		OSCCONbits.IDLEN = 1;
+     	Sleep(); //makes the microcontroller sleep
+	}
 
-		if (PIR2bits.TMR3IF==1)
-		{
-			Tnow++;
-			if (SenseVRP())
-				Tm_sVRP = Tnow;
-			if (PaceVRP(Parameters.p_vPaceAmp))
-				Tm_pVRP = Tnow;
-			Update_sVRP(Tnow,Tm_sVRP,Parameters.p_VRP);
-			Update_pVRP(Tnow,Tm_sVRP,Parameters.p_VRP);
-		//	adc_start();
-				
-		}
+	if (PIR2bits.TMR3IF==1)
+	{
+		Tnow++;
+                condS[1] = condS[0];
+                condP[1] = condP[0];
+		if (SenseVRP()&&(condS[1]==0)){
+                    condS[0] = 1;
+                    Tm_sVRP = Tnow;
+                }
+		if (PaceVRP(Parameters.p_vPaceAmp) && condP[1] == 0){
+                    condP[0] = 1;
+                    Tm_pVRP = Tnow;
+                }
+		Update_sVRP(Tnow,Tm_sVRP,Parameters.p_VRP);
+		Update_pVRP(Tnow,Tm_sVRP,Parameters.p_VRP);		
+	}
     /* If the microcontroller sent a byte */
     if (PIR1bits.TXIF) {
 /* If there is nothing to send (the sending buffer is empty) */
@@ -103,48 +111,47 @@ void main(void) {
     adc_init();
     RcBUF_INIT();
     TxBUF_INIT();
-	opState = k_idle;
+    opState = k_idle;
     while (1) {
-		if (opState == k_commState){
-			if (RcBUF_LENGTH()==16)//checks to see if the recieving buffer is "full"
-			{
-				i_CommIn = receivePacket(); // if so it recieves the data from the buffer and puts into a package structure
-				if (!i_CommIn.SYNC == 0x00){
-					if (i_CommIn.FnCode == k_pparams){
-						Parameters = packetToParams(i_CommIn);
-						opState = k_idle;
-					}
-					else if(i_CommIn.FnCode == k_echo){
-						sendPacket(paramsToPacket(Parameters));
-						opState = k_idle;
-					}
-					else if(i_CommIn.FnCode == k_egram)
-					{
-						sendPacket(egramToPacket(k_egram,get_VVoltage(),'--'));
-						timer1_init();
-						opState = k_stream;
-					}
-				}else
-					opState = k_idle;	
-			}
-		}else if(opState == k_stream){
-			if (RcBUF_LENGTH()==16)
-			{
-				i_CommIn = receivePacket();
-				if (!i_CommIn.SYNC == 0x00){
-					if(i_CommIn.FnCode == k_estop)
-					{
-						sendPacket(egramToPacket(k_estop,get_VVoltage(),'--'));
-						opState = k_idle;
-						PIE1bits.TMR1IE = 0;
-						PIR1bits.TMR1IF = 0;
-						T1CONbits.TMR1ON = 0;
-					}
+	if (opState == k_commState){
+		if (RcBUF_LENGTH()==16)//checks to see if the recieving buffer is "full"
+		{
+			i_CommIn = receivePacket(); // if so it recieves the data from the buffer and puts into a package structure
+			if (!i_CommIn.SYNC == 0x00){
+				if (i_CommIn.FnCode == k_pparams){
+					Parameters = packetToParams(i_CommIn);
+					opState = k_idle;
 				}
+				else if(i_CommIn.FnCode == k_echo){
+					sendPacket(paramsToPacket(Parameters));
+					opState = k_idle;
+				}
+				else if(i_CommIn.FnCode == k_egram)
+				{
+					sendPacket(egramToPacket(k_egram,get_VVoltage(),get_fmarker()));
+					timer1_init();
+					opState = k_stream;
+				}
+			}else
 				opState = k_idle;	
+		}
+	}else if(opState == k_stream){
+		if (RcBUF_LENGTH()==16)
+		{
+			i_CommIn = receivePacket();
+			if (!i_CommIn.SYNC == 0x00){
+				if(i_CommIn.FnCode == k_estop)
+				{
+					sendPacket(egramToPacket(k_estop,get_VVoltage(),get_fmarker()));
+					opState = k_idle;
+					PIE1bits.TMR1IE = 0;
+					PIR1bits.TMR1IF = 0;
+					T1CONbits.TMR1ON = 0;
+				}
 			}	
-		}			
-	 OSCCONbits.IDLEN = 1;
+		}	
+	}
+     OSCCONbits.IDLEN = 1;
      Sleep(); //makes the microcontroller sleep after data is processed, waits for more data
     }
 }
