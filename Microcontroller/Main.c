@@ -12,7 +12,7 @@
 #include "Packet.h"
 #include "Adc.h"
 #include "Timer.h"
-#include "PaceSense.h"
+//#include "PaceSense.h"
 
 /* Value of the SPBRG registor for the given baud rate */
 
@@ -60,7 +60,7 @@ void intr_handler(void) {
 			RcBUF_INIT();
 		}else{
 			RcBUF_ADD(RCREG); 	// Add the byte into receiving buffer
-			if ((RcBUF_LENGTH() ==16))
+			if ((opState==k_idle)&&(RcBUF_LENGTH() ==16))
 				opState = k_commState;
 		}		
     }
@@ -68,12 +68,12 @@ void intr_handler(void) {
     if(PIR1bits.TMR1IF == 1)
 	{
 		on_timer1();
-		sendStream(egramToStream(get_VVoltage(),get_fmarker()));  // sends a egram package with 4 bytes containing m_vraw and f_marker.
+		sendStream(egramToStream(get_VVoltage(),'--'));//get_fmarker()));  // sends a egram package with 4 bytes containing m_vraw and f_marker.
 		OSCCONbits.IDLEN = 1;
      	Sleep(); //makes the microcontroller sleep
 	}
 
-	if (PIR2bits.TMR3IF==1)
+/*	if (PIR2bits.TMR3IF==1)
 	{
 		Tnow++;
                 condS[1] = condS[0];
@@ -88,7 +88,7 @@ void intr_handler(void) {
                 }
 		Update_sVRP(Tnow,Tm_sVRP,Parameters.p_VRP);
 		Update_pVRP(Tnow,Tm_sVRP,Parameters.p_VRP);		
-	}
+	}*/
     /* If the microcontroller sent a byte */
     if (PIR1bits.TXIF) {
 /* If there is nothing to send (the sending buffer is empty) */
@@ -107,11 +107,12 @@ void intr_handler(void) {
 /* Main entrance */
 void main(void) {
     initComm();
-    sense_init();
+//    sense_init();
     adc_init();
     RcBUF_INIT();
     TxBUF_INIT();
     opState = k_idle;
+	sendPacket(paramsToPacket(Parameters));
     while (1) {
 	if (opState == k_commState){
 		if (RcBUF_LENGTH()==16)//checks to see if the recieving buffer is "full"
@@ -128,7 +129,7 @@ void main(void) {
 				}
 				else if(i_CommIn.FnCode == k_egram)
 				{
-					sendPacket(egramToPacket(k_egram,get_VVoltage(),get_fmarker()));
+					sendPacket(egramToPacket(k_egram,get_VVoltage(),'--'));//get_fmarker()));
 					timer1_init();
 					opState = k_stream;
 				}
@@ -142,7 +143,7 @@ void main(void) {
 			if (!i_CommIn.SYNC == 0x00){
 				if(i_CommIn.FnCode == k_estop)
 				{
-					sendPacket(egramToPacket(k_estop,get_VVoltage(),get_fmarker()));
+					sendPacket(egramToPacket(k_estop,get_VVoltage(),'--'));//get_fmarker()));
 					opState = k_idle;
 					PIE1bits.TMR1IE = 0;
 					PIR1bits.TMR1IF = 0;
