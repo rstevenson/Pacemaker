@@ -1,7 +1,11 @@
 void sense_init(void);
-void Update_sVRP(unsigned int Tn, unsigned int Tm, unsigned int VRP);
-void Update_pVRP(unsigned int Tn, unsigned int Tm, unsigned int VRP);
-short SenseVRP (void);
-short PaceVRP(unsigned int vPA);
-short In_VRP(void);
+void Update(unsigned int Tn, unsigned int Tms, unsigned int Tmp, unsigned int Tmpace,
+        unsigned int VRP, unsigned int p_PW);
+Bool SenseVRP (void);
+Bool PaceVRP(unsigned int vPA);
+Bool In_VRP(void);
 int get_fmarker(void);
+void setWaitInt(struct params par);
+unsigned int getWaitInt(void);
+Bool vPace(unsigned int vPA);
+void pace(unsigned int vPA, unsigned int Tn);
