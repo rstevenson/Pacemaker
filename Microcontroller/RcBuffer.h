@@ -1,10 +1,12 @@
+#include "Globals.h"
+
 void RcBUF_INIT(void);
 
 int RcBUF_LENGTH(void);
 
-short RcBUF_EMPTY(void);
+Bool RcBUF_EMPTY(void);
 
-short RcBUF_FULL(void);
+Bool RcBUF_FULL(void);
 
 void RcBUF_ADD(char byte);
 

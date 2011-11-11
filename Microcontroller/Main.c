@@ -7,7 +7,8 @@
 
 #include <p18cxxx.h>
 #include "Globals.h"
-#include "Buffer.h"
+#include "TxBuffer.h"
+#include "RcBuffer.h"
 #include "Serial.h"
 #include "Packet.h"
 #include "Adc.h"
@@ -20,17 +21,17 @@ struct packet i_CommIn; // structure of package based on requirements given
 
 struct params Parameters;
 
-unsigned int Tnow;
+unsigned int Tnow = 0;
 
-unsigned int Tm_sVRP;
+unsigned int Tm_sVRP=0;
 
-unsigned int Tm_pVRP;
+unsigned int Tm_pVRP=0;
 
-unsigned int Tm_vPace;
+unsigned int Tm_vPace=0;
 
-unsigned short condS[2]; //sense condition (current and previous)
+unsigned short condS[2] = {0,0}; //sense condition (current and previous)
 
-unsigned short condP[2]; //pace condition (current and previous)
+unsigned short condP[2] = {0,0}; //pace condition (current and previous)
 
 unsigned int opState; //Operation state of the FSM
 
@@ -75,18 +76,19 @@ void intr_handler(void) {
 
     if (PIR2bits.TMR3IF==1)
     {
-	Tnow++;
+		timer3_init();
+		Tnow++;
         condS[1] = condS[0];
         condP[1] = condP[0];
-	if (SenseVRP()&&(condS[1]==0)){
+		if (SenseVRP()&&(condS[1]==0)){
             condS[0] = 1;
             Tm_sVRP = Tnow;
         }else
             condS[0] = 0;
-	if (PaceVRP(Parameters.p_vPaceAmp) && condP[1] == 0){
+		if (PaceVRP(Parameters.p_vPaceAmp) && condP[1] == 0){
             condP[0] = 1;
             Tm_pVRP = Tnow;
-        }else
+    	}else
             condP[0] = 0;
         if (vPace(Parameters.p_vPaceAmp))
             Tm_vPace = Tnow;
@@ -94,6 +96,7 @@ void intr_handler(void) {
             pace(Parameters.p_vPaceAmp,Tnow);
 	Update(Tnow,Tm_sVRP,Tm_pVRP,Tm_vPace,Parameters.p_VRP,Parameters.p_10vPaceWidth);
 	}
+	
     /* If the microcontroller sent a byte */
     if (PIR1bits.TXIF) {
 /* If there is nothing to send (the sending buffer is empty) */
@@ -112,7 +115,7 @@ void intr_handler(void) {
 /* Main entrance */
 void main(void) {
     initComm();
-    sense_init();
+    //sense_init();
     adc_init();
     RcBUF_INIT();
     TxBUF_INIT();

@@ -4,14 +4,14 @@
 /* Initialize Timer0 */
 void timer1_init(void) {
  
-   T1CON               = 0b11110001;
+   	T1CON               = 0b11110001;
 
     /* Set TMR1 to fire an interrupt up after 750 ticks (3ms) */ 
-    TMR1H               = 0xFD;
-    TMR1L               = 0x11;
+    TMR1H               = 0xFC;
+    TMR1L               = 0x17;
 
     /* Clear TMR0IF flag */
-     PIR1bits.TMR1IF   = 0;
+    PIR1bits.TMR1IF   = 0;
     /* Enable Timer1 interrupt */
     PIE1bits.TMR1IE   = 1;
 }

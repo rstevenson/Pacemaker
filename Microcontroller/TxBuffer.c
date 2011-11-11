@@ -1,7 +1,10 @@
 #include "Buffer.h"
+#include "Globals.h"
+
 
 struct buffer txbuf;
 /* Initialize buffer */
+
 void TxBUF_INIT(void) {
     txbuf.head = txbuf.tail = 0;
 }
@@ -23,22 +26,18 @@ int length;
     return length;
 }
 
-int TxBUF_SIZE(void) {
-    return e_BUF_SIZE;
-}
-
-short TxBUF_EMPTY(void) {
+Bool TxBUF_EMPTY(void) {
     if((txbuf.head == txbuf.tail))
-        return 1;
+        return true;
     else
-        return 0;
+        return false;
 }
 
-short TxBUF_FULL(void) {
+Bool TxBUF_FULL(void) {
     if (((txbuf.tail + 1) & e_Mask) == txbuf.head)
-        return 1;
+        return true;
     else
-        return 0;
+        return false;
 }
 
 void TxBUF_ADD(char byte) {

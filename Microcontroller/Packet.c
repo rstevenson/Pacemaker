@@ -1,4 +1,4 @@
-#include "Buffer.h"
+#include "RcBuffer.h"
 #include "ByteConversion.h"
 #include "Globals.h"
 
@@ -24,16 +24,16 @@ struct packet paramsToPacket(struct params par)
 	tByte=intToBytes(par.p_hysteresisInterval);
 	commOut.Data[3] = tByte[0];
 	commOut.Data[4] = tByte[1];
-	tByte=intToBytes(par.p_hysteresisInterval);
+	tByte=intToBytes(par.p_lowrateInterval);
 	commOut.Data[5] = tByte[0];
 	commOut.Data[6] = tByte[1];
-	tByte=intToBytes(par.p_lowrateInterval);
+	tByte=intToBytes(par.p_vPaceAmp);
 	commOut.Data[7] = tByte[0];
 	commOut.Data[8] = tByte[1];
-	tByte=intToBytes(par.p_vPaceAmp);
+	tByte=intToBytes(par.p_10vPaceWidth);
 	commOut.Data[9] = tByte[0];
 	commOut.Data[10] = tByte[1];
-	tByte=intToBytes(par.p_10vPaceWidth);
+	tByte=intToBytes(par.p_VRP);
 	commOut.Data[11] = tByte[0];
 	commOut.Data[12] = tByte[1];
 	commOut.ChkSum = calcCheckSum(commOut.Data);

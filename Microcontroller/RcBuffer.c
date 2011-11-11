@@ -1,4 +1,5 @@
 #include "Buffer.h"
+#include "Globals.h"
 
 struct buffer rcbuf;
 
@@ -25,25 +26,21 @@ int length;
     return length;
 }
 
-int RcBUF_SIZE(void) {
-    return e_BUF_SIZE;
-}
-
-short RcBUF_EMPTY(void) {
+Bool RcBUF_EMPTY(void) {
     if((rcbuf.head == rcbuf.tail))
-        return 1;
+        return true;
     else
-        return 0;
+        return false;
 }
 
-short RcBUF_FULL(void) {
+Bool RcBUF_FULL(void) {
     if (((rcbuf.tail + 1) & e_Mask) == rcbuf.head)
-        return 1;
+        return true;
     else
-        return 0;
+        return false;
 }
 
-void RcBUF_ADD(char byte) {
+void RcBUF_ADD(unsigned char byte) {
         rcbuf.data[rcbuf.tail] = byte;
         rcbuf.tail=((++rcbuf.tail) & e_Mask);
 }

@@ -1,5 +1,3 @@
-#include "TxBuffer.h"
-#include "RcBuffer.h"
 
 /* Initialize buffer size */
 #define e_BUF_SIZE 32

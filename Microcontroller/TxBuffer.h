@@ -1,10 +1,12 @@
+#include "Globals.h"
+
 void TxBUF_INIT(void);
 
 int TxBUF_LENGTH(void);
 
-short TxBUF_EMPTY(void);
+Bool TxBUF_EMPTY(void);
 
-short TxBUF_FULL(void);
+Bool TxBUF_FULL(void);
 
 void TxBUF_ADD(char byte);
 

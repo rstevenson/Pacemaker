@@ -73,8 +73,8 @@ void on_timer1(void) {
     timer1_init();
     /* Start conversation with A/D converter */
     adc_start();
-    AVoltage   = (int)(5.0 * adc_get() / 65535 * 1000);
-    VVoltage   = (int)(5.0 * adc_get() / 65535 * 1000); 
+    VVoltage   = (int)(5.0 * adc_get() / 65535 * 1000);
+    AVoltage   = (int)(5.0 * adc_get() / 65535 * 1000); 
     /* Stop conversation with A/D converter */
     adc_stop();
 }

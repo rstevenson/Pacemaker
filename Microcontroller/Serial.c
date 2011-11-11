@@ -2,7 +2,7 @@
 //hides the serial communications
 //Calculates a checksum based on the data given
 
-#include "Buffer.h"
+#include "TxBuffer.h"
 #include "ByteConversion.h"
 #include "Globals.h"
 #include "Packet.h"

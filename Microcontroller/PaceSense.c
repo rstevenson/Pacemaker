@@ -1,6 +1,7 @@
 #include "Globals.h"
 #include <p18cxxx.h>
 #include "ByteConversion.h"
+#include "Timer.h"
 
 Bool m_vs[2] = {false,false};
 Bool sVRP[2] = {false,false};
@@ -24,6 +25,7 @@ Bool senseHeldFor(unsigned int Tn, unsigned int duration);
 void sense_init(void) {
     /* Set ventricle sense (pin33) to be input */
     TRISBbits.TRISB0 = 1;
+	timer3_init();
 }
 
 void Update(unsigned int Tn, unsigned int Tms, unsigned int Tmp, unsigned int Tmpace,
@@ -44,7 +46,7 @@ void Update(unsigned int Tn, unsigned int Tms, unsigned int Tmp, unsigned int Tm
 
 Bool SenseVRP (void) {
     if ((!sVRP[0])&&(m_vs[1])&&(m_vs[0]))
-	return true;
+		return true;
     return false;
 }
 
@@ -58,7 +60,7 @@ Bool PaceVRP(unsigned int vPA)
 Bool In_VRP(void)
 {
     if ((sVRP[0])||(pVRP[0]))
-	return true;
+		return true;
     return false;
 }
 
@@ -88,7 +90,7 @@ Bool vPace(unsigned int vPA) //will set tm_vPace
 Bool In_vPace(unsigned int tn, unsigned int tm, unsigned int p_PW)
 {
     if ((tn - tm) <= p_PW)
-	return true;
+		return true;
     return false;
 }
 

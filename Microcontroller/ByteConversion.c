@@ -6,6 +6,7 @@
 //returns: char * - pointer to the bytes of data
 char *intToBytes(int tint)
 {
+
 	char byte[2];
 	int temp;
 	temp = tint & 0xFF00;
@@ -21,7 +22,7 @@ char *intToBytes(int tint)
 //returns: int - integer of the combined bytes
 int bytesToInt(char b1, char b2)
 {
-	int temp;
+	unsigned int temp;
 	temp = b1;
 	temp = temp << 8;
 	temp |= b2;
