@@ -6,6 +6,5 @@ Bool PaceVRP(unsigned int vPA);
 Bool In_VRP(void);
 int get_fmarker(void);
 void setWaitInt(struct params par);
-unsigned int getWaitInt(void);
 Bool vPace(unsigned int vPA);
-void pace(unsigned int vPA, unsigned int Tn);
+void pace(unsigned int vPA, unsigned int VRP, unsigned int Tn);

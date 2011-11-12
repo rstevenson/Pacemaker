@@ -69,12 +69,15 @@ unsigned int get_VVoltage(void){
 
 /* Timer1 event handler */
 void on_timer1(void) {
+	unsigned long temp;
     /* Reset Timer1 */
     timer1_init();
     /* Start conversation with A/D converter */
     adc_start();
-    VVoltage   = (int)(5.0 * adc_get() / 65535 * 1000);
-    AVoltage   = (int)(5.0 * adc_get() / 65535 * 1000); 
+    temp = adc_get();
+    VVoltage   = (int)(5000 * temp / 65535);
+    temp = adc_get();
+    AVoltage   = (int)(5000 * temp / 65535); 
     /* Stop conversation with A/D converter */
     adc_stop();
 }

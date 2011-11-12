@@ -3,16 +3,18 @@
 #include "ByteConversion.h"
 #include "Timer.h"
 
-Bool m_vs[2] = {false,false};
-Bool sVRP[2] = {false,false};
-Bool pVRP[2] = {false,false};
-Bool Pace[2] = {false,false};
+Bool m_vs[2] = {false,false}; //sense
+Bool sVRP[2] = {false,false}; //in sense VRP
+Bool pVRP[2] = {false,false}; //in pace VRP
+Bool Pace[2] = {false,false}; //in a pace
 unsigned int c_vp[3] = {0,0,0};
-unsigned int f_waitInt;
-unsigned int senseT = 0;
-unsigned int paceT = 0;
-Bool senseCond[2] = {false,false};
-Bool paceCond[2] = {false,false};
+unsigned int f_waitInt; //wait interval
+unsigned long int senseT = 0; //held for sense time
+unsigned long int paceT = 0; //held for pace time
+Bool senseCond[2] = {false,false}; //held for sense condition
+Bool paceCond[2] = {false,false}; //held for pace condition
+Bool pHeld = false; //pace is held
+Bool sHeld = false; //sense is held
 
 void setSenseTime(unsigned int T);
 void setPaceTime(unsigned int T);
@@ -28,6 +30,7 @@ void sense_init(void) {
 	timer3_init();
 }
 
+//updates the m_vs, sVRP, pVRP, and Pace variables
 void Update(unsigned int Tn, unsigned int Tms, unsigned int Tmp, unsigned int Tmpace,
         unsigned int VRP, unsigned int p_PW)
 {
@@ -35,28 +38,40 @@ void Update(unsigned int Tn, unsigned int Tms, unsigned int Tmp, unsigned int Tm
     sVRP[1] = sVRP[0];
     m_vs[1] = m_vs[0];
     m_vs[0] = PORTBbits.RB0;
-    sVRP[0] = ((Tn - Tms) <= VRP);
+    if (Tms > 0)
+    	sVRP[0] = ((Tn - Tms) <= VRP);
+    else
+    	sVRP[0] = 0;
     /* pVRP updates*/
     pVRP[1] = pVRP[0];
-    pVRP[0] = ((Tn - Tmp) <= VRP);
+    if (Tmp > 0)
+    	pVRP[0] = ((Tn - Tmp) <= VRP);
+    else
+    	pVRP[0] = 0;
     /* In Pace update*/
     Pace[1] = Pace[0];
-    Pace[0] = In_vPace(Tn,Tmpace,p_PW);
+    if (Tmpace > 0)
+    	Pace[0] = In_vPace(Tn,Tmpace,p_PW);
+    else
+    	Pace[0] = 0;
 }
 
+//checks if its in sense VRP
 Bool SenseVRP (void) {
     if ((!sVRP[0])&&(m_vs[1])&&(m_vs[0]))
 		return true;
     return false;
 }
 
+//checks if its in pace VRP
 Bool PaceVRP(unsigned int vPA)
 {
     if ((!pVRP[0])&&(c_vp[1]==vPA)&&(!c_vp[2]))
-	return true;
+		return true;
     return false;
 }		
 
+//checks if its in VRP
 Bool In_VRP(void)
 {
     if ((sVRP[0])||(pVRP[0]))
@@ -64,6 +79,7 @@ Bool In_VRP(void)
     return false;
 }
 
+//outputs f_marker
 int get_fmarker(void){
     if (sVRP[0]){  //In_sVRP
 	if (!(sVRP[1])){ //Not prior In_sVRP
@@ -79,21 +95,25 @@ int get_fmarker(void){
 	return bytesToInt('-','-'); //Not In_sVRP & not In_pVRP
 }	
 
+//if the in pace condition is met
 Bool vPace(unsigned int vPA) //will set tm_vPace
 {
     if ((c_vp[1] == vPA)&&(!c_vp[2]))
-	return true;
+		return true;
     return false;
 }	
 
 //will check if its in a pace
 Bool In_vPace(unsigned int tn, unsigned int tm, unsigned int p_PW)
 {
+    if (tm > 0)
     if ((tn - tm) <= p_PW)
 		return true;
     return false;
 }
 
+//sets f_waitInt depending on programmable Parameters
+//and current and past VRP values
 void setWaitInt(struct params par)
 {
     if ((!sVRP[1])&&(sVRP[0])){
@@ -105,56 +125,51 @@ void setWaitInt(struct params par)
         f_waitInt = par.p_lowrateInterval;
 }
 
-unsigned int getWaitInt(void)
-{
-    return f_waitInt;
-}
-
-void pace(unsigned int vPA, unsigned int pVRP, unsigned int Tn)
+//outputs c_vp
+//checks at the end of f_wait-VRP if the "held for" conditions were held
+//sets p/sHeld if the conditions go false
+void pace(unsigned int vPA, unsigned int VRP, unsigned int Tn)
 {
     updateCond();
     setSenseTime(Tn);
     setPaceTime(Tn);
     c_vp[2] = c_vp[1];
     c_vp[1] = c_vp[0];
-    if ((!senseHeldFor(Tn,f_waitInt-pVRP)) && (!paceHeldFor(Tn,f_waitInt-pVRP)))
-        c_vp[0] = vPA;
-    else if ((Pace[1]) && (!Pace[0]))
-        c_vp[0] = 0;
+    if ((Tn-paceT) == (f_waitInt-VRP))
+	{
+    	if ((!pHeld) && (!sHeld))
+        	c_vp[0] = vPA;
+        pHeld = sHeld = true;
+    }else if((Tn-paceT) != (f_waitInt-VRP)){
+    	if (paceCond[0] == 0)
+    		pHeld = false;
+    	if (senseCond[0] == 0)
+    		sHeld = false;
+	}        
+	if ((Pace[1]) && (!Pace[0]))
+        c_vp[0] = 0;	 
 }
 
+//sets start time for "held for"
 void setSenseTime(unsigned int T)
 {
     if ((senseCond[0] == true) && (senseCond[1]==false))
         senseT = T;
 }
 
+//sets start time for "held for"
 void setPaceTime(unsigned int T)
 {
     if ((paceCond[0] == true) && (paceCond[1]==false))
         paceT = T;
 }
 
+
+// updates the "held for" conditions
 void updateCond(void)
 {
     paceCond[1] = paceCond[0];
     paceCond[0] = ((!In_VRP())&&(c_vp[1] == 0));
     senseCond[1] = senseCond[0];
     senseCond[0] = ((!In_VRP()) && (m_vs[0]==false));
-}
-
-Bool paceHeldFor(unsigned int Tn, unsigned int duration)
-{
-    if (paceCond[0] == true)
-        if ((Tn - paceT) >= duration)
-            return true;
-    return false;
-}
-
-Bool senseHeldFor(unsigned int Tn, unsigned int duration)
-{
-    if (senseCond[0] == true)
-        if ((Tn - senseT) >= duration)
-            return true;
-    return false;
 }

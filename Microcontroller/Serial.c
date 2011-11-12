@@ -84,7 +84,7 @@ short sendChar(char c)
 struct stream egramToStream (int m_vrawValue, int f_markerValue)
 
 {
- 	char *temp;
+ 	unsigned char *temp;
    	struct stream streamPackage;
     temp = intToBytes(m_vrawValue);// converts m_vraw into 2 bytes
     streamPackage.streamArray[0]= temp[0];// puts the first byte of m_vraw into an array

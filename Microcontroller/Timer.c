@@ -8,7 +8,7 @@ void timer1_init(void) {
 
     /* Set TMR1 to fire an interrupt up after 750 ticks (3ms) */ 
     TMR1H               = 0xFC;
-    TMR1L               = 0x17;
+    TMR1L               = 0x11;
 
     /* Clear TMR0IF flag */
     PIR1bits.TMR1IF   = 0;

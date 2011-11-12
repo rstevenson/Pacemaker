@@ -4,10 +4,10 @@
 //description: converts an integer to two bytes
 //params: int temp - integer to split into bytes
 //returns: char * - pointer to the bytes of data
-char *intToBytes(int tint)
+unsigned char *intToBytes(int tint)
 {
 
-	char byte[2];
+	unsigned char byte[2];
 	int temp;
 	temp = tint & 0xFF00;
 	temp = temp >> 8;
@@ -20,7 +20,7 @@ char *intToBytes(int tint)
 //description: converts two bytes to an integer
 //params: char b1, b2 - bytes to combine to an integer
 //returns: int - integer of the combined bytes
-int bytesToInt(char b1, char b2)
+int bytesToInt(unsigned char b1, unsigned char b2)
 {
 	unsigned int temp;
 	temp = b1;
