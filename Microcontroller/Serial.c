@@ -34,6 +34,7 @@ void initComm()
     INTCONbits.GIEH = 1;
     /* Enable receiving interrupt */
     PIE1bits.RCIE = 1;
+    PIR1bits.TXIF = 0;
 }
 
 short validHeader(char fncode)// Checks to see if the header is valid as per requirements

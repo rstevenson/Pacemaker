@@ -16,12 +16,12 @@ Bool paceCond[2] = {false,false}; //held for pace condition
 Bool pHeld = false; //pace is held
 Bool sHeld = false; //sense is held
 
-void setSenseTime(unsigned int T);
-void setPaceTime(unsigned int T);
+void setSenseTime(unsigned long T);
+void setPaceTime(unsigned long T);
 void updateCond(void);
-Bool In_vPace(unsigned int tn, unsigned int tm, unsigned int p_PW);
-Bool paceHeldFor(unsigned int Tn, unsigned int duration);
-Bool senseHeldFor(unsigned int Tn, unsigned int duration);
+Bool In_vPace(unsigned long tn, unsigned long tm, unsigned int p_PW);
+Bool paceHeldFor(unsigned long Tn, unsigned int duration);
+Bool senseHeldFor(unsigned long Tn, unsigned int duration);
 
 /* Initialize ventricle sense */
 void sense_init(void) {
@@ -31,7 +31,7 @@ void sense_init(void) {
 }
 
 //updates the m_vs, sVRP, pVRP, and Pace variables
-void Update(unsigned int Tn, unsigned int Tms, unsigned int Tmp, unsigned int Tmpace,
+void Update(unsigned long Tn, unsigned long Tms, unsigned long Tmp, unsigned long Tmpace,
         unsigned int VRP, unsigned int p_PW)
 {
     /* sVRP updates*/
@@ -104,7 +104,7 @@ Bool vPace(unsigned int vPA) //will set tm_vPace
 }	
 
 //will check if its in a pace
-Bool In_vPace(unsigned int tn, unsigned int tm, unsigned int p_PW)
+Bool In_vPace(unsigned long tn, unsigned long tm, unsigned int p_PW)
 {
     if (tm > 0)
     if ((tn - tm) <= p_PW)
@@ -128,7 +128,7 @@ void setWaitInt(struct params par)
 //outputs c_vp
 //checks at the end of f_wait-VRP if the "held for" conditions were held
 //sets p/sHeld if the conditions go false
-void pace(unsigned int vPA, unsigned int VRP, unsigned int Tn)
+void pace(unsigned int vPA, unsigned int VRP, unsigned long Tn)
 {
     updateCond();
     setSenseTime(Tn);
@@ -151,14 +151,14 @@ void pace(unsigned int vPA, unsigned int VRP, unsigned int Tn)
 }
 
 //sets start time for "held for"
-void setSenseTime(unsigned int T)
+void setSenseTime(unsigned long T)
 {
     if ((senseCond[0] == true) && (senseCond[1]==false))
         senseT = T;
 }
 
 //sets start time for "held for"
-void setPaceTime(unsigned int T)
+void setPaceTime(unsigned long T)
 {
     if ((paceCond[0] == true) && (paceCond[1]==false))
         paceT = T;

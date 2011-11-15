@@ -7,7 +7,7 @@ void timer1_init(void) {
    	T1CON               = 0b11110001;
 
     /* Set TMR1 to fire an interrupt up after 750 ticks (3ms) */ 
-    TMR1H               = 0xFC;
+    TMR1H               = 0xFB;
     TMR1L               = 0x11;
 
     /* Clear TMR0IF flag */

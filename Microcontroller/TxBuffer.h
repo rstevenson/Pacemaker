@@ -1,13 +1,13 @@
-#include "Globals.h"
+#include "Buffer.h"
 
-void TxBUF_INIT(void);
+extern struct buffer txbuf;
 
-int TxBUF_LENGTH(void);
+#define TxBUF_INIT() (txbuf.head = txbuf.tail = 0) 
 
-Bool TxBUF_EMPTY(void);
+#define TxBUF_LENGTH() ((txbuf.head <= txbuf.tail) ? (txbuf.tail - txbuf.head) : (e_BUF_SIZE - (txbuf.head - txbuf.tail)))
 
-Bool TxBUF_FULL(void);
+#define TxBUF_ADD(c) (txbuf.data[(txbuf.tail = txbuf.tail+1 & e_Mask)] = c)
 
-void TxBUF_ADD(char byte);
+#define TxBUF_GET() (txbuf.data[(txbuf.head = txbuf.head+1 & e_Mask)])
 
-char TxBUF_GET(void);
+#define TxBUF_EMPTY() (txbuf.head == txbuf.tail)

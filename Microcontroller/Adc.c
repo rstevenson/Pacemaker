@@ -31,7 +31,6 @@ void adc_init(void) {
 unsigned int adc_get(void) {
     unsigned int c= 0;
     char i;
-
     for (i = 0; i < 16; i++) {
         /* Flip clock line (SCK) */
         PORTCbits.SCK   = 0;
@@ -41,7 +40,6 @@ unsigned int adc_get(void) {
         /* Read a bit and place it at the end of the buffer */
         c|= PORTCbits.SDI;
     }
-
     return c;
 }
 
@@ -71,8 +69,9 @@ unsigned int get_VVoltage(void){
 void on_timer1(void) {
 	unsigned long temp;
     /* Reset Timer1 */
-    timer1_init();
+    //timer1_init();
     /* Start conversation with A/D converter */
+    T3CONbits.TMR3ON = 0;
     adc_start();
     temp = adc_get();
     VVoltage   = (int)(5000 * temp / 65535);
@@ -80,6 +79,7 @@ void on_timer1(void) {
     AVoltage   = (int)(5000 * temp / 65535); 
     /* Stop conversation with A/D converter */
     adc_stop();
+    T3CONbits.TMR3ON = 1;
 }
 
 unsigned int get_AVoltage(void){

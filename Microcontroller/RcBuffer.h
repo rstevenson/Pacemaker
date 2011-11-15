@@ -1,13 +1,13 @@
-#include "Globals.h"
+#include "Buffer.h"
 
-void RcBUF_INIT(void);
+extern struct buffer rcbuf;
 
-int RcBUF_LENGTH(void);
+#define RcBUF_INIT() (rcbuf.head = rcbuf.tail = 0) 
 
-Bool RcBUF_EMPTY(void);
+#define RcBUF_LENGTH() ((rcbuf.head <= rcbuf.tail) ? (rcbuf.tail - rcbuf.head) : (e_BUF_SIZE - (rcbuf.head - rcbuf.tail)))
 
-Bool RcBUF_FULL(void);
+#define RcBUF_ADD(c) do {				\
+	rcbuf.data[(rcbuf.tail = rcbuf.tail+1 & e_Mask)] = c;	\
+    } while (0)
 
-void RcBUF_ADD(char byte);
-
-char RcBUF_GET(void);
+#define RcBUF_GET() rcbuf.data[(rcbuf.head = rcbuf.head + 1 & e_Mask)]
