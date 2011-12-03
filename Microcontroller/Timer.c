@@ -1,21 +1,6 @@
 #include <p18cxxx.h>
 #include "Adc.h"
 
-/* Initialize Timer0 */
-void timer1_init(void) {
- 
-   	T1CON               = 0b11110001;
-
-    /* Set TMR1 to fire an interrupt up after 750 ticks (3ms) */ 
-    TMR1H               = 0xFB;
-    TMR1L               = 0x11;
-
-    /* Clear TMR0IF flag */
-    PIR1bits.TMR1IF   = 0;
-    /* Enable Timer1 interrupt */
-    PIE1bits.TMR1IE   = 1;
-}
-
 void timer3_init(void) {
  
    T3CON               = 0b10000001;

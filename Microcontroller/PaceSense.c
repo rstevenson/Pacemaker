@@ -130,6 +130,7 @@ void setWaitInt(struct params par)
 //sets p/sHeld if the conditions go false
 void pace(unsigned int vPA, unsigned int VRP, unsigned long Tn)
 {
+	unsigned long time;
     updateCond();
     setSenseTime(Tn);
     setPaceTime(Tn);

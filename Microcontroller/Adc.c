@@ -75,8 +75,8 @@ void on_timer1(void) {
     adc_start();
     temp = adc_get();
     VVoltage   = (int)(5000 * temp / 65535);
-    temp = adc_get();
-    AVoltage   = (int)(5000 * temp / 65535); 
+    //temp = adc_get();
+    //AVoltage   = (int)(5000 * temp / 65535); 
     /* Stop conversation with A/D converter */
     adc_stop();
     T3CONbits.TMR3ON = 1;

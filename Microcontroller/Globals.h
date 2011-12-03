@@ -1,10 +1,8 @@
 
 /* Types */
-enum y_pacingState {PERMANENT, TEMPORARY, PACE_NOW, MAGNET,
-                    POWER_ON_RESET} ;
+enum y_pacingState {PERMANENT} ;
                     
-enum y_pacingMode  {Off,AAT,VVT,AOO,AAI,VOO,VVI,VDD,DOO,DDI,
-                    DDD,AOOR,AAIR,VOOR,VVIR,DOOR,DDIR,DDDR} ;
+enum y_pacingMode  {VVI} ;
 
 enum y_magnet  {INPLACE,NOT_INPLACE};    
 
@@ -34,6 +32,11 @@ struct params
 	unsigned int p_VRP;
 };
 
+struct stream
+{
+	char streamArray[4];
+};
+
 /* Baud rate for serial communication */
 #define BAUD_RATE 57600
 
@@ -50,8 +53,3 @@ struct params
 #define k_idle 0x00 //idle state
 #define k_commState 0x01 //communication state
 #define k_stream 0x02
-
-struct stream
-{
-	char streamArray[4];
-};
